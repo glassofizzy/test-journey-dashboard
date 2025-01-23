@@ -25,10 +25,28 @@ const BugItem = ({ bug, isSelected, onClick }: BugItemProps) => {
   return (
     <li 
       className={cn(
-        "bg-white border-2 border-black p-4 transition-all duration-200 hover:translate-x-[-4px] hover:translate-y-[-4px] cursor-pointer relative",
-        isSelected ? "shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]" : "hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+        "bg-white border-2 border-black p-4 transition-all duration-200 group relative",
+        "hover:translate-x-[-4px] hover:translate-y-[-4px]",
+        "hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]",
+        isSelected && "shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
       )}
       onClick={onClick}
+      onMouseEnter={() => {
+        if (bug.highlightArea) {
+          const event = new CustomEvent('highlightArea', { 
+            detail: bug.highlightArea 
+          });
+          window.dispatchEvent(event);
+        }
+      }}
+      onMouseLeave={() => {
+        if (!isSelected) {
+          const event = new CustomEvent('highlightArea', { 
+            detail: null 
+          });
+          window.dispatchEvent(event);
+        }
+      }}
     >
       <div className="flex justify-between items-start mb-2">
         <h4 className="font-medium">{bug.title}</h4>
