@@ -32,11 +32,13 @@ const JourneyDetail = () => {
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-7xl mx-auto grid grid-cols-2 gap-8">
         {/* Left Panel */}
-        <PhonePreview
-          currentImage={mockScreenshots[currentImageIndex]}
-          isPaused={isPaused}
-          onTogglePause={() => setIsPaused(!isPaused)}
-        />
+        <div className="bg-black rounded-lg">
+          <PhonePreview
+            currentImage={mockScreenshots[currentImageIndex]}
+            isPaused={isPaused}
+            onTogglePause={() => setIsPaused(!isPaused)}
+          />
+        </div>
 
         {/* Right Panel */}
         <div className="space-y-6">
