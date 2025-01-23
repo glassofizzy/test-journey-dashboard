@@ -56,6 +56,18 @@ const JourneyDetail = () => {
     return () => clearInterval(interval);
   }, [isPaused]);
 
+  useEffect(() => {
+    const handleUpdateCurrentImage = (event: CustomEvent<{ index: number }>) => {
+      setCurrentImageIndex(event.detail.index);
+    };
+
+    window.addEventListener('updateCurrentImage', handleUpdateCurrentImage as EventListener);
+
+    return () => {
+      window.removeEventListener('updateCurrentImage', handleUpdateCurrentImage as EventListener);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-7xl mx-auto grid grid-cols-2 gap-8">

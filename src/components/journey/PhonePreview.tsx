@@ -67,7 +67,24 @@ const PhonePreview = ({ currentImage, isPaused, onTogglePause }: PhonePreviewPro
           <CarouselContent>
             {mockSteps.map((step, index) => (
               <CarouselItem key={index} className="basis-1/3">
-                <div className="flex flex-col items-center">
+                <div 
+                  className="flex flex-col items-center cursor-pointer transition-transform hover:scale-105"
+                  onClick={() => {
+                    // Pause the auto-scroll
+                    if (!isPaused) {
+                      onTogglePause();
+                    }
+                    // Find the index of the clicked thumbnail in mockSteps
+                    const stepIndex = mockSteps.findIndex(s => s.screenshot === step.screenshot);
+                    // Update the parent component's currentImageIndex
+                    if (typeof window !== 'undefined') {
+                      const event = new CustomEvent('updateCurrentImage', { 
+                        detail: { index: stepIndex } 
+                      });
+                      window.dispatchEvent(event);
+                    }
+                  }}
+                >
                   <div className="w-[100px] h-[180px] border-[6px] border-white rounded-[20px] bg-white overflow-hidden relative">
                     <img 
                       src={step.screenshot}
