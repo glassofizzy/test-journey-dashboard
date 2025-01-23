@@ -42,7 +42,9 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
 
   const handleScreenshotClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    navigate(`/journey/${testRun.id}`);
+    // Remove the # from the ID before navigation
+    const cleanId = testRun.id.replace('#', '');
+    navigate(`/journey/${cleanId}`);
   };
 
   return (
