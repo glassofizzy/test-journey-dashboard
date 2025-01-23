@@ -85,27 +85,31 @@ const JourneyDetail = () => {
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-7xl mx-auto grid grid-cols-2 gap-8">
         <div className="bg-black rounded-lg relative">
-          <PhonePreview
-            currentImage={mockScreenshots[currentImageIndex]}
-            isPaused={isPaused}
-            onTogglePause={() => {
-              setIsPaused(!isPaused);
-              if (!isPaused) {
-                setHighlightArea(null);
-              }
-            }}
-          />
-          {highlightArea && (
-            <div 
-              className="absolute border-2 border-accent pointer-events-none"
-              style={{
-                left: `${highlightArea.x}px`,
-                top: `${highlightArea.y}px`,
-                width: `${highlightArea.width}px`,
-                height: `${highlightArea.height}px`,
+          <div className="relative">
+            <PhonePreview
+              currentImage={mockScreenshots[currentImageIndex]}
+              isPaused={isPaused}
+              onTogglePause={() => {
+                setIsPaused(!isPaused);
+                if (!isPaused) {
+                  setHighlightArea(null);
+                }
               }}
             />
-          )}
+            {highlightArea && (
+              <div 
+                className="absolute border-2 border-accent pointer-events-none"
+                style={{
+                  left: `${highlightArea.x}px`,
+                  top: `${highlightArea.y}px`,
+                  width: `${highlightArea.width}px`,
+                  height: `${highlightArea.height}px`,
+                  maxWidth: '300px',
+                  maxHeight: '450px'
+                }}
+              />
+            )}
+          </div>
         </div>
 
         <div className="space-y-6">
