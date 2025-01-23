@@ -2,6 +2,7 @@ import React from 'react';
 import { ChevronDown, ChevronUp, UserRound } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useNavigate } from 'react-router-dom';
+import JourneyStep from './test-run/JourneyStep';
 
 interface TestRun {
   id: string;
@@ -39,22 +40,9 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
     }
   };
 
-  const getMoodEmoji = (mood: 'happy' | 'neutral' | 'sad') => {
-    switch (mood) {
-      case 'happy':
-        return '😊';
-      case 'neutral':
-        return '😐';
-      case 'sad':
-        return '😞';
-      default:
-        return '😐';
-    }
-  };
-
   const handleScreenshotClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    navigate(`/journey/${testRun.id}`); // Updated to use proper route format
+    navigate(`/journey/${testRun.id}`);
   };
 
   return (
@@ -101,22 +89,12 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
               <div className="flex items-center gap-4 overflow-x-auto pb-4">
                 {testRun.journey?.map((step, index) => (
                   <React.Fragment key={index}>
-                    <div className="flex flex-col items-center gap-2 min-w-[200px]">
-                      {testRun.screenshots && testRun.screenshots[index] && (
-                        <img 
-                          src={testRun.screenshots[index]} 
-                          alt={step}
-                          className="w-full h-32 object-cover border-2 border-black rounded cursor-pointer"
-                          onClick={handleScreenshotClick}
-                        />
-                      )}
-                      <div className="p-3 border-2 border-black rounded bg-white w-full text-center">
-                        {step}
-                      </div>
-                      {testRun.mood && testRun.mood[index] && (
-                        <div className="text-2xl">{getMoodEmoji(testRun.mood[index])}</div>
-                      )}
-                    </div>
+                    <JourneyStep
+                      step={step}
+                      screenshot={testRun.screenshots?.[index]}
+                      mood={testRun.mood?.[index]}
+                      onScreenshotClick={handleScreenshotClick}
+                    />
                     {index < (testRun.journey?.length || 0) - 1 && (
                       <div className="w-8 h-[2px] bg-black min-w-[32px]"></div>
                     )}
