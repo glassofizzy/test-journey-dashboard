@@ -96,17 +96,15 @@ const JourneyDetail = () => {
             }}
           />
           {highlightArea && (
-            <div className="absolute inset-0 bg-black/50">
-              <div 
-                className="absolute border-2 border-accent bg-transparent"
-                style={{
-                  left: `${highlightArea.x}px`,
-                  top: `${highlightArea.y}px`,
-                  width: `${highlightArea.width}px`,
-                  height: `${highlightArea.height}px`,
-                }}
-              />
-            </div>
+            <div 
+              className="absolute border-2 border-accent pointer-events-none"
+              style={{
+                left: `${highlightArea.x}px`,
+                top: `${highlightArea.y}px`,
+                width: `${highlightArea.width}px`,
+                height: `${highlightArea.height}px`,
+              }}
+            />
           )}
         </div>
 
