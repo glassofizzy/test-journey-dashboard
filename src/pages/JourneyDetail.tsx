@@ -96,23 +96,15 @@ const JourneyDetail = () => {
             }}
           />
           {highlightArea && (
-            <>
-              {/* Dimming overlay with cutout */}
-              <div className="absolute inset-0 bg-black/50">
-                {/* Cutout area */}
-                <div 
-                  className="absolute bg-transparent"
-                  style={{
-                    left: `${highlightArea.x}px`,
-                    top: `${highlightArea.y}px`,
-                    width: `${highlightArea.width}px`,
-                    height: `${highlightArea.height}px`,
-                    boxShadow: '0 0 0 9999px rgba(0, 0, 0, 0.5)',
-                    border: '2px solid #ffc000'
-                  }}
-                />
-              </div>
-            </>
+            <div 
+              className="absolute border-4 border-red-500 bg-red-500/20 pointer-events-none transition-all duration-300"
+              style={{
+                left: `${highlightArea.x}px`,
+                top: `${highlightArea.y}px`,
+                width: `${highlightArea.width}px`,
+                height: `${highlightArea.height}px`,
+              }}
+            />
           )}
         </div>
 
