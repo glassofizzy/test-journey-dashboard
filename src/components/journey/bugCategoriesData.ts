@@ -18,57 +18,87 @@ interface BugCategories {
   };
 }
 
-export const bugCategories: BugCategories = {
-  visual: {
-    color: "#F2C94C",
-    bugs: [
-      {
-        title: "Logo is blurry on mobile",
-        priority: "High",
-        description: "The logo appears pixelated on mobile devices. This detracts from the app's visual appeal.",
-        treatment: "Verify the correct logo is uploaded for mobile or use SVG.",
-        highlightArea: { x: 10, y: 10, width: 100, height: 40 }
-      },
-      {
-        title: "Button color inconsistency",
-        priority: "Medium",
-        description: "Different buttons use varied styles across the app. This makes UI feel unpolished and inconsistent.",
-        treatment: "Consistently apply the correct color palette on the UI or create a design system",
-        highlightArea: { x: 120, y: 200, width: 80, height: 40 }
-      }
-    ]
+// Organize bugs by screenshot index
+export const bugCategoriesByScreen: BugCategories[] = [
+  // Screen 1: Search NFTs
+  {
+    visual: {
+      color: "#F2C94C",
+      bugs: [
+        {
+          title: "Logo is blurry on mobile",
+          priority: "High",
+          description: "The logo appears pixelated on mobile devices. This detracts from the app's visual appeal.",
+          treatment: "Verify the correct logo is uploaded for mobile or use SVG.",
+          highlightArea: { x: 10, y: 10, width: 100, height: 40 }
+        }
+      ]
+    },
+    content: {
+      color: "#2F80ED",
+      bugs: [
+        {
+          title: "Search placeholder text unclear",
+          priority: "Medium",
+          description: "Users may not understand how to effectively use the search functionality.",
+          treatment: "Update placeholder text to be more descriptive and add search tips.",
+          highlightArea: { x: 50, y: 100, width: 200, height: 40 }
+        }
+      ]
+    }
   },
-  content: {
-    color: "#2F80ED",
-    bugs: [
-      {
-        title: "API integration issues",
-        priority: "High",
-        description: "Data is not loading correctly in certain sections of the app. The API is returning unexpected responses.",
-        treatment: "Debug API endpoints and check for data transformations."
-      }
-    ]
+  // Screen 2: Filter Results
+  {
+    usability: {
+      color: "#BB6BD9",
+      bugs: [
+        {
+          title: "Filter buttons too small",
+          priority: "High",
+          description: "Filter buttons are difficult to tap on mobile devices.",
+          treatment: "Increase button size and add proper spacing.",
+          highlightArea: { x: 120, y: 200, width: 80, height: 40 }
+        }
+      ]
+    },
+    content: {
+      color: "#2F80ED",
+      bugs: [
+        {
+          title: "Filter labels ambiguous",
+          priority: "Medium",
+          description: "Some filter labels are not clear enough for users to understand their purpose.",
+          treatment: "Review and update filter labels to be more descriptive.",
+          highlightArea: { x: 150, y: 150, width: 100, height: 30 }
+        }
+      ]
+    }
   },
-  usability: {
-    color: "#BB6BD9",
-    bugs: [
-      {
-        title: "Slow response time in chat feature",
-        priority: "Medium",
-        description: "There is a noticeable lag when sending messages in the chat. This leads to frustrating user experience.",
-        treatment: "Optimize server-side and check message rendering."
-      }
-    ]
-  },
-  localization: {
-    color: "#00A99D",
-    bugs: [
-      {
-        title: "Invalid input handling error",
-        priority: "Low",
-        description: "Incorrect validation message appears when handling user-provided information in localized version.",
-        treatment: "Review localization files to make sure correct text is showing up or review the input validator."
-      }
-    ]
+  // Screen 3: View Details
+  {
+    visual: {
+      color: "#F2C94C",
+      bugs: [
+        {
+          title: "Image resolution issues",
+          priority: "High",
+          description: "NFT images are not displaying in high resolution on the details page.",
+          treatment: "Implement proper image optimization and loading strategies.",
+          highlightArea: { x: 80, y: 120, width: 160, height: 160 }
+        }
+      ]
+    },
+    localization: {
+      color: "#00A99D",
+      bugs: [
+        {
+          title: "Price format inconsistent",
+          priority: "Medium",
+          description: "Currency formatting varies across different regions.",
+          treatment: "Implement consistent currency formatting based on user's locale.",
+          highlightArea: { x: 200, y: 300, width: 100, height: 30 }
+        }
+      ]
+    }
   }
-};
+];

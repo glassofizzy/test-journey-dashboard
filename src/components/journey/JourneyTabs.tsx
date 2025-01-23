@@ -3,7 +3,6 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { cn } from '@/lib/utils';
 import PersonaInsightsTab from './PersonaInsightsTab';
 import UXOptimizationTab from './UXOptimizationTab';
-import { bugCategories } from './bugCategoriesData';
 
 interface ScreenContent {
   goal: string;
@@ -57,11 +56,8 @@ const JourneyTabs = ({ currentContent, currentImageIndex, onBugClick, onTabChang
       <TabsContent value="ux-optimization" className="mt-6">
         <UXOptimizationTab 
           selectedBugTitle={selectedBugTitle}
-          onBugClick={(area) => handleBugClick(area, area ? 
-            Object.values(bugCategories)
-              .flatMap(category => category.bugs)
-              .find(bug => bug.highlightArea === area)?.title 
-            : undefined)}
+          currentImageIndex={currentImageIndex}
+          onBugClick={(area) => handleBugClick(area)}
         />
       </TabsContent>
 
