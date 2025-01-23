@@ -16,11 +16,11 @@ interface PhonePreviewProps {
 }
 
 const PhonePreview = ({ currentImage, isPaused, onTogglePause }: PhonePreviewProps) => {
-  // Mock data for thumbnails - in a real app this would come from props
+  // Mock data for thumbnails - updated to match the flow
   const mockSteps = [
-    { step: 'Search NFTs', screenshot: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158', mood: 'happy' },
-    { step: 'Filter Results', screenshot: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7', mood: 'neutral' },
-    { step: 'View Details', screenshot: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d', mood: 'happy' },
+    { step: 'Search NFTs', screenshot: '/lovable-uploads/b3009f6d-ec6a-48ee-be48-c903a17ab320.png', mood: 'happy' },
+    { step: 'Filter Results', screenshot: '/lovable-uploads/9c8563d4-52f8-435d-a262-2a06308e4bc0.png', mood: 'neutral' },
+    { step: 'View Details', screenshot: '/lovable-uploads/80662d63-8b84-401a-acb2-5d5ef0045bfb.png', mood: 'happy' },
   ];
 
   const getMoodIcon = (mood: string) => {
