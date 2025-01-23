@@ -116,12 +116,10 @@ const JourneyTabs = ({ currentContent }: JourneyTabsProps) => (
           key={tab.label}
           value={tab.value}
           className={cn(
-            "hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200",
-            "hover:translate-x-[-4px] hover:translate-y-[-4px]",
+            "text-black border-2 border-transparent transition-all duration-200",
+            "hover:border-black hover:translate-x-[-4px] hover:translate-y-[-4px]",
             "flex-1 mx-1",
-            tab.value === 'concerns' && "!bg-[#ffc000] !shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]",
-            tab.value === 'ux-improvements' && "data-[state=active]:!bg-[#ffc000] data-[state=active]:!shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]",
-            tab.value !== 'concerns' && tab.value !== 'ux-improvements' && "data-[state=active]:bg-black data-[state=active]:text-white"
+            "data-[state=active]:bg-[#ffc000] data-[state=active]:border-black data-[state=active]:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
           )}
         >
           {tab.label}
