@@ -37,9 +37,9 @@ const PhonePreview = ({ currentImage, isPaused, onTogglePause }: PhonePreviewPro
   };
 
   return (
-    <div className="flex flex-col items-center bg-black p-8 rounded-lg">
-      {/* Main Phone Preview */}
-      <div className="w-[300px] h-[600px] border-[12px] border-black rounded-[40px] bg-white overflow-hidden relative">
+    <div className="flex flex-col items-center bg-black p-4 rounded-lg">
+      {/* Main Phone Preview - reduced height from 600px to 450px */}
+      <div className="w-[300px] h-[450px] border-[12px] border-black rounded-[40px] bg-white overflow-hidden relative">
         <img 
           src={currentImage}
           alt="Mobile screen"
@@ -47,16 +47,16 @@ const PhonePreview = ({ currentImage, isPaused, onTogglePause }: PhonePreviewPro
         />
       </div>
 
-      {/* Pause/Resume Button */}
+      {/* Pause/Resume Button - reduced margin-top */}
       <Button
         onClick={onTogglePause}
-        className="mt-6 border-2 border-white text-white hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition-all duration-200 hover:translate-x-[-4px] hover:translate-y-[-4px]"
+        className="mt-4 border-2 border-white text-white hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition-all duration-200 hover:translate-x-[-4px] hover:translate-y-[-4px]"
       >
         {isPaused ? "Resume" : "Pause"}
       </Button>
 
-      {/* Thumbnails Carousel */}
-      <div className="mt-8 w-full max-w-[800px]">
+      {/* Thumbnails Carousel - reduced margin-top and thumbnail heights */}
+      <div className="mt-4 w-full max-w-[800px]">
         <Carousel
           opts={{
             align: "start",
@@ -68,7 +68,7 @@ const PhonePreview = ({ currentImage, isPaused, onTogglePause }: PhonePreviewPro
             {mockSteps.map((step, index) => (
               <CarouselItem key={index} className="basis-1/3">
                 <div className="flex flex-col items-center">
-                  <div className="w-[120px] h-[240px] border-[6px] border-white rounded-[20px] bg-white overflow-hidden relative">
+                  <div className="w-[100px] h-[180px] border-[6px] border-white rounded-[20px] bg-white overflow-hidden relative">
                     <img 
                       src={step.screenshot}
                       alt={step.step}
