@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
-import { Ticket } from 'lucide-react';
+import { Ticket, Sparkles } from 'lucide-react';
 import { useToast } from "@/components/ui/use-toast";
 import {
   Tooltip,
@@ -38,6 +38,7 @@ const BugCategory = ({
   selectedBugTitle 
 }: BugCategoryProps) => {
   const { toast } = useToast();
+  const [generatingDesigns, setGeneratingDesigns] = useState<{ [key: string]: boolean }>({});
 
   const handleCreateTicket = (bug: Bug) => {
     // This is a placeholder for the actual JIRA integration
@@ -62,6 +63,21 @@ const BugCategory = ({
         duration: 3000,
       });
     }
+  };
+
+  const handleGenerateDesign = async (bug: Bug) => {
+    console.log('Working on your designs...');
+    setGeneratingDesigns(prev => ({ ...prev, [bug.title]: true }));
+    
+    // Simulate API call with 4 second delay
+    await new Promise(resolve => setTimeout(resolve, 4000));
+    
+    setGeneratingDesigns(prev => ({ ...prev, [bug.title]: false }));
+    toast({
+      title: "Designs Generated",
+      description: "New UI variations have been created based on your feedback",
+      duration: 3000,
+    });
   };
 
   return (
@@ -116,7 +132,32 @@ const BugCategory = ({
               </div>
             </div>
             <p className="text-sm text-gray-600 mb-2">{bug.description}</p>
-            <p className="text-sm font-medium">Possible solution: {bug.treatment}</p>
+            <p className="text-sm font-medium mb-4">Possible solution: {bug.treatment}</p>
+            <div className="flex justify-end">
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation(); // Prevent triggering the li onClick
+                        handleGenerateDesign(bug);
+                      }}
+                      disabled={generatingDesigns[bug.title]}
+                      className={cn(
+                        "p-2 hover:bg-gray-100 rounded-full transition-all",
+                        generatingDesigns[bug.title] && "animate-pulse"
+                      )}
+                      aria-label="Fix UI with AI"
+                    >
+                      <Sparkles className="h-4 w-4" />
+                    </button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Fix UI with AI</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </div>
           </li>
         ))}
       </ul>
