@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import PhonePreview from '@/components/journey/PhonePreview';
 import JourneyTabs from '@/components/journey/JourneyTabs';
@@ -20,6 +20,7 @@ const JourneyDetail = () => {
     width: number;
     height: number;
   } | null>(null);
+  const rightPanelRef = useRef<HTMLDivElement>(null);
 
   const mockScreenshots = [
     '/lovable-uploads/b3009f6d-ec6a-48ee-be48-c903a17ab320.png',
@@ -53,9 +54,21 @@ const JourneyDetail = () => {
     
     if (!isPaused) {
       interval = setInterval(() => {
-        setCurrentImageIndex((prev) => 
-          prev === mockScreenshots.length - 1 ? 0 : prev + 1
-        );
+        setCurrentImageIndex((prev) => {
+          const nextIndex = prev === mockScreenshots.length - 1 ? 0 : prev + 1;
+          // Reset highlight area when changing screens
+          setHighlightArea(null);
+          // Scroll the right panel to show the corresponding content
+          if (rightPanelRef.current) {
+            const panelHeight = rightPanelRef.current.scrollHeight;
+            const scrollAmount = (panelHeight / mockScreenshots.length) * nextIndex;
+            rightPanelRef.current.scrollTo({
+              top: scrollAmount,
+              behavior: 'smooth'
+            });
+          }
+          return nextIndex;
+        });
       }, 3000);
     }
 
@@ -65,6 +78,8 @@ const JourneyDetail = () => {
   useEffect(() => {
     const handleUpdateCurrentImage = (event: CustomEvent<{ index: number }>) => {
       setCurrentImageIndex(event.detail.index);
+      // Reset highlight area when manually changing screens
+      setHighlightArea(null);
     };
 
     window.addEventListener('updateCurrentImage', handleUpdateCurrentImage as EventListener);
@@ -78,6 +93,8 @@ const JourneyDetail = () => {
     if (area) {
       setIsPaused(true);
       setHighlightArea(area);
+    } else {
+      setHighlightArea(null);
     }
   };
 
@@ -112,7 +129,7 @@ const JourneyDetail = () => {
           </div>
         </div>
 
-        <div className="space-y-6">
+        <div ref={rightPanelRef} className="space-y-6 max-h-[800px] overflow-y-auto">
           <JourneyTabs 
             currentContent={mockScreenContents[currentImageIndex]}
             currentImageIndex={currentImageIndex}
