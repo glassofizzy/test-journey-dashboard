@@ -1,6 +1,7 @@
 import React from 'react';
 import { ChevronDown, ChevronUp, UserRound } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useNavigate } from 'react-router-dom';
 
 interface TestRun {
   id: string;
@@ -23,6 +24,8 @@ interface TestRunRowProps {
 }
 
 const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }) => {
+  const navigate = useNavigate();
+
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'Completed':
@@ -47,6 +50,11 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
       default:
         return '😐';
     }
+  };
+
+  const handleScreenshotClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    navigate(`/journey/${testRun.id}`);
   };
 
   return (
@@ -98,7 +106,8 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
                         <img 
                           src={testRun.screenshots[index]} 
                           alt={step}
-                          className="w-full h-32 object-cover border-2 border-black rounded"
+                          className="w-full h-32 object-cover border-2 border-black rounded cursor-pointer"
+                          onClick={handleScreenshotClick}
                         />
                       )}
                       <div className="p-3 border-2 border-black rounded bg-white w-full text-center">
