@@ -19,7 +19,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"'],
+        sans: ['DM Sans', 'sans-serif'],
+        heading: ['Montserrat', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
