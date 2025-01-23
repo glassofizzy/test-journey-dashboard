@@ -106,34 +106,32 @@ const BugCategory = ({
           >
             <div className="flex justify-between items-start mb-2">
               <h4 className="font-medium">{bug.title}</h4>
-              <div className="flex items-center gap-2">
-                <span className="text-sm px-2 py-1 bg-gray-100 rounded">
-                  {bug.priority} Priority
-                </span>
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation(); // Prevent triggering the li onClick
-                          handleCreateTicket(bug);
-                        }}
-                        className="p-1 hover:bg-gray-100 rounded-full transition-colors"
-                        aria-label="Create JIRA ticket"
-                      >
-                        <Ticket className="h-4 w-4" />
-                      </button>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>Create bug ticket in JIRA</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              </div>
+              <span className="text-sm px-2 py-1 bg-gray-100 rounded">
+                {bug.priority} Priority
+              </span>
             </div>
             <p className="text-sm text-gray-600 mb-2">{bug.description}</p>
             <p className="text-sm font-medium mb-4">Possible solution: {bug.treatment}</p>
-            <div className="flex justify-end">
+            <div className="flex justify-end gap-2">
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation(); // Prevent triggering the li onClick
+                        handleCreateTicket(bug);
+                      }}
+                      className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                      aria-label="Create JIRA ticket"
+                    >
+                      <Ticket className="h-4 w-4" />
+                    </button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Create bug ticket in JIRA</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
