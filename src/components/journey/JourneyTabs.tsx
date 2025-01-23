@@ -3,7 +3,18 @@ import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { cn } from '@/lib/utils';
 import MessageBubble from './MessageBubble';
 
-const JourneyTabs = () => (
+interface ScreenContent {
+  goal: string;
+  observations: string;
+  thoughts: string;
+  actions: string;
+}
+
+interface JourneyTabsProps {
+  currentContent: ScreenContent;
+}
+
+const JourneyTabs = ({ currentContent }: JourneyTabsProps) => (
   <Tabs defaultValue="concerns">
     <TabsList className="w-full justify-start bg-white p-1">
       {['Concerns', 'UX Improvements', 'Generated UI'].map((tab) => (
@@ -11,7 +22,6 @@ const JourneyTabs = () => (
           key={tab}
           value={tab.toLowerCase().replace(' ', '-')}
           className={cn(
-            "border-2 border-black",
             "hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200",
             "hover:translate-x-[-4px] hover:translate-y-[-4px]",
             "flex-1 mx-1",
@@ -24,28 +34,28 @@ const JourneyTabs = () => (
       ))}
     </TabsList>
 
-    <div className="mt-6 space-y-6">
+    <div className="mt-6 space-y-6 transition-all duration-300">
       <div>
         <h3 className="font-medium mb-2">Goal</h3>
         <MessageBubble 
-          text="Find the cheapest Bored Ape Yacht Club NFT with bunny ears"
+          text={currentContent.goal}
           withIcon={false}
         />
       </div>
 
       <div>
         <h3 className="font-medium mb-2">Observations</h3>
-        <MessageBubble text="Now, the NFT results have bunny ears." />
+        <MessageBubble text={currentContent.observations} />
       </div>
 
       <div>
         <h3 className="font-medium mb-2">Thoughts and concerns</h3>
-        <MessageBubble text="Need to sort the NFTs by price to find the cheapest one" />
+        <MessageBubble text={currentContent.thoughts} />
       </div>
 
       <div>
         <h3 className="font-medium mb-2">Actions</h3>
-        <MessageBubble text="Tap on [031] to ensure the sorting is set to 'Price: Low to High'. Scroll through the results by swiping up to browse through other NFTs and compare prices" />
+        <MessageBubble text={currentContent.actions} />
       </div>
     </div>
   </Tabs>

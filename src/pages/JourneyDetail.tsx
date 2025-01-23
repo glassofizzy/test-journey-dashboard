@@ -3,6 +3,13 @@ import { useParams } from 'react-router-dom';
 import PhonePreview from '@/components/journey/PhonePreview';
 import JourneyTabs from '@/components/journey/JourneyTabs';
 
+interface ScreenContent {
+  goal: string;
+  observations: string;
+  thoughts: string;
+  actions: string;
+}
+
 const JourneyDetail = () => {
   const { id } = useParams();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -12,6 +19,27 @@ const JourneyDetail = () => {
     'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d',
     'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158',
     'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7',
+  ];
+
+  const mockScreenContents: ScreenContent[] = [
+    {
+      goal: "Find the cheapest Bored Ape Yacht Club NFT with bunny ears",
+      observations: "Initial search screen loaded",
+      thoughts: "Need to enter the right search terms",
+      actions: "Type 'Bored Ape Yacht Club' in the search bar"
+    },
+    {
+      goal: "Find the cheapest Bored Ape Yacht Club NFT with bunny ears",
+      observations: "Search results are showing BAYC NFTs",
+      thoughts: "Need to filter for bunny ears specifically",
+      actions: "Apply 'Bunny Ears' trait filter from the filters menu"
+    },
+    {
+      goal: "Find the cheapest Bored Ape Yacht Club NFT with bunny ears",
+      observations: "Now, the NFT results have bunny ears",
+      thoughts: "Need to sort the NFTs by price to find the cheapest one",
+      actions: "Tap on [031] to ensure the sorting is set to 'Price: Low to High'"
+    }
   ];
 
   useEffect(() => {
@@ -42,7 +70,7 @@ const JourneyDetail = () => {
 
         {/* Right Panel */}
         <div className="space-y-6">
-          <JourneyTabs />
+          <JourneyTabs currentContent={mockScreenContents[currentImageIndex]} />
         </div>
       </div>
     </div>
