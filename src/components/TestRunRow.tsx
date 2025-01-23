@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronDown, ChevronUp, UserRound, CheckCircle, AlertCircle, XCircle } from 'lucide-react';
+import { ChevronDown, ChevronUp, UserRound } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface TestRun {
@@ -23,19 +23,6 @@ interface TestRunRowProps {
 }
 
 const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }) => {
-  const getStatusIcon = (status: string) => {
-    switch (status) {
-      case 'Completed':
-        return <CheckCircle className="w-5 h-5 text-green-500 stroke-[1.5]" />;
-      case 'In Progress':
-        return <AlertCircle className="w-5 h-5 text-blue-500 stroke-[1.5]" />;
-      case 'Cancelled':
-        return <XCircle className="w-5 h-5 text-red-500 stroke-[1.5]" />;
-      default:
-        return null;
-    }
-  };
-
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'Completed':
@@ -76,9 +63,8 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
         <div className="font-mono">{testRun.id}</div>
         <div className="font-medium">{testRun.name}</div>
         <div className="flex items-center gap-2">
-          {getStatusIcon(testRun.status)}
           <span className={cn(
-            "px-2 py-1 rounded-full text-white text-sm",
+            "px-2 py-1 rounded-full text-white text-sm border-2 border-black",
             getStatusColor(testRun.status)
           )}>
             {testRun.status}
