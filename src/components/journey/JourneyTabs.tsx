@@ -79,7 +79,7 @@ const bugCategories: BugCategories = {
     ]
   },
   localization: {
-    color: "#2F80ED",
+    color: "#00A99D",  // Changed to the teal/aqua color
     bugs: [
       {
         title: "Invalid input handling error",
