@@ -53,14 +53,11 @@ const JourneyDetail = () => {
   useEffect(() => {
     let interval: NodeJS.Timeout;
     
-    // Only auto-scroll if not paused and not on UX Optimization tab
     if (!isPaused && activeTab !== 'ux-optimization') {
       interval = setInterval(() => {
         setCurrentImageIndex((prev) => {
           const nextIndex = prev === mockScreenshots.length - 1 ? 0 : prev + 1;
-          // Reset highlight area when changing screens
           setHighlightArea(null);
-          // Scroll the right panel to show the corresponding content
           if (rightPanelRef.current) {
             const panelHeight = rightPanelRef.current.scrollHeight;
             const scrollAmount = (panelHeight / mockScreenshots.length) * nextIndex;
@@ -80,7 +77,6 @@ const JourneyDetail = () => {
   useEffect(() => {
     const handleUpdateCurrentImage = (event: CustomEvent<{ index: number }>) => {
       setCurrentImageIndex(event.detail.index);
-      // Reset highlight area when manually changing screens
       setHighlightArea(null);
     };
 
@@ -131,7 +127,7 @@ const JourneyDetail = () => {
           </div>
         </div>
 
-        <div ref={rightPanelRef} className="space-y-6 max-h-[800px] overflow-y-auto">
+        <div ref={rightPanelRef} className="space-y-6 max-h-[800px] overflow-y-auto px-8">
           <JourneyTabs 
             currentContent={mockScreenContents[currentImageIndex]}
             currentImageIndex={currentImageIndex}
