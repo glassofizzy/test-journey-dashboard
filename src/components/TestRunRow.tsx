@@ -54,7 +54,7 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
 
   const handleScreenshotClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    navigate(`/journey/${testRun.id}`);
+    navigate(`/journey/${testRun.id}`); // Updated to use proper route format
   };
 
   return (

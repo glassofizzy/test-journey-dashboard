@@ -3,8 +3,10 @@ import { UserRound } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { cn } from '@/lib/utils';
+import { useParams } from 'react-router-dom';
 
 const JourneyDetail = () => {
+  const { id } = useParams(); // Get the journey ID from URL
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
