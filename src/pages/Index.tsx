@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import TestRunRow from '@/components/TestRunRow';
 import { Search } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const MOCK_DATA = [
   {
@@ -13,7 +14,7 @@ const MOCK_DATA = [
     },
     createdAt: '8/31/2022',
     journey: ['Login', 'Browse', 'Add Item', 'Cart', 'Checkout'],
-    mood: ['happy', 'neutral', 'happy', 'happy', 'happy']
+    mood: ['happy', 'neutral', 'happy', 'happy', 'happy'] as ('happy' | 'neutral' | 'sad')[]
   },
   {
     id: '#124',
@@ -25,7 +26,7 @@ const MOCK_DATA = [
     },
     createdAt: '8/31/2022',
     journey: ['Profile', 'Edit', 'Save'],
-    mood: ['neutral', 'neutral', 'happy']
+    mood: ['neutral', 'neutral', 'happy'] as ('happy' | 'neutral' | 'sad')[]
   },
   {
     id: '#125',
@@ -37,7 +38,7 @@ const MOCK_DATA = [
     },
     createdAt: '8/31/2022',
     journey: ['Orders', 'Details', 'Refund Form', 'Submit'],
-    mood: ['neutral', 'sad', 'neutral', 'happy']
+    mood: ['neutral', 'sad', 'neutral', 'happy'] as ('happy' | 'neutral' | 'sad')[]
   },
   {
     id: '#126',
@@ -49,7 +50,7 @@ const MOCK_DATA = [
     },
     createdAt: '8/31/2022',
     journey: ['Product', 'Reviews', 'Write Review'],
-    mood: ['happy', 'happy', 'neutral']
+    mood: ['happy', 'happy', 'neutral'] as ('happy' | 'neutral' | 'sad')[]
   },
   {
     id: '#127',
@@ -61,7 +62,7 @@ const MOCK_DATA = [
     },
     createdAt: '8/31/2022',
     journey: ['Cart', 'Checkout', 'Payment', 'Error'],
-    mood: ['neutral', 'neutral', 'sad', 'sad']
+    mood: ['neutral', 'neutral', 'sad', 'sad'] as ('happy' | 'neutral' | 'sad')[]
   }
 ];
 
