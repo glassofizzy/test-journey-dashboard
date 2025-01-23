@@ -12,6 +12,8 @@ interface ScreenContent {
 
 interface JourneyTabsProps {
   currentContent: ScreenContent;
+  currentImageIndex: number;
+  onBugClick: (area: { x: number, y: number, width: number, height: number }) => void;
 }
 
 interface Bug {
@@ -19,6 +21,12 @@ interface Bug {
   priority: string;
   description: string;
   treatment: string;
+  highlightArea?: {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+  };
 }
 
 interface BugCategories {
@@ -36,13 +44,15 @@ const bugCategories: BugCategories = {
         title: "Logo is blurry on mobile",
         priority: "High",
         description: "The logo appears pixelated on mobile devices. This detracts from the app's visual appeal.",
-        treatment: "Verify the correct logo is uploaded for mobile or use SVG."
+        treatment: "Verify the correct logo is uploaded for mobile or use SVG.",
+        highlightArea: { x: 10, y: 10, width: 100, height: 40 }
       },
       {
         title: "Button color inconsistency",
         priority: "Medium",
         description: "Different buttons use varied styles across the app. This makes UI feel unpolished and inconsistent.",
-        treatment: "Consistently apply the correct color palette on the UI or create a design system"
+        treatment: "Consistently apply the correct color palette on the UI or create a design system",
+        highlightArea: { x: 120, y: 200, width: 80, height: 40 }
       }
     ]
   },
@@ -81,7 +91,17 @@ const bugCategories: BugCategories = {
   }
 };
 
-const BugCategory = ({ title, color, bugs }: { title: string; color: string; bugs: Bug[] }) => (
+const BugCategory = ({ 
+  title, 
+  color, 
+  bugs, 
+  onBugClick 
+}: { 
+  title: string; 
+  color: string; 
+  bugs: Bug[]; 
+  onBugClick: (area?: { x: number, y: number, width: number, height: number }) => void;
+}) => (
   <div className="mb-6">
     <h3 
       className="text-white font-bold px-4 py-2 mb-4 border-2 border-black capitalize"
@@ -91,7 +111,11 @@ const BugCategory = ({ title, color, bugs }: { title: string; color: string; bug
     </h3>
     <ul className="space-y-4">
       {bugs.map((bug, index) => (
-        <li key={index} className="bg-white border-2 border-black p-4 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:translate-x-[-4px] hover:translate-y-[-4px]">
+        <li 
+          key={index} 
+          className="bg-white border-2 border-black p-4 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:translate-x-[-4px] hover:translate-y-[-4px] cursor-pointer"
+          onClick={() => onBugClick(bug.highlightArea)}
+        >
           <div className="flex justify-between items-start mb-2">
             <h4 className="font-medium">{bug.title}</h4>
             <span className="text-sm px-2 py-1 bg-gray-100 rounded">{bug.priority} Priority</span>
@@ -104,12 +128,12 @@ const BugCategory = ({ title, color, bugs }: { title: string; color: string; bug
   </div>
 );
 
-const JourneyTabs = ({ currentContent }: JourneyTabsProps) => (
-  <Tabs defaultValue="concerns">
+const JourneyTabs = ({ currentContent, currentImageIndex, onBugClick }: JourneyTabsProps) => (
+  <Tabs defaultValue="persona-insights">
     <TabsList className="w-full justify-start bg-white p-1">
       {[
-        { label: 'Persona Insights', value: 'concerns' },
-        { label: 'UX Optimization', value: 'ux-improvements' },
+        { label: 'Persona Insights', value: 'persona-insights' },
+        { label: 'UX Optimization', value: 'ux-optimization' },
         { label: 'Generated UI', value: 'generated-ui' }
       ].map((tab) => (
         <TabsTrigger
@@ -127,7 +151,7 @@ const JourneyTabs = ({ currentContent }: JourneyTabsProps) => (
       ))}
     </TabsList>
 
-    <TabsContent value="concerns" className="mt-6 space-y-6 transition-all duration-300">
+    <TabsContent value="persona-insights" className="mt-6 space-y-6 transition-all duration-300">
       <div>
         <h3 className="font-medium mb-2">Goal</h3>
         <MessageBubble 
@@ -152,7 +176,7 @@ const JourneyTabs = ({ currentContent }: JourneyTabsProps) => (
       </div>
     </TabsContent>
 
-    <TabsContent value="ux-improvements" className="mt-6">
+    <TabsContent value="ux-optimization" className="mt-6">
       <div className="space-y-6">
         {Object.entries(bugCategories).map(([category, { color, bugs }]) => (
           <BugCategory 
@@ -160,6 +184,7 @@ const JourneyTabs = ({ currentContent }: JourneyTabsProps) => (
             title={category}
             color={color}
             bugs={bugs}
+            onBugClick={onBugClick}
           />
         ))}
       </div>

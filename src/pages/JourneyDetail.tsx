@@ -14,6 +14,12 @@ const JourneyDetail = () => {
   const { id } = useParams();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [highlightArea, setHighlightArea] = useState<{
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+  } | null>(null);
 
   const mockScreenshots = [
     '/lovable-uploads/b3009f6d-ec6a-48ee-be48-c903a17ab320.png',
@@ -68,21 +74,46 @@ const JourneyDetail = () => {
     };
   }, []);
 
+  const handleBugClick = (area?: { x: number, y: number, width: number, height: number }) => {
+    if (area) {
+      setIsPaused(true);
+      setHighlightArea(area);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-7xl mx-auto grid grid-cols-2 gap-8">
-        {/* Left Panel */}
-        <div className="bg-black rounded-lg">
+        <div className="bg-black rounded-lg relative">
           <PhonePreview
             currentImage={mockScreenshots[currentImageIndex]}
             isPaused={isPaused}
-            onTogglePause={() => setIsPaused(!isPaused)}
+            onTogglePause={() => {
+              setIsPaused(!isPaused);
+              if (!isPaused) {
+                setHighlightArea(null);
+              }
+            }}
           />
+          {highlightArea && (
+            <div 
+              className="absolute border-4 border-red-500 bg-red-500/20 pointer-events-none transition-all duration-300"
+              style={{
+                left: `${highlightArea.x}px`,
+                top: `${highlightArea.y}px`,
+                width: `${highlightArea.width}px`,
+                height: `${highlightArea.height}px`,
+              }}
+            />
+          )}
         </div>
 
-        {/* Right Panel */}
         <div className="space-y-6">
-          <JourneyTabs currentContent={mockScreenContents[currentImageIndex]} />
+          <JourneyTabs 
+            currentContent={mockScreenContents[currentImageIndex]}
+            currentImageIndex={currentImageIndex}
+            onBugClick={handleBugClick}
+          />
         </div>
       </div>
     </div>
