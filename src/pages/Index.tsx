@@ -16,11 +16,11 @@ const MOCK_DATA = [
     journey: ['Login', 'Browse', 'Add Item', 'Cart', 'Checkout'],
     mood: ['happy', 'neutral', 'happy', 'happy', 'happy'] as ('happy' | 'neutral' | 'sad')[],
     screenshots: [
-      'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b',
-      'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d',
-      'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158',
-      'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7',
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085'
+      '/lovable-uploads/b3009f6d-ec6a-48ee-be48-c903a17ab320.png',
+      '/lovable-uploads/9c8563d4-52f8-435d-a262-2a06308e4bc0.png',
+      '/lovable-uploads/80662d63-8b84-401a-acb2-5d5ef0045bfb.png',
+      '/lovable-uploads/4efb6fde-7c07-4a4f-aac7-707a520a4e27.png',
+      '/lovable-uploads/7c7085f8-e7ed-4e2f-968d-da0ed7d8e4bd.png'
     ]
   },
   {
