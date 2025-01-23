@@ -41,10 +41,8 @@ const BugCategory = ({
   const [generatingDesigns, setGeneratingDesigns] = useState<{ [key: string]: boolean }>({});
 
   const handleCreateTicket = (bug: Bug) => {
-    // This is a placeholder for the actual JIRA integration
     console.log('Creating JIRA ticket for:', bug.title);
     
-    // Simulate API call with random success/failure
     const isSuccess = Math.random() > 0.3;
     
     if (isSuccess) {
@@ -69,7 +67,6 @@ const BugCategory = ({
     console.log('Working on your designs...');
     setGeneratingDesigns(prev => ({ ...prev, [bug.title]: true }));
     
-    // Simulate API call with 4 second delay
     await new Promise(resolve => setTimeout(resolve, 4000));
     
     setGeneratingDesigns(prev => ({ ...prev, [bug.title]: false }));
@@ -78,6 +75,19 @@ const BugCategory = ({
       description: "New UI variations have been created based on your feedback",
       duration: 3000,
     });
+  };
+
+  const getPriorityStyles = (priority: string) => {
+    switch (priority.toLowerCase()) {
+      case 'high':
+        return 'bg-red-100 text-red-700 border-red-200';
+      case 'medium':
+        return 'bg-yellow-100 text-yellow-700 border-yellow-200';
+      case 'low':
+        return 'bg-green-100 text-green-700 border-green-200';
+      default:
+        return 'bg-gray-100 text-gray-700 border-gray-200';
+    }
   };
 
   return (
@@ -98,7 +108,7 @@ const BugCategory = ({
             )}
             onClick={() => {
               if (selectedBugTitle === bug.title) {
-                onBugClick(undefined); // Unselect the bug
+                onBugClick(undefined);
               } else {
                 onBugClick(bug.highlightArea);
               }
@@ -106,8 +116,11 @@ const BugCategory = ({
           >
             <div className="flex justify-between items-start mb-2">
               <h4 className="font-medium">{bug.title}</h4>
-              <span className="text-sm px-2 py-1 bg-gray-100 rounded">
-                {bug.priority} Priority
+              <span className={cn(
+                "text-sm px-2 py-1 rounded border",
+                getPriorityStyles(bug.priority)
+              )}>
+                {bug.priority}
               </span>
             </div>
             <p className="text-sm text-gray-600 mb-2">{bug.description}</p>
@@ -118,7 +131,7 @@ const BugCategory = ({
                   <TooltipTrigger asChild>
                     <button
                       onClick={(e) => {
-                        e.stopPropagation(); // Prevent triggering the li onClick
+                        e.stopPropagation();
                         handleCreateTicket(bug);
                       }}
                       className="p-2 hover:bg-gray-100 rounded-full transition-colors"
@@ -137,12 +150,12 @@ const BugCategory = ({
                   <TooltipTrigger asChild>
                     <button
                       onClick={(e) => {
-                        e.stopPropagation(); // Prevent triggering the li onClick
+                        e.stopPropagation();
                         handleGenerateDesign(bug);
                       }}
                       disabled={generatingDesigns[bug.title]}
                       className={cn(
-                        "p-2 hover:bg-gray-100 rounded-full transition-all",
+                        "p-2 hover:bg-gray-100 rounded-full transition-colors",
                         generatingDesigns[bug.title] && "animate-pulse"
                       )}
                       aria-label="Fix UI with AI"
