@@ -13,6 +13,7 @@ interface TestRun {
   createdAt: string;
   journey?: string[];
   mood?: ('happy' | 'neutral' | 'sad')[];
+  screenshots?: string[];
 }
 
 interface TestRunRowProps {
@@ -55,10 +56,11 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
         className={cn(
           "grid grid-cols-5 gap-4 p-4 cursor-pointer border-2 border-black bg-white",
           "hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200",
-          "hover:translate-x-[-4px] hover:translate-y-[-4px]"
+          "hover:translate-x-[-4px] hover:translate-y-[-4px]",
+          "items-center" // Added for vertical alignment
         )}
       >
-        <div className="font-mono">#{testRun.id}</div>
+        <div className="font-mono">{testRun.id}</div>
         <div className="font-medium">{testRun.name}</div>
         <div>
           <span className={cn(
@@ -88,28 +90,26 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
           <div className="space-y-6">
             <div>
               <h3 className="font-medium mb-3">User Journey</h3>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 overflow-x-auto pb-4">
                 {testRun.journey?.map((step, index) => (
                   <React.Fragment key={index}>
-                    <div className="p-3 border-2 border-black rounded bg-white">
-                      {step}
+                    <div className="flex flex-col items-center gap-2 min-w-[200px]">
+                      {testRun.screenshots && testRun.screenshots[index] && (
+                        <img 
+                          src={testRun.screenshots[index]} 
+                          alt={step}
+                          className="w-full h-32 object-cover border-2 border-black rounded"
+                        />
+                      )}
+                      <div className="p-3 border-2 border-black rounded bg-white w-full text-center">
+                        {step}
+                      </div>
+                      {testRun.mood && testRun.mood[index] && (
+                        <div className="text-2xl">{getMoodEmoji(testRun.mood[index])}</div>
+                      )}
                     </div>
                     {index < (testRun.journey?.length || 0) - 1 && (
-                      <div className="w-8 h-[2px] bg-black"></div>
-                    )}
-                  </React.Fragment>
-                ))}
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="font-medium mb-3">User Mood</h3>
-              <div className="flex items-center gap-4">
-                {testRun.mood?.map((mood, index) => (
-                  <React.Fragment key={index}>
-                    <div className="text-2xl">{getMoodEmoji(mood)}</div>
-                    {index < (testRun.mood?.length || 0) - 1 && (
-                      <div className="w-8 h-[2px] bg-black"></div>
+                      <div className="w-8 h-[2px] bg-black min-w-[32px]"></div>
                     )}
                   </React.Fragment>
                 ))}

@@ -14,7 +14,14 @@ const MOCK_DATA = [
     },
     createdAt: '8/31/2022',
     journey: ['Login', 'Browse', 'Add Item', 'Cart', 'Checkout'],
-    mood: ['happy', 'neutral', 'happy', 'happy', 'happy'] as ('happy' | 'neutral' | 'sad')[]
+    mood: ['happy', 'neutral', 'happy', 'happy', 'happy'] as ('happy' | 'neutral' | 'sad')[],
+    screenshots: [
+      'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b',
+      'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d',
+      'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158',
+      'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7',
+      'https://images.unsplash.com/photo-1498050108023-c5249f4df085'
+    ]
   },
   {
     id: '#124',
@@ -122,6 +129,15 @@ const Index = () => {
         </div>
 
         <div className="space-y-4">
+          {/* Table Headers */}
+          <div className="grid grid-cols-5 gap-4 p-4 bg-gray-100 border-2 border-black font-medium">
+            <div>Test ID</div>
+            <div>Name</div>
+            <div>Status</div>
+            <div>User</div>
+            <div>Date</div>
+          </div>
+          
           {filteredData.map((testRun) => (
             <TestRunRow
               key={testRun.id}
