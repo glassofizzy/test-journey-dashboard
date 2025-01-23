@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, UserRound, CheckCircle, AlertCircle, XCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface TestRun {
@@ -23,6 +23,19 @@ interface TestRunRowProps {
 }
 
 const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }) => {
+  const getStatusIcon = (status: string) => {
+    switch (status) {
+      case 'Completed':
+        return <CheckCircle className="w-5 h-5 text-green-500 stroke-[1.5]" />;
+      case 'In Progress':
+        return <AlertCircle className="w-5 h-5 text-blue-500 stroke-[1.5]" />;
+      case 'Cancelled':
+        return <XCircle className="w-5 h-5 text-red-500 stroke-[1.5]" />;
+      default:
+        return null;
+    }
+  };
+
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'Completed':
@@ -57,12 +70,13 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
           "grid grid-cols-5 gap-4 p-4 cursor-pointer border-2 border-black bg-white",
           "hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200",
           "hover:translate-x-[-4px] hover:translate-y-[-4px]",
-          "items-center" // Added for vertical alignment
+          "items-center"
         )}
       >
         <div className="font-mono">{testRun.id}</div>
         <div className="font-medium">{testRun.name}</div>
-        <div>
+        <div className="flex items-center gap-2">
+          {getStatusIcon(testRun.status)}
           <span className={cn(
             "px-2 py-1 rounded-full text-white text-sm",
             getStatusColor(testRun.status)
@@ -71,8 +85,8 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center">
-            {testRun.user.name[0]}
+          <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center border-2 border-black">
+            <UserRound className="w-5 h-5 stroke-[1.5]" />
           </div>
           <div>
             <div className="text-sm font-medium">{testRun.user.name}</div>
@@ -81,7 +95,7 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
         </div>
         <div className="flex items-center justify-between">
           <span>{testRun.createdAt}</span>
-          {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+          {isExpanded ? <ChevronUp size={20} className="stroke-[1.5]" /> : <ChevronDown size={20} className="stroke-[1.5]" />}
         </div>
       </div>
       
