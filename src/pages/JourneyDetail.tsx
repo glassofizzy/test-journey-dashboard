@@ -14,6 +14,7 @@ const JourneyDetail = () => {
   const { id } = useParams();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [activeTab, setActiveTab] = useState('persona-insights');
   const [highlightArea, setHighlightArea] = useState<{
     x: number;
     y: number;
@@ -52,7 +53,8 @@ const JourneyDetail = () => {
   useEffect(() => {
     let interval: NodeJS.Timeout;
     
-    if (!isPaused) {
+    // Only auto-scroll if not paused and not on UX Optimization tab
+    if (!isPaused && activeTab !== 'ux-optimization') {
       interval = setInterval(() => {
         setCurrentImageIndex((prev) => {
           const nextIndex = prev === mockScreenshots.length - 1 ? 0 : prev + 1;
@@ -73,7 +75,7 @@ const JourneyDetail = () => {
     }
 
     return () => clearInterval(interval);
-  }, [isPaused]);
+  }, [isPaused, activeTab]);
 
   useEffect(() => {
     const handleUpdateCurrentImage = (event: CustomEvent<{ index: number }>) => {
@@ -134,6 +136,7 @@ const JourneyDetail = () => {
             currentContent={mockScreenContents[currentImageIndex]}
             currentImageIndex={currentImageIndex}
             onBugClick={handleBugClick}
+            onTabChange={(tab) => setActiveTab(tab)}
           />
         </div>
       </div>

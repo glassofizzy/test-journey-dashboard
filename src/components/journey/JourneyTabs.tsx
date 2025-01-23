@@ -16,9 +16,10 @@ interface JourneyTabsProps {
   currentContent: ScreenContent;
   currentImageIndex: number;
   onBugClick: (area?: { x: number, y: number, width: number, height: number }) => void;
+  onTabChange: (tab: string) => void;
 }
 
-const JourneyTabs = ({ currentContent, currentImageIndex, onBugClick }: JourneyTabsProps) => {
+const JourneyTabs = ({ currentContent, currentImageIndex, onBugClick, onTabChange }: JourneyTabsProps) => {
   const [selectedBugTitle, setSelectedBugTitle] = useState<string>();
 
   const handleBugClick = (area?: { x: number, y: number, width: number, height: number }, bugTitle?: string) => {
@@ -27,7 +28,7 @@ const JourneyTabs = ({ currentContent, currentImageIndex, onBugClick }: JourneyT
   };
 
   return (
-    <Tabs defaultValue="persona-insights">
+    <Tabs defaultValue="persona-insights" onValueChange={onTabChange}>
       <TabsList className="w-full justify-start bg-white p-1">
         {[
           { label: 'Persona Insights', value: 'persona-insights' },
