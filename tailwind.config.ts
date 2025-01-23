@@ -19,7 +19,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['futura-pt', 'sans-serif'],
+        sans: ['Inconsolata', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",
