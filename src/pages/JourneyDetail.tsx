@@ -51,6 +51,23 @@ const JourneyDetail = () => {
   ];
 
   useEffect(() => {
+    const handleHighlightArea = (event: CustomEvent<{
+      x: number;
+      y: number;
+      width: number;
+      height: number;
+    } | null>) => {
+      setHighlightArea(event.detail);
+    };
+
+    window.addEventListener('highlightArea', handleHighlightArea as EventListener);
+
+    return () => {
+      window.removeEventListener('highlightArea', handleHighlightArea as EventListener);
+    };
+  }, []);
+
+  useEffect(() => {
     let interval: NodeJS.Timeout;
     
     if (!isPaused && activeTab !== 'ux-optimization') {
