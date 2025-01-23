@@ -13,7 +13,8 @@ const JourneyTabs = () => (
           className={cn(
             "border-2 border-black data-[state=active]:bg-black data-[state=active]:text-white",
             "hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200",
-            "hover:translate-x-[-4px] hover:translate-y-[-4px]"
+            "hover:translate-x-[-4px] hover:translate-y-[-4px]",
+            "flex-1 mx-1"
           )}
         >
           {tab}
