@@ -5,16 +5,18 @@ import MessageBubble from './MessageBubble';
 
 const JourneyTabs = () => (
   <Tabs defaultValue="concerns">
-    <TabsList className="w-full justify-start border-2 border-black bg-white p-1">
+    <TabsList className="w-full justify-start bg-white p-1">
       {['Concerns', 'UX Improvements', 'Generated UI'].map((tab) => (
         <TabsTrigger
           key={tab}
           value={tab.toLowerCase().replace(' ', '-')}
           className={cn(
-            "border-2 border-black data-[state=active]:bg-black data-[state=active]:text-white",
+            "border-2 border-black",
             "hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200",
             "hover:translate-x-[-4px] hover:translate-y-[-4px]",
-            "flex-1 mx-1"
+            "flex-1 mx-1",
+            tab === 'Concerns' && "bg-[#ffc000] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]",
+            tab !== 'Concerns' && "data-[state=active]:bg-black data-[state=active]:text-white"
           )}
         >
           {tab}
