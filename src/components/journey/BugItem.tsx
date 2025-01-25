@@ -25,7 +25,7 @@ const BugItem = ({ bug, isSelected, onClick }: BugItemProps) => {
   return (
     <li 
       className={cn(
-        "bg-white border-2 border-black p-4 transition-all duration-200 group relative",
+        "bg-white border-[1.5px] border-black p-4 transition-all duration-200 group relative",
         "hover:translate-x-[-4px] hover:translate-y-[-4px]",
         "hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]",
         isSelected && "shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"

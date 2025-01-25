@@ -32,7 +32,7 @@ const BugCategory = ({
   return (
     <div className="mb-6">
       <h3 
-        className="text-white font-bold px-4 py-2 mb-4 border-2 border-black capitalize"
+        className="text-white font-bold px-4 py-2 mb-4 border-[1.5px] border-black capitalize"
         style={{ backgroundColor: color }}
       >
         {title}

@@ -38,7 +38,7 @@ const JourneyTabs = ({ currentContent, currentImageIndex, onBugClick, onTabChang
             key={tab.label}
             value={tab.value}
             className={cn(
-              "text-black border-2 border-transparent transition-all duration-200",
+              "text-black border-[1.5px] border-transparent transition-all duration-200",
               "hover:border-black hover:translate-x-[-4px] hover:translate-y-[-4px]",
               "flex-1 mx-1",
               "data-[state=active]:bg-[#ffc000] data-[state=active]:border-black data-[state=active]:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
