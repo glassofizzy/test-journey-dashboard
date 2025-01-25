@@ -59,7 +59,7 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
         <div className="font-medium">{testRun.name}</div>
         <div className="flex items-center gap-2">
           <span className={cn(
-            "px-2 py-1 rounded-full text-white text-sm border-2 border-black",
+            "px-4 py-1 rounded-full text-black text-sm border-2 border-black w-28 text-center",
             getStatusColor(testRun.status)
           )}>
             {testRun.status}
