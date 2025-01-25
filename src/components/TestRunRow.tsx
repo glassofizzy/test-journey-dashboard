@@ -30,11 +30,11 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'Completed':
-        return 'bg-green-500';
+        return 'bg-status-completed';
       case 'In Progress':
-        return 'bg-blue-500';
+        return 'bg-status-progress';
       case 'Cancelled':
-        return 'bg-red-500';
+        return 'bg-status-failed';
       default:
         return 'bg-gray-500';
     }
@@ -42,20 +42,17 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
 
   const handleScreenshotClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    // Remove the # from the ID before navigation
     const cleanId = testRun.id.replace('#', '');
     navigate(`/journey/${cleanId}`);
   };
 
   return (
-    <div className="group animate-slide-up">
+    <div className="group">
       <div 
         onClick={onToggle}
         className={cn(
-          "grid grid-cols-5 gap-4 p-4 cursor-pointer border-2 border-black bg-white",
-          "hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200",
-          "hover:translate-x-[-4px] hover:translate-y-[-4px]",
-          "items-center"
+          "grid grid-cols-5 gap-4 p-4 cursor-pointer border-b-2 border-black bg-white",
+          "hover:bg-gray-50"
         )}
       >
         <div className="font-mono">{testRun.id}</div>
@@ -70,7 +67,7 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
         </div>
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center border-2 border-black">
-            <UserRound className="w-5 h-5 stroke-[1.5]" />
+            <UserRound className="w-5 h-5 stroke-[1.5] text-white" />
           </div>
           <div>
             <div className="text-sm font-medium">{testRun.user.name}</div>
@@ -84,7 +81,7 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
       </div>
       
       {isExpanded && (
-        <div className="p-6 border-2 border-t-0 border-black bg-white">
+        <div className="p-6 border-b-2 border-black bg-white">
           <div className="space-y-6">
             <div>
               <h3 className="font-medium mb-3">User Journey</h3>

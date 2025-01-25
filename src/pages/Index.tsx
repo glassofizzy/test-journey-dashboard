@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import TestRunRow from '@/components/TestRunRow';
-import { Search } from 'lucide-react';
+import { Search, ArrowUpDown, Filter } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const MOCK_DATA = [
@@ -91,17 +91,21 @@ const Index = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
+    <div className="min-h-screen bg-background p-8">
       <div className="max-w-7xl mx-auto space-y-6">
         <div className="flex items-center justify-between">
           <h1 className="text-4xl font-bold">Test Run History</h1>
-          <button className="px-4 py-2 bg-accent text-black border-2 border-black font-medium hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:translate-x-[-4px] hover:translate-y-[-4px]">
+          <button className="px-4 py-2 bg-accent text-white border-2 border-black font-medium hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:translate-x-[-4px] hover:translate-y-[-4px]">
             New Test +
           </button>
         </div>
 
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-4">
+            <button className="flex items-center gap-2 px-4 py-2 bg-white border-2 border-black font-medium hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:translate-x-[-4px] hover:translate-y-[-4px]">
+              <Filter size={20} />
+              All Filters
+            </button>
             {['All', 'Succeeded', 'Failed', 'Cancelled'].map((f) => (
               <button
                 key={f}
@@ -128,14 +132,29 @@ const Index = () => {
           </div>
         </div>
 
-        <div className="space-y-4">
+        <div className="bg-white border-2 border-black">
           {/* Table Headers */}
-          <div className="grid grid-cols-5 gap-4 p-4 bg-gray-100 border-2 border-black font-medium">
-            <div>Test ID</div>
-            <div>Name</div>
-            <div>Status</div>
-            <div>User</div>
-            <div>Date</div>
+          <div className="grid grid-cols-5 gap-4 p-4 bg-white border-b-2 border-black font-medium">
+            <div className="flex items-center gap-2 cursor-pointer hover:text-accent">
+              Test ID
+              <ArrowUpDown size={16} />
+            </div>
+            <div className="flex items-center gap-2 cursor-pointer hover:text-accent">
+              Name
+              <ArrowUpDown size={16} />
+            </div>
+            <div className="flex items-center gap-2 cursor-pointer hover:text-accent">
+              Status
+              <ArrowUpDown size={16} />
+            </div>
+            <div className="flex items-center gap-2 cursor-pointer hover:text-accent">
+              User
+              <ArrowUpDown size={16} />
+            </div>
+            <div className="flex items-center gap-2 cursor-pointer hover:text-accent">
+              Date
+              <ArrowUpDown size={16} />
+            </div>
           </div>
           
           {filteredData.map((testRun) => (

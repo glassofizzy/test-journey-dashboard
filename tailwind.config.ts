@@ -26,7 +26,7 @@ export default {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
+        background: "#e9e5ff",
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -36,17 +36,14 @@ export default {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+        status: {
+          failed: "#f45b49",
+          completed: "#01a99d",
+          progress: "#ffc000",
         },
         accent: {
-          DEFAULT: "#ffc000",
-          foreground: "#000000",
+          DEFAULT: "#bb6bd9",
+          foreground: "#ffffff",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
