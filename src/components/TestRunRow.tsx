@@ -51,7 +51,7 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
       <div 
         onClick={onToggle}
         className={cn(
-          "grid grid-cols-5 gap-4 p-4 cursor-pointer border-b-2 border-black bg-white",
+          "grid grid-cols-5 gap-4 p-4 cursor-pointer border-b border-black bg-white",
           "hover:bg-gray-50"
         )}
       >
@@ -59,14 +59,14 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
         <div className="font-medium">{testRun.name}</div>
         <div className="flex items-center gap-2">
           <span className={cn(
-            "px-4 py-1 rounded-full text-black text-sm border-2 border-black w-28 text-center",
+            "px-4 py-1 rounded-full text-black text-sm border border-black w-28 text-center",
             getStatusColor(testRun.status)
           )}>
             {testRun.status}
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center border-2 border-black">
+          <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center border border-black">
             <UserRound className="w-5 h-5 stroke-[1.5] text-white" />
           </div>
           <div>
@@ -81,7 +81,7 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
       </div>
       
       {isExpanded && (
-        <div className="p-6 border-b-2 border-black bg-white">
+        <div className="p-6 border-b border-black bg-white">
           <div className="space-y-6">
             <div>
               <h3 className="font-medium mb-3">User Journey</h3>
@@ -95,7 +95,7 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
                       onScreenshotClick={handleScreenshotClick}
                     />
                     {index < (testRun.journey?.length || 0) - 1 && (
-                      <div className="w-8 h-[2px] bg-black min-w-[32px]"></div>
+                      <div className="w-8 h-[1px] bg-black min-w-[32px]"></div>
                     )}
                   </React.Fragment>
                 ))}
