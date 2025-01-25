@@ -30,6 +30,18 @@ export function AppSidebar() {
                   <span>{selectedSite}</span>
                   <ChevronDown className="ml-2 h-4 w-4" />
                 </SidebarMenuButton>
+                <SidebarMenuSub>
+                  {["Opensea.com", "Sephora.com", "Pi.ai"].map((site) => (
+                    <SidebarMenuSubItem key={site}>
+                      <SidebarMenuSubButton 
+                        onClick={() => setSelectedSite(site)}
+                        className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-full"
+                      >
+                        {site}
+                      </SidebarMenuSubButton>
+                    </SidebarMenuSubItem>
+                  ))}
+                </SidebarMenuSub>
               </SidebarMenuItem>
 
               <SidebarMenuItem>
