@@ -20,8 +20,10 @@ const App = () => (
         <div className="min-h-screen flex flex-col w-full">
           <TopNav />
           <div className="flex flex-1">
-            <AppSidebar />
-            <main className="flex-1 p-4">
+            <div className="pt-8">
+              <AppSidebar />
+            </div>
+            <main className="flex-1 p-8">
               <BrowserRouter>
                 <Routes>
                   <Route path="/" element={<Index />} />

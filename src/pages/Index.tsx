@@ -91,7 +91,7 @@ const Index = () => {
   });
 
   return (
-    <div className="min-h-screen bg-background p-8">
+    <div className="min-h-screen bg-background">
       <div className="max-w-7xl mx-auto space-y-6">
         <div className="flex items-center justify-between">
           <h1 className="text-4xl font-bold">Test Run History</h1>
@@ -133,7 +133,6 @@ const Index = () => {
         </div>
 
         <div className="bg-white border-2 border-black">
-          {/* Table Headers */}
           <div className="grid grid-cols-5 gap-4 p-4 bg-white border-b-2 border-black font-medium">
             <div className="flex items-center gap-2 cursor-pointer hover:text-accent">
               Test ID
