@@ -117,7 +117,7 @@ const JourneyDetail = () => {
   return (
     <div className="min-h-screen bg-[#f2f0ef]">
       <div className="max-w-7xl mx-auto flex">
-        <div className="flex-1 bg-[#f2f0ef] rounded-lg relative p-8">
+        <div className="flex-1 bg-[#f2f0ef] relative p-8">
           <div className="relative">
             <PhonePreview
               currentImage={mockScreenshots[currentImageIndex]}
