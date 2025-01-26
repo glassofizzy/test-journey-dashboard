@@ -42,7 +42,7 @@ export function AppSidebar() {
     <Sidebar variant="floating" className="border-r border-black mt-16">
       <SidebarContent className="h-[90vh] flex flex-col justify-between font-['Valera_Round']">
         <SidebarGroup>
-          <SidebarGroupContent className="p-2">
+          <SidebarGroupContent>
             <SidebarMenu>
               {/* Site Selector */}
               <SidebarMenuItem>
@@ -120,7 +120,7 @@ export function AppSidebar() {
         </SidebarGroup>
 
         {/* Footer Navigation */}
-        <SidebarFooter className="p-2">
+        <SidebarFooter className="pb-4">
           <SidebarMenu>
             <SidebarMenuItem>
               <SidebarMenuButton className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-[40px]">
