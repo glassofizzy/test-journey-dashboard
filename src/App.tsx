@@ -4,7 +4,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SidebarProvider } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/AppSidebar";
 import { TopNav } from "@/components/TopNav";
 import Index from "./pages/Index";
 import JourneyDetail from "./pages/JourneyDetail";
@@ -22,9 +21,6 @@ const App = () => (
             <TopNav />
           </div>
           <div className="flex-1 flex mt-16">
-            <aside className="w-64 bg-background h-[90vh] border-r border-black">
-              <AppSidebar />
-            </aside>
             <main className="flex-1 p-8">
               <BrowserRouter>
                 <Routes>
