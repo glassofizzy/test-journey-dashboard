@@ -40,7 +40,7 @@ export function AppSidebar() {
 
   return (
     <Sidebar variant="floating" className="border-r border-black mt-16">
-      <SidebarContent className="h-[calc(100vh-64px)] flex flex-col justify-between font-['Valera_Round']">
+      <SidebarContent className="h-[90vh] flex flex-col justify-between font-['Valera_Round']">
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
@@ -109,7 +109,7 @@ export function AppSidebar() {
               </SidebarMenuItem>
 
               {/* Integrations */}
-              <SidebarMenuItem className="mb-[-0.4rem]">
+              <SidebarMenuItem>
                 <SidebarMenuButton className="text-muted-foreground hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-[40px]">
                   <Plug2 className="h-4 w-4" />
                   <span>Integrations (coming soon)</span>
