@@ -17,9 +17,9 @@ const App = () => (
       <Toaster />
       <Sonner />
       <SidebarProvider>
-        <div className="min-h-screen flex flex-col w-full">
+        <div className="min-h-screen flex flex-col">
           <TopNav />
-          <div className="flex flex-1">
+          <div className="flex-1 flex">
             <AppSidebar />
             <main className="flex-1 p-4">
               <BrowserRouter>
