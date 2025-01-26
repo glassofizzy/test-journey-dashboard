@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import PhonePreview from '@/components/journey/PhonePreview';
 import JourneyTabs from '@/components/journey/JourneyTabs';
-import { Separator } from '@/components/ui/separator';
 
 interface ScreenContent {
   goal: string;
@@ -115,9 +114,9 @@ const JourneyDetail = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#eee] p-8">
-      <div className="max-w-7xl mx-auto grid grid-cols-2 gap-0">
-        <div className="bg-[#eee] rounded-lg relative">
+    <div className="min-h-screen bg-[#f2f0ef] p-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-2 gap-8">
+        <div className="bg-black rounded-lg relative">
           <div className="relative">
             <PhonePreview
               currentImage={mockScreenshots[currentImageIndex]}
@@ -144,8 +143,6 @@ const JourneyDetail = () => {
             )}
           </div>
         </div>
-
-        <Separator orientation="vertical" className="mx-0 w-[1px] bg-[#000000e6]" />
 
         <div ref={rightPanelRef} className="space-y-6 max-h-[800px] overflow-y-auto px-8">
           <JourneyTabs 
