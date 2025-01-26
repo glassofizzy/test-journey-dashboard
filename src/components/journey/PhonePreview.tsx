@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Smile, Frown, Meh } from 'lucide-react';
+import { Smile, Frown, Meh, Play, Pause } from 'lucide-react';
 import {
   Carousel,
   CarouselContent,
@@ -61,9 +61,23 @@ const PhonePreview = ({ currentImage, isPaused, onTogglePause }: PhonePreviewPro
       {/* Pause/Resume Button */}
       <Button
         onClick={onTogglePause}
-        className="mt-4 border-2 border-black text-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:translate-x-[-4px] hover:translate-y-[-4px]"
+        className={`mt-4 gap-2 ${
+          isPaused 
+            ? "bg-white text-[#9b87f5] border-2 border-[#9b87f5] shadow-[4px_4px_0px_0px_rgba(155,135,245,0.3)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px]" 
+            : "bg-[#9b87f5] text-white border-none hover:bg-[#8b77e5]"
+        } transition-all duration-200`}
       >
-        {isPaused ? "Resume" : "Pause"}
+        {isPaused ? (
+          <>
+            <Play className="w-4 h-4" />
+            Resume
+          </>
+        ) : (
+          <>
+            <Pause className="w-4 h-4" />
+            Pause
+          </>
+        )}
       </Button>
 
       {/* Thumbnails Carousel */}
