@@ -26,8 +26,8 @@ export function TestFlowsSection() {
         onClick={() => setExpanded(!expanded)}
       >
         <div className="flex items-center">
+          <GitBranch className="mr-2 h-4 w-4" />
           <span>Test Flows</span>
-          <GitBranch className="ml-auto h-4 w-4" />
         </div>
         <ChevronDown className={`h-4 w-4 transition-transform ${expanded ? 'rotate-180' : ''}`} />
       </SidebarMenuButton>

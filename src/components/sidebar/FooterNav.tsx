@@ -10,26 +10,26 @@ export function FooterNav() {
     <SidebarMenu>
       <SidebarMenuItem>
         <SidebarMenuButton className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-full">
+          <MessageSquareMore className="mr-2 h-4 w-4" />
           <span>Feedback</span>
-          <MessageSquareMore className="ml-auto h-4 w-4" />
         </SidebarMenuButton>
       </SidebarMenuItem>
       <SidebarMenuItem>
         <SidebarMenuButton className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-full">
+          <HelpCircle className="mr-2 h-4 w-4" />
           <span>Help</span>
-          <HelpCircle className="ml-auto h-4 w-4" />
         </SidebarMenuButton>
       </SidebarMenuItem>
       <SidebarMenuItem>
         <SidebarMenuButton className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-full">
+          <Settings className="mr-2 h-4 w-4" />
           <span>Settings</span>
-          <Settings className="ml-auto h-4 w-4" />
         </SidebarMenuButton>
       </SidebarMenuItem>
       <SidebarMenuItem>
         <SidebarMenuButton className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-full">
+          <LogOut className="mr-2 h-4 w-4" />
           <span>Logout</span>
-          <LogOut className="ml-auto h-4 w-4" />
         </SidebarMenuButton>
       </SidebarMenuItem>
     </SidebarMenu>
