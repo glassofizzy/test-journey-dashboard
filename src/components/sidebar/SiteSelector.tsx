@@ -10,28 +10,37 @@ import {
 
 export function SiteSelector() {
   const [selectedSite, setSelectedSite] = useState("Opensea.com")
+  const [expanded, setExpanded] = useState(false)
 
   return (
     <SidebarMenuItem>
-      <SidebarMenuButton className="justify-between hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-full">
+      <SidebarMenuButton 
+        className="justify-between hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-full"
+        onClick={() => setExpanded(!expanded)}
+      >
         <div className="flex items-center gap-2">
           <Globe className="h-4 w-4" />
-          <span>{selectedSite}</span>
+          <span>Site: {selectedSite}</span>
         </div>
-        <ChevronDown className="ml-2 h-4 w-4" />
+        <ChevronDown className={`ml-2 h-4 w-4 transition-transform ${expanded ? 'rotate-180' : ''}`} />
       </SidebarMenuButton>
-      <SidebarMenuSub>
-        {["Opensea.com", "Sephora.com", "Pi.ai"].map((site) => (
-          <SidebarMenuSubItem key={site}>
-            <SidebarMenuSubButton 
-              onClick={() => setSelectedSite(site)}
-              className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-full"
-            >
-              {site}
-            </SidebarMenuSubButton>
-          </SidebarMenuSubItem>
-        ))}
-      </SidebarMenuSub>
+      {expanded && (
+        <SidebarMenuSub>
+          {["Opensea.com", "Sephora.com", "Pi.ai"].map((site) => (
+            <SidebarMenuSubItem key={site}>
+              <SidebarMenuSubButton 
+                onClick={() => {
+                  setSelectedSite(site);
+                  setExpanded(false);
+                }}
+                className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-full"
+              >
+                {site}
+              </SidebarMenuSubButton>
+            </SidebarMenuSubItem>
+          ))}
+        </SidebarMenuSub>
+      )}
     </SidebarMenuItem>
   )
 }
