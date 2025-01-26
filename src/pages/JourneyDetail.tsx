@@ -115,9 +115,9 @@ const JourneyDetail = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#f2f0ef] p-8">
+    <div className="min-h-screen bg-[#f2f0ef]">
       <div className="max-w-7xl mx-auto flex">
-        <div className="flex-1 bg-[#f2f0ef] rounded-lg relative">
+        <div className="flex-1 bg-[#f2f0ef] rounded-lg relative p-8">
           <div className="relative">
             <PhonePreview
               currentImage={mockScreenshots[currentImageIndex]}
@@ -145,9 +145,9 @@ const JourneyDetail = () => {
           </div>
         </div>
 
-        <Separator orientation="vertical" className="mx-8 h-auto bg-black" />
+        <Separator orientation="vertical" className="h-[calc(100vh-64px)] bg-black" />
 
-        <div ref={rightPanelRef} className="w-[500px] space-y-6 max-h-[800px] overflow-y-auto px-8">
+        <div ref={rightPanelRef} className="w-[500px] space-y-6 max-h-[800px] overflow-y-auto p-8">
           <JourneyTabs 
             currentContent={mockScreenContents[currentImageIndex]}
             currentImageIndex={currentImageIndex}
