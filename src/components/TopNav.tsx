@@ -5,8 +5,15 @@ export function TopNav() {
   return (
     <header className="h-16 bg-[#f2f0ef] border-b border-black">
       <div className="h-full px-6 flex items-center justify-between">
-        <div className="font-heading text-xl font-semibold">
-          CarbonCopies
+        <div className="flex items-center gap-2">
+          <img 
+            src="/lovable-uploads/d1fc6bc1-88c5-4097-bec3-c367179ae61d.png" 
+            alt="CarbonCopies Logo" 
+            className="h-6 w-auto"
+          />
+          <div className="font-heading text-xl font-semibold">
+            CarbonCopies
+          </div>
         </div>
         
         <div className="flex items-center gap-4">
