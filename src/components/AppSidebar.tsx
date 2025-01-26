@@ -40,7 +40,7 @@ export function AppSidebar() {
 
   return (
     <Sidebar variant="floating" className="border-r border-black mt-16">
-      <SidebarContent className="h-[90vh] flex flex-col justify-between font-['Valera_Round']">
+      <SidebarContent className="h-[calc(100vh-64px)] flex flex-col justify-between font-['Valera_Round']">
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
