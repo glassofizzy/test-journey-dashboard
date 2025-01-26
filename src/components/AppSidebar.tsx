@@ -8,13 +8,14 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarMenuSub,
-  SidebarMenuSubContent,
-  SidebarMenuSubTrigger,
+  SidebarMenuSubItem,
+  SidebarMenuSubButton,
 } from "@/components/ui/sidebar"
 import { PersonasSection } from "./sidebar/PersonasSection"
 import { TestFlowsSection } from "./sidebar/TestFlowsSection"
 import { FooterNav } from "./sidebar/FooterNav"
 import { LayoutDashboard, PiSquare } from "lucide-react"
+import { SiteSelector } from "./sidebar/SiteSelector"
 
 export function AppSidebar() {
   return (
@@ -46,8 +47,4 @@ export function AppSidebar() {
       <FooterNav />
     </Sidebar>
   )
-}
-
-function SiteSelector() {
-  // Original SiteSelector component code goes here
 }
