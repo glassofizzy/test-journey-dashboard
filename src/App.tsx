@@ -18,7 +18,7 @@ const App = () => (
       <Sonner />
       <SidebarProvider>
         <div className="flex flex-col min-h-screen">
-          <div className="flex-none">
+          <div className="fixed top-0 left-0 right-0 z-50">
             <TopNav />
           </div>
           <div className="flex-1 flex mt-16">
