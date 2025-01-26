@@ -19,8 +19,8 @@ export function SiteSelector() {
         onClick={() => setExpanded(!expanded)}
       >
         <div className="flex items-center gap-2">
-          <Globe className="h-4 w-4" />
           <span>Site: {selectedSite}</span>
+          <Globe className="h-4 w-4 ml-auto" />
         </div>
         <ChevronDown className={`ml-2 h-4 w-4 transition-transform ${expanded ? 'rotate-180' : ''}`} />
       </SidebarMenuButton>
