@@ -8,6 +8,7 @@ import { TopNav } from "@/components/TopNav";
 import { AppSidebar } from "@/components/AppSidebar";
 import Index from "./pages/Index";
 import JourneyDetail from "./pages/JourneyDetail";
+import TestFlows from "./pages/TestFlows";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
                 <Routes>
                   <Route path="/" element={<Index />} />
                   <Route path="/journey/:id" element={<JourneyDetail />} />
+                  <Route path="/test-flows" element={<TestFlows />} />
                 </Routes>
               </main>
             </div>
