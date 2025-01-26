@@ -114,7 +114,7 @@ const JourneyDetail = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
+    <div className="min-h-screen bg-[#f2f0ef] p-8">
       <div className="max-w-7xl mx-auto grid grid-cols-2 gap-8">
         <div className="bg-black rounded-lg relative">
           <div className="relative">

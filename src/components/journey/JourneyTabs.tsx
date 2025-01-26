@@ -28,7 +28,7 @@ const JourneyTabs = ({ currentContent, currentImageIndex, onBugClick, onTabChang
 
   return (
     <Tabs defaultValue="persona-insights" onValueChange={onTabChange}>
-      <TabsList className="w-full justify-start bg-white p-1">
+      <TabsList className="w-full justify-start bg-[#f2f0ef] p-1">
         {[
           { label: 'Persona Insights', value: 'persona-insights' },
           { label: 'UX Optimization', value: 'ux-optimization' },
