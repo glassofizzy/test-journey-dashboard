@@ -26,16 +26,22 @@ const JourneyTabs = ({ currentContent, currentImageIndex, onBugClick, onTabChang
     onBugClick(area);
   };
 
+  const tabs = [
+    { id: 'persona-insights', label: 'Persona Insights', value: 'persona-insights' },
+    { id: 'ux-optimization', label: 'UX Optimization', value: 'ux-optimization' },
+    { 
+      id: 'generated-ui',
+      label: <span>Generated UI <span className="text-xs opacity-60">(coming soon)</span></span>,
+      value: 'generated-ui'
+    }
+  ];
+
   return (
     <Tabs defaultValue="persona-insights" onValueChange={onTabChange}>
       <TabsList className="w-full justify-start bg-[#f2f0ef] p-1">
-        {[
-          { label: 'Persona Insights', value: 'persona-insights' },
-          { label: 'UX Optimization', value: 'ux-optimization' },
-          { label: <span>Generated UI <span className="text-xs opacity-60">(coming soon)</span></span>, value: 'generated-ui' }
-        ].map((tab) => (
+        {tabs.map((tab) => (
           <TabsTrigger
-            key={tab.label}
+            key={tab.id}
             value={tab.value}
             className={cn(
               "text-black border-[1.5px] border-transparent transition-all duration-200",
