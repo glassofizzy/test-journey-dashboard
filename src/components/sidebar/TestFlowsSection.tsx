@@ -16,7 +16,7 @@ export function TestFlowsSection() {
     "Change Profile",
     "Request for Refund",
     "Leave Customer Review",
-    "Purchase with stolen card"
+    "Purchase (Fraud)"
   ]
 
   return (
