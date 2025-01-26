@@ -3,7 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 export function TopNav() {
   return (
-    <div className="h-16 bg-[#f2f0ef] border-b border-black px-6 flex items-center justify-between">
+    <div className="h-16 bg-[#f2f0ef] border-b border-black px-6 flex items-center justify-between py-8">
       <div className="font-heading text-xl font-semibold">
         CarbonCopies
       </div>

@@ -19,7 +19,7 @@ const App = () => (
       <SidebarProvider>
         <div className="min-h-screen flex flex-col w-full">
           <TopNav />
-          <div className="flex flex-1">
+          <div className="flex flex-1 pt-8">
             <div className="pt-8">
               <AppSidebar />
             </div>
