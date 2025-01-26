@@ -117,8 +117,8 @@ const JourneyDetail = () => {
   return (
     <div className="min-h-screen bg-[#f2f0ef]">
       <div className="max-w-7xl mx-auto flex h-[calc(100vh-64px)]">
-        <div className="flex-1 bg-[#f2f0ef] relative p-8 h-full">
-          <div className="relative h-full">
+        <div className="flex-1 bg-[#f2f0ef] relative p-8 h-[calc(100vh-80px)]">
+          <div className="relative h-[calc(100vh-96px)]">
             <PhonePreview
               currentImage={mockScreenshots[currentImageIndex]}
               isPaused={isPaused}
