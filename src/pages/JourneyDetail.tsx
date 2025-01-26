@@ -116,7 +116,7 @@ const JourneyDetail = () => {
 
   return (
     <div className="min-h-screen bg-[#f2f0ef]">
-      <div className="max-w-7xl mx-auto flex">
+      <div className="max-w-7xl mx-auto flex h-[calc(100vh-64px)]">
         <div className="flex-1 bg-[#f2f0ef] relative p-8">
           <div className="relative">
             <PhonePreview
@@ -145,7 +145,7 @@ const JourneyDetail = () => {
           </div>
         </div>
 
-        <Separator orientation="vertical" className="h-[calc(100vh-64px)] bg-black" />
+        <Separator orientation="vertical" className="h-full bg-black" />
 
         <div ref={rightPanelRef} className="w-[500px] space-y-6 max-h-[800px] overflow-y-auto p-8">
           <JourneyTabs 
