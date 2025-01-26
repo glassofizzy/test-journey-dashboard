@@ -37,8 +37,8 @@ const PhonePreview = ({ currentImage, isPaused, onTogglePause }: PhonePreviewPro
   };
 
   return (
-    <div className="flex flex-col items-center bg-black p-4 rounded-lg">
-      {/* Main Phone Preview - reduced height from 600px to 450px */}
+    <div className="flex flex-col items-center bg-[#f2f0ef] p-4 rounded-lg">
+      {/* Main Phone Preview */}
       <div className="w-[300px] h-[450px] border-[12px] border-black rounded-[40px] bg-white overflow-hidden relative">
         <img 
           src={currentImage}
@@ -47,15 +47,15 @@ const PhonePreview = ({ currentImage, isPaused, onTogglePause }: PhonePreviewPro
         />
       </div>
 
-      {/* Pause/Resume Button - reduced margin-top */}
+      {/* Pause/Resume Button */}
       <Button
         onClick={onTogglePause}
-        className="mt-4 border-2 border-white text-white hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition-all duration-200 hover:translate-x-[-4px] hover:translate-y-[-4px]"
+        className="mt-4 border-2 border-black text-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:translate-x-[-4px] hover:translate-y-[-4px]"
       >
         {isPaused ? "Resume" : "Pause"}
       </Button>
 
-      {/* Thumbnails Carousel - reduced margin-top and thumbnail heights */}
+      {/* Thumbnails Carousel */}
       <div className="mt-4 w-full max-w-[800px]">
         <Carousel
           opts={{
@@ -70,13 +70,10 @@ const PhonePreview = ({ currentImage, isPaused, onTogglePause }: PhonePreviewPro
                 <div 
                   className="flex flex-col items-center cursor-pointer transition-transform hover:scale-105"
                   onClick={() => {
-                    // Pause the auto-scroll
                     if (!isPaused) {
                       onTogglePause();
                     }
-                    // Find the index of the clicked thumbnail in mockSteps
                     const stepIndex = mockSteps.findIndex(s => s.screenshot === step.screenshot);
-                    // Update the parent component's currentImageIndex
                     if (typeof window !== 'undefined') {
                       const event = new CustomEvent('updateCurrentImage', { 
                         detail: { index: stepIndex } 
@@ -85,7 +82,7 @@ const PhonePreview = ({ currentImage, isPaused, onTogglePause }: PhonePreviewPro
                     }
                   }}
                 >
-                  <div className="w-[100px] h-[180px] border-[6px] border-white rounded-[20px] bg-white overflow-hidden relative">
+                  <div className="w-[100px] h-[180px] border-[6px] border-black rounded-[20px] bg-white overflow-hidden relative">
                     <img 
                       src={step.screenshot}
                       alt={step.step}
@@ -95,15 +92,15 @@ const PhonePreview = ({ currentImage, isPaused, onTogglePause }: PhonePreviewPro
                       {getMoodIcon(step.mood)}
                     </div>
                   </div>
-                  <div className="mt-2 text-white text-center text-sm">
+                  <div className="mt-2 text-black text-center text-sm">
                     {step.step}
                   </div>
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="border-white text-white hover:bg-white hover:text-black" />
-          <CarouselNext className="border-white text-white hover:bg-white hover:text-black" />
+          <CarouselPrevious className="border-black text-black hover:bg-black hover:text-white" />
+          <CarouselNext className="border-black text-black hover:bg-black hover:text-white" />
         </Carousel>
       </div>
     </div>
