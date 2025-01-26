@@ -39,14 +39,14 @@ export function AppSidebar() {
   ];
 
   return (
-    <Sidebar variant="floating" className="border-r border-black">
-      <SidebarContent className="h-[calc(100vh-64px)] flex flex-col justify-between font-['Valera_Round']">
+    <Sidebar variant="floating" className="border-r border-black mt-16">
+      <SidebarContent className="h-[90vh] flex flex-col justify-between font-['Valera_Round']">
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
               {/* Site Selector */}
               <SidebarMenuItem>
-                <SidebarMenuButton className="justify-between hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent">
+                <SidebarMenuButton className="justify-between hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-[40px]">
                   <div className="flex items-center gap-2">
                     <Globe className="h-4 w-4" />
                     <span>{selectedSite}</span>
@@ -58,7 +58,7 @@ export function AppSidebar() {
                     <SidebarMenuSubItem key={site}>
                       <SidebarMenuSubButton 
                         onClick={() => setSelectedSite(site)}
-                        className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent"
+                        className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-[40px]"
                       >
                         {site}
                       </SidebarMenuSubButton>
@@ -69,7 +69,7 @@ export function AppSidebar() {
 
               {/* Dashboard */}
               <SidebarMenuItem>
-                <SidebarMenuButton className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent">
+                <SidebarMenuButton className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-[40px]">
                   <LayoutDashboard className="h-4 w-4" />
                   <span>Dashboard</span>
                 </SidebarMenuButton>
@@ -77,7 +77,7 @@ export function AppSidebar() {
 
               {/* CarbonCopies */}
               <SidebarMenuItem>
-                <SidebarMenuButton className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent">
+                <SidebarMenuButton className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-[40px]">
                   <Users className="h-4 w-4" />
                   <span>CarbonCopies</span>
                 </SidebarMenuButton>
@@ -86,7 +86,7 @@ export function AppSidebar() {
               {/* Test Flows */}
               <SidebarMenuItem>
                 <SidebarMenuButton 
-                  className="justify-between hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent"
+                  className="justify-between hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-[40px]"
                   onClick={() => setTestFlowsExpanded(!testFlowsExpanded)}
                 >
                   <div className="flex items-center">
@@ -99,7 +99,7 @@ export function AppSidebar() {
                   <SidebarMenuSub>
                     {testFlows.map((flow) => (
                       <SidebarMenuSubItem key={flow}>
-                        <SidebarMenuSubButton className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent">
+                        <SidebarMenuSubButton className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-[40px]">
                           {flow}
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
@@ -110,7 +110,7 @@ export function AppSidebar() {
 
               {/* Integrations */}
               <SidebarMenuItem>
-                <SidebarMenuButton className="text-muted-foreground hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent">
+                <SidebarMenuButton className="text-muted-foreground hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-[40px]">
                   <Plug2 className="h-4 w-4" />
                   <span>Integrations (coming soon)</span>
                 </SidebarMenuButton>
@@ -123,25 +123,25 @@ export function AppSidebar() {
         <SidebarFooter className="pb-4">
           <SidebarMenu>
             <SidebarMenuItem>
-              <SidebarMenuButton className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent">
+              <SidebarMenuButton className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-[40px]">
                 <MessageSquareMore className="h-4 w-4" />
                 <span>Feedback</span>
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-              <SidebarMenuButton className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent">
+              <SidebarMenuButton className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-[40px]">
                 <HelpCircle className="h-4 w-4" />
                 <span>Help</span>
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-              <SidebarMenuButton className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent">
+              <SidebarMenuButton className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-[40px]">
                 <Settings className="h-4 w-4" />
                 <span>Settings</span>
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-              <SidebarMenuButton className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent">
+              <SidebarMenuButton className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-[40px]">
                 <LogOut className="h-4 w-4" />
                 <span>Logout</span>
               </SidebarMenuButton>
