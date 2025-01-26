@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Sidebar,
   SidebarContent,
@@ -15,8 +14,8 @@ import { FooterNav } from "./sidebar/FooterNav";
 
 export function AppSidebar() {
   return (
-    <Sidebar variant="floating" className="border-r border-black mt-16">
-      <SidebarContent className="h-[90vh] flex flex-col justify-between font-['Valera_Round']">
+    <Sidebar variant="floating" className="mt-16">
+      <SidebarContent className="h-[85vh] flex flex-col justify-between font-['Valera_Round']">
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
