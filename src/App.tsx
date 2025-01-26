@@ -17,12 +17,12 @@ const App = () => (
       <Toaster />
       <Sonner />
       <SidebarProvider>
-        <div className="min-h-screen flex flex-col w-full">
+        <div className="min-h-screen flex flex-col">
           <TopNav />
-          <div className="flex flex-1 pt-8">
-            <div className="pt-8">
+          <div className="flex-1 flex">
+            <aside className="w-64">
               <AppSidebar />
-            </div>
+            </aside>
             <main className="flex-1 p-8">
               <BrowserRouter>
                 <Routes>
