@@ -13,7 +13,7 @@ import { SiteSelector } from "./sidebar/SiteSelector"
 import { PersonasSection } from "./sidebar/PersonasSection"
 import { TestFlowsSection } from "./sidebar/TestFlowsSection"
 import { FooterNav } from "./sidebar/FooterNav"
-import { GitBranch } from "lucide-react"
+import { LayoutDashboard } from "lucide-react"
 
 export function AppSidebar() {
   return (
@@ -26,7 +26,8 @@ export function AppSidebar() {
 
               <SidebarMenuItem>
                 <SidebarMenuButton className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-full">
-                  Dashboard
+                  <LayoutDashboard className="h-4 w-4" />
+                  <span>Dashboard</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
 
@@ -35,7 +36,7 @@ export function AppSidebar() {
 
               <SidebarMenuItem>
                 <SidebarMenuButton className="text-muted-foreground hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-full">
-                  <GitBranch className="h-4 w-4" />
+                  <span className="h-4 w-4 flex items-center justify-center">🔀</span>
                   <span>Integrations (coming soon)</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
