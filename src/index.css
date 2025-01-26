@@ -32,7 +32,8 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground antialiased font-sans;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Valera Round', sans-serif;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
@@ -40,7 +41,7 @@
 }
 
 * {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Valera Round', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {

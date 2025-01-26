@@ -3,13 +3,14 @@ import {
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
+  SidebarGroupLabel,
   SidebarMenu,
-  SidebarMenuItem,
   SidebarMenuButton,
-  SidebarFooter,
+  SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubContent,
+  SidebarMenuSubTrigger,
 } from "@/components/ui/sidebar"
-
-import { SiteSelector } from "./sidebar/SiteSelector"
 import { PersonasSection } from "./sidebar/PersonasSection"
 import { TestFlowsSection } from "./sidebar/TestFlowsSection"
 import { FooterNav } from "./sidebar/FooterNav"
@@ -17,23 +18,18 @@ import { LayoutDashboard, PiSquare } from "lucide-react"
 
 export function AppSidebar() {
   return (
-    <Sidebar variant="floating" className="border-none">
-      <SidebarContent className="font-sans">
+    <Sidebar className="border-r border-black">
+      <SidebarContent className="pt-6">
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
-              <SiteSelector />
-
               <SidebarMenuItem>
-                <SidebarMenuButton className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-full">
+                <SidebarMenuButton className="text-muted-foreground hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-full">
                   <LayoutDashboard className="h-4 w-4" />
                   <span>Dashboard</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
-
-              <PersonasSection />
-              <TestFlowsSection />
-
+              <SiteSelector />
               <SidebarMenuItem>
                 <SidebarMenuButton className="text-muted-foreground hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-full">
                   <PiSquare className="h-4 w-4" />
@@ -44,12 +40,14 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
 
-        <div className="flex-1" />
-
-        <SidebarFooter className="pb-4">
-          <FooterNav />
-        </SidebarFooter>
+        <PersonasSection />
+        <TestFlowsSection />
       </SidebarContent>
+      <FooterNav />
     </Sidebar>
   )
+}
+
+function SiteSelector() {
+  // Original SiteSelector component code goes here
 }
