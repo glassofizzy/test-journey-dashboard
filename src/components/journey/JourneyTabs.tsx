@@ -32,7 +32,7 @@ const JourneyTabs = ({ currentContent, currentImageIndex, onBugClick, onTabChang
         {[
           { label: 'Persona Insights', value: 'persona-insights' },
           { label: 'UX Optimization', value: 'ux-optimization' },
-          { label: 'Generated UI', value: 'generated-ui' }
+          { label: <span>Generated UI <span className="text-xs opacity-60">(coming soon)</span></span>, value: 'generated-ui' }
         ].map((tab) => (
           <TabsTrigger
             key={tab.label}
