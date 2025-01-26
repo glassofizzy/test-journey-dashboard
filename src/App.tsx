@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { TopNav } from "@/components/TopNav";
+import { AppSidebar } from "@/components/AppSidebar";
 import Index from "./pages/Index";
 import JourneyDetail from "./pages/JourneyDetail";
 
@@ -17,10 +18,11 @@ const App = () => (
       <Sonner />
       <SidebarProvider>
         <div className="flex flex-col min-h-screen">
-          <div className="fixed top-0 left-0 right-0 z-50">
+          <div className="flex-none">
             <TopNav />
           </div>
-          <div className="flex-1 flex mt-16">
+          <div className="flex flex-1">
+            <AppSidebar />
             <main className="flex-1 p-8">
               <BrowserRouter>
                 <Routes>
