@@ -95,14 +95,11 @@ const Index = () => {
       <div className="max-w-7xl mx-auto space-y-6">
         <div className="flex items-center justify-between">
           <h1 className="text-4xl font-bold">Test Run History</h1>
-          <button className="px-4 py-2 bg-accent text-white border-2 border-black font-medium hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:translate-x-[-4px] hover:translate-y-[-4px]">
-            New Test +
-          </button>
         </div>
 
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-4">
-            <button className="flex items-center gap-2 px-4 py-2 bg-white border-2 border-black font-medium hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:translate-x-[-4px] hover:translate-y-[-4px]">
+            <button className="flex items-center gap-2 px-4 py-2 bg-white border border-black font-medium hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:translate-x-[-4px] hover:translate-y-[-4px]">
               <Filter size={20} />
               All Filters
             </button>
@@ -111,7 +108,7 @@ const Index = () => {
                 key={f}
                 onClick={() => setFilter(f as any)}
                 className={cn(
-                  "px-4 py-2 border-2 border-black font-medium transition-all duration-200",
+                  "px-4 py-2 border border-black font-medium transition-all duration-200",
                   filter === f ? "bg-black text-white" : "bg-white text-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-4px] hover:translate-y-[-4px]"
                 )}
               >
@@ -127,13 +124,13 @@ const Index = () => {
               placeholder="Search tests..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 pr-4 py-2 border-2 border-black bg-white w-[300px] focus:outline-none focus:ring-2 focus:ring-accent"
+              className="pl-10 pr-4 py-2 border border-black bg-white w-[300px] focus:outline-none focus:ring-2 focus:ring-accent"
             />
           </div>
         </div>
 
-        <div className="bg-white border-2 border-black">
-          <div className="grid grid-cols-5 gap-4 p-4 bg-white border-b-2 border-black font-medium">
+        <div className="bg-white border border-black">
+          <div className="grid grid-cols-5 gap-4 p-4 bg-white border-b border-black font-medium">
             <div className="flex items-center gap-2 cursor-pointer hover:text-accent">
               Test ID
               <ArrowUpDown size={16} />
