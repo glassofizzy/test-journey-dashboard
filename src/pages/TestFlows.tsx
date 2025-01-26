@@ -61,7 +61,7 @@ const TestFlows = () => {
             </div>
             <Button 
               onClick={handleNext}
-              className="bg-accent hover:bg-accent/90"
+              className="bg-black hover:bg-[#bb6bd9] text-white border border-black hover:border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
             >
               Next
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -91,7 +91,7 @@ const TestFlows = () => {
             </div>
             <Button 
               onClick={handleNext}
-              className="bg-accent hover:bg-accent/90"
+              className="bg-black hover:bg-[#bb6bd9] text-white border border-black hover:border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
             >
               Next
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -132,7 +132,7 @@ const TestFlows = () => {
             </div>
             <Button 
               onClick={handleNext}
-              className="bg-accent hover:bg-accent/90"
+              className="bg-black hover:bg-[#bb6bd9] text-white border border-black hover:border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
             >
               Next
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -165,7 +165,7 @@ const TestFlows = () => {
             </div>
             <Button 
               onClick={handleNext}
-              className="bg-accent hover:bg-accent/90"
+              className="bg-black hover:bg-[#bb6bd9] text-white border border-black hover:border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
             >
               Next
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -194,7 +194,7 @@ const TestFlows = () => {
             </div>
             <Button 
               onClick={handleNext}
-              className="bg-accent hover:bg-accent/90"
+              className="bg-black hover:bg-[#bb6bd9] text-white border border-black hover:border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
             >
               Start Test!
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -216,7 +216,7 @@ const TestFlows = () => {
                 <p className="text-gray-600 text-center">Your CarbonCopy has finished testing the flow.</p>
                 <Button 
                   onClick={() => setCurrentStep(1)}
-                  className="bg-accent hover:bg-accent/90"
+                  className="bg-black hover:bg-[#bb6bd9] text-white border border-black hover:border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
                 >
                   Start New Test
                 </Button>
