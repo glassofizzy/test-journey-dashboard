@@ -119,8 +119,8 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
 
-        {/* Footer Navigation */}
-        <SidebarFooter className="pb-4">
+        {/* Footer Navigation - Reduced margin-top */}
+        <SidebarFooter className="pb-4 -mt-20">
           <SidebarMenu>
             <SidebarMenuItem>
               <SidebarMenuButton className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-[40px]">
