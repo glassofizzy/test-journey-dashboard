@@ -22,7 +22,7 @@ const App = () => (
             <TopNav />
           </div>
           <div className="flex-1 flex mt-16">
-            <aside className="w-64 bg-background">
+            <aside className="w-64 bg-background h-[90%] self-end">
               <AppSidebar />
             </aside>
             <main className="flex-1 p-8">
