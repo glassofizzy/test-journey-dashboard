@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import StatusBadge from "@/components/test-run/StatusBadge";
 
 interface PersonaDetail {
   name: string;
@@ -26,14 +28,14 @@ const mockTestFlows = [
   {
     site: "Opensea.com",
     flows: [
-      { name: "NFT Purchase Flow", status: "Completed", date: "2024-02-20" },
-      { name: "Collection Browse", status: "In Progress", date: "2024-02-21" }
+      { id: "1", name: "NFT Purchase Flow", status: "Completed", date: "2024-02-20" },
+      { id: "2", name: "Collection Browse", status: "In Progress", date: "2024-02-21" }
     ]
   },
   {
     site: "Foundation.app",
     flows: [
-      { name: "Artist Profile Review", status: "Completed", date: "2024-02-19" }
+      { id: "3", name: "Artist Profile Review", status: "Completed", date: "2024-02-19" }
     ]
   }
 ];
@@ -113,11 +115,13 @@ export default function PersonaDetail() {
       <div className="flex-1">
         <div className="space-y-8">
           {mockTestFlows.map((siteData, index) => (
-            <div key={index} className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-lg font-semibold mb-4">{siteData.site}</h3>
+            <div key={index} className="bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border border-black">
+              <div className="p-4 border-b border-black">
+                <h3 className="text-lg font-semibold">{siteData.site}</h3>
+              </div>
               <Table>
                 <TableHeader>
-                  <TableRow className="hover:bg-transparent">
+                  <TableRow className="hover:bg-transparent border-b border-black">
                     <TableHead>Flow Name</TableHead>
                     <TableHead>Status</TableHead>
                     <TableHead>Date</TableHead>
@@ -125,9 +129,18 @@ export default function PersonaDetail() {
                 </TableHeader>
                 <TableBody>
                   {siteData.flows.map((flow, flowIndex) => (
-                    <TableRow key={flowIndex} className="hover:bg-gray-50">
-                      <TableCell className="font-medium">{flow.name}</TableCell>
-                      <TableCell>{flow.status}</TableCell>
+                    <TableRow 
+                      key={flowIndex} 
+                      className="hover:bg-gray-50 border-b border-black last:border-b-0"
+                    >
+                      <TableCell className="font-medium">
+                        <Link to={`/journey/${flow.id}`} className="hover:text-accent">
+                          {flow.name}
+                        </Link>
+                      </TableCell>
+                      <TableCell>
+                        <StatusBadge status={flow.status as 'Completed' | 'In Progress' | 'Cancelled'} />
+                      </TableCell>
                       <TableCell>{flow.date}</TableCell>
                     </TableRow>
                   ))}
