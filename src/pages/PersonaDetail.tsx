@@ -113,21 +113,33 @@ export default function PersonaDetail() {
       <div className="flex-1">
         <div className="space-y-8">
           {mockTestFlows.map((siteData, index) => (
-            <div key={index} className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-lg font-semibold mb-4">{siteData.site}</h3>
+            <div key={index} className="bg-white border border-black">
+              <div className="p-4 border-b border-black font-medium">
+                <h3 className="text-lg font-semibold">{siteData.site}</h3>
+              </div>
               <Table>
                 <TableHeader>
-                  <TableRow className="hover:bg-transparent">
-                    <TableHead>Flow Name</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead>Date</TableHead>
+                  <TableRow className="hover:bg-transparent border-b border-black">
+                    <TableHead className="font-medium">Flow Name</TableHead>
+                    <TableHead className="font-medium">Status</TableHead>
+                    <TableHead className="font-medium">Date</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {siteData.flows.map((flow, flowIndex) => (
-                    <TableRow key={flowIndex} className="hover:bg-gray-50">
+                    <TableRow key={flowIndex} className="hover:bg-gray-50 border-b border-black last:border-0">
                       <TableCell className="font-medium">{flow.name}</TableCell>
-                      <TableCell>{flow.status}</TableCell>
+                      <TableCell>
+                        <Badge 
+                          className={
+                            flow.status === "Completed" ? "bg-status-completed text-white" :
+                            flow.status === "In Progress" ? "bg-status-progress text-black" :
+                            "bg-status-failed text-white"
+                          }
+                        >
+                          {flow.status}
+                        </Badge>
+                      </TableCell>
                       <TableCell>{flow.date}</TableCell>
                     </TableRow>
                   ))}
