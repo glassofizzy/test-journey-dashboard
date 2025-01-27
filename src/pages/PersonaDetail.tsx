@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 
 interface PersonaDetail {
   name: string;
@@ -62,15 +63,43 @@ export default function PersonaDetail() {
   };
 
   return (
-    <div className="flex gap-6">
-      {/* Left Section - Persona Details */}
-      <div className="flex-1">
-        <Card>
-          <CardHeader className="flex flex-row items-center gap-4">
-            <Avatar className="h-16 w-16">
+    <div className="flex gap-8 min-h-screen bg-background">
+      {/* Left Profile Section */}
+      <div className="w-1/3">
+        <Card className="sticky top-8">
+          <CardHeader className="text-center">
+            <Avatar className="w-32 h-32 mx-auto mb-4">
               <AvatarImage src="/lovable-uploads/71b75d86-0b81-4ba2-b7a6-cfc16a2005ec.png" />
               <AvatarFallback>MC</AvatarFallback>
             </Avatar>
+            <CardTitle className="text-2xl mb-2">{personaDetails.name}</CardTitle>
+            <p className="text-sm text-gray-600">{personaDetails.username}</p>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-6">
+              <div>
+                <h3 className="font-heading font-semibold mb-2">About</h3>
+                <p className="text-sm">{personaDetails.traits}</p>
+              </div>
+              
+              <div>
+                <h3 className="font-heading font-semibold mb-2">Skills & Preferences</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary">{personaDetails.primaryDevice}</Badge>
+                  <Badge variant="secondary">{personaDetails.digitalExp}</Badge>
+                  <Badge variant="secondary">{personaDetails.socioEcon}</Badge>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Right Content Section */}
+      <div className="flex-1 space-y-6">
+        {/* Editable Details */}
+        <Card>
+          <CardHeader>
             <CardTitle>Persona Details</CardTitle>
           </CardHeader>
           <CardContent className="grid gap-4">
@@ -89,10 +118,8 @@ export default function PersonaDetail() {
             ))}
           </CardContent>
         </Card>
-      </div>
 
-      {/* Right Section - Test Flows */}
-      <div className="flex-1">
+        {/* Test Flows Section */}
         <Card>
           <CardHeader>
             <CardTitle>Test Flows</CardTitle>
