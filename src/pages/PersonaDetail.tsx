@@ -63,93 +63,79 @@ export default function PersonaDetail() {
   };
 
   return (
-    <div className="flex gap-8 min-h-screen bg-background">
+    <div className="flex gap-8 p-8 min-h-screen bg-background">
       {/* Left Profile Section */}
       <div className="w-1/3">
-        <Card className="sticky top-8">
-          <CardHeader className="text-center">
+        <div className="space-y-6">
+          <div className="text-center">
             <Avatar className="w-32 h-32 mx-auto mb-4">
               <AvatarImage src="/lovable-uploads/71b75d86-0b81-4ba2-b7a6-cfc16a2005ec.png" />
               <AvatarFallback>MC</AvatarFallback>
             </Avatar>
-            <CardTitle className="text-2xl mb-2">{personaDetails.name}</CardTitle>
+            <h2 className="text-2xl font-heading font-semibold mb-2">{personaDetails.name}</h2>
             <p className="text-sm text-gray-600">{personaDetails.username}</p>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-6">
-              <div>
-                <h3 className="font-heading font-semibold mb-2">About</h3>
-                <p className="text-sm">{personaDetails.traits}</p>
-              </div>
-              
-              <div>
-                <h3 className="font-heading font-semibold mb-2">Skills & Preferences</h3>
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary">{personaDetails.primaryDevice}</Badge>
-                  <Badge variant="secondary">{personaDetails.digitalExp}</Badge>
-                  <Badge variant="secondary">{personaDetails.socioEcon}</Badge>
-                </div>
-              </div>
+          </div>
+          
+          <div>
+            <h3 className="font-heading font-semibold mb-2">About</h3>
+            <p className="text-sm">{personaDetails.traits}</p>
+          </div>
+          
+          <div>
+            <h3 className="font-heading font-semibold mb-2">Skills & Preferences</h3>
+            <div className="flex flex-wrap gap-2">
+              <Badge variant="outline">{personaDetails.primaryDevice}</Badge>
+              <Badge variant="outline">{personaDetails.digitalExp}</Badge>
+              <Badge variant="outline">{personaDetails.socioEcon}</Badge>
             </div>
-          </CardContent>
-        </Card>
-      </div>
+          </div>
 
-      {/* Right Content Section */}
-      <div className="flex-1 space-y-6">
-        {/* Editable Details */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Persona Details</CardTitle>
-          </CardHeader>
-          <CardContent className="grid gap-4">
+          <div className="space-y-4">
+            <h3 className="font-heading font-semibold">Persona Details</h3>
             {Object.entries(personaDetails).map(([key, value]) => (
               <div key={key} className="grid gap-2">
-                <Label htmlFor={key} className="capitalize">
+                <Label htmlFor={key} className="capitalize text-sm text-gray-600">
                   {key.replace(/([A-Z])/g, ' $1').trim()}
                 </Label>
                 <Input
                   id={key}
                   value={value}
                   onChange={handleInputChange(key as keyof PersonaDetail)}
-                  className="border-black hover:border-accent focus:border-accent"
+                  className="border-0 bg-transparent hover:bg-gray-50 focus:bg-white focus:ring-0"
                 />
               </div>
             ))}
-          </CardContent>
-        </Card>
+          </div>
+        </div>
+      </div>
 
-        {/* Test Flows Section */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Test Flows</CardTitle>
-          </CardHeader>
-          <CardContent>
-            {mockTestFlows.map((siteData, index) => (
-              <div key={index} className="mb-6">
-                <h3 className="text-lg font-semibold mb-2">{siteData.site}</h3>
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Flow Name</TableHead>
-                      <TableHead>Status</TableHead>
-                      <TableHead>Date</TableHead>
+      {/* Right Content Section */}
+      <div className="flex-1">
+        <div className="space-y-8">
+          {mockTestFlows.map((siteData, index) => (
+            <div key={index} className="bg-white rounded-lg p-6 shadow-sm">
+              <h3 className="text-lg font-semibold mb-4">{siteData.site}</h3>
+              <Table>
+                <TableHeader>
+                  <TableRow className="hover:bg-transparent">
+                    <TableHead>Flow Name</TableHead>
+                    <TableHead>Status</TableHead>
+                    <TableHead>Date</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {siteData.flows.map((flow, flowIndex) => (
+                    <TableRow key={flowIndex} className="hover:bg-gray-50">
+                      <TableCell className="font-medium">{flow.name}</TableCell>
+                      <TableCell>{flow.status}</TableCell>
+                      <TableCell>{flow.date}</TableCell>
                     </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {siteData.flows.map((flow, flowIndex) => (
-                      <TableRow key={flowIndex}>
-                        <TableCell>{flow.name}</TableCell>
-                        <TableCell>{flow.status}</TableCell>
-                        <TableCell>{flow.date}</TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </div>
-            ))}
-          </CardContent>
-        </Card>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
