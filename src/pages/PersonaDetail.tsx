@@ -8,6 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import StatusBadge from "@/components/test-run/StatusBadge";
 import { Textarea } from "@/components/ui/textarea";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 interface PersonaDetail {
   name: string;
@@ -81,7 +82,49 @@ export default function PersonaDetail() {
           
           <div>
             <h3 className="font-heading font-semibold mb-2">About</h3>
-            <p className="text-sm">{personaDetails.traits}</p>
+            <p className="text-sm">
+              {personaDetails.traits}{" "}
+              <Sheet>
+                <SheetTrigger className="text-accent hover:underline">See details</SheetTrigger>
+                <SheetContent side="right" className="w-1/3 bg-[#f2f0ef] border-l border-black">
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-heading font-semibold">Persona Details</h3>
+                    <div className="grid grid-cols-2 gap-4">
+                      {Object.entries(personaDetails).map(([key, value]) => {
+                        if (key === 'traits') {
+                          return (
+                            <div key={key} className="col-span-2">
+                              <Label htmlFor={key} className="capitalize text-sm text-gray-600">
+                                {key.replace(/([A-Z])/g, ' $1').trim()}
+                              </Label>
+                              <Textarea
+                                id={key}
+                                value={value}
+                                onChange={handleInputChange(key as keyof PersonaDetail)}
+                                className="mt-1 border-0 bg-transparent hover:bg-white hover:border hover:border-black hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:bg-white focus:border focus:border-black focus:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
+                              />
+                            </div>
+                          );
+                        }
+                        return (
+                          <div key={key}>
+                            <Label htmlFor={key} className="capitalize text-sm text-gray-600">
+                              {key.replace(/([A-Z])/g, ' $1').trim()}
+                            </Label>
+                            <Input
+                              id={key}
+                              value={value}
+                              onChange={handleInputChange(key as keyof PersonaDetail)}
+                              className="mt-1 border-0 bg-transparent hover:bg-white hover:border hover:border-black hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:bg-white focus:border focus:border-black focus:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
+                            />
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </SheetContent>
+              </Sheet>
+            </p>
           </div>
           
           <div>
@@ -90,42 +133,6 @@ export default function PersonaDetail() {
               <Badge variant="outline">{personaDetails.primaryDevice}</Badge>
               <Badge variant="outline">{personaDetails.digitalExp}</Badge>
               <Badge variant="outline">{personaDetails.socioEcon}</Badge>
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            <h3 className="font-heading font-semibold">Persona Details</h3>
-            <div className="grid grid-cols-2 gap-4">
-              {Object.entries(personaDetails).map(([key, value]) => {
-                if (key === 'traits') {
-                  return (
-                    <div key={key} className="col-span-2">
-                      <Label htmlFor={key} className="capitalize text-sm text-gray-600">
-                        {key.replace(/([A-Z])/g, ' $1').trim()}
-                      </Label>
-                      <Textarea
-                        id={key}
-                        value={value}
-                        onChange={handleInputChange(key as keyof PersonaDetail)}
-                        className="mt-1 border-0 bg-transparent hover:bg-white hover:border hover:border-black hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:bg-white focus:border focus:border-black focus:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
-                      />
-                    </div>
-                  );
-                }
-                return (
-                  <div key={key}>
-                    <Label htmlFor={key} className="capitalize text-sm text-gray-600">
-                      {key.replace(/([A-Z])/g, ' $1').trim()}
-                    </Label>
-                    <Input
-                      id={key}
-                      value={value}
-                      onChange={handleInputChange(key as keyof PersonaDetail)}
-                      className="mt-1 border-0 bg-transparent hover:bg-white hover:border hover:border-black hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:bg-white focus:border focus:border-black focus:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
-                    />
-                  </div>
-                );
-              })}
             </div>
           </div>
         </div>
