@@ -1,18 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import StatusBadge from "@/components/test-run/StatusBadge";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-} from "@/components/ui/sheet";
 
 interface PersonaDetail {
   name: string;
@@ -71,8 +66,72 @@ export default function PersonaDetail() {
   };
 
   return (
-    <div className="flex gap-8 p-8 min-h-screen bg-[#f2f0ef]">
-      {/* Main Content Section with Tables */}
+    <div className="flex gap-8 p-8 min-h-screen bg-background">
+      {/* Left Profile Section */}
+      <div className="w-1/3">
+        <div className="space-y-6">
+          <div className="text-center">
+            <Avatar className="w-32 h-32 mx-auto mb-4">
+              <AvatarImage src="/lovable-uploads/61310974-dae6-43cf-bc79-2787e82a349b.png" />
+              <AvatarFallback>MC</AvatarFallback>
+            </Avatar>
+            <h2 className="text-2xl font-heading font-semibold mb-2">{personaDetails.name}</h2>
+            <p className="text-sm text-gray-600">{personaDetails.username}</p>
+          </div>
+          
+          <div>
+            <h3 className="font-heading font-semibold mb-2">About</h3>
+            <p className="text-sm">{personaDetails.traits}</p>
+          </div>
+          
+          <div>
+            <h3 className="font-heading font-semibold mb-2">Skills & Preferences</h3>
+            <div className="flex flex-wrap gap-2">
+              <Badge variant="outline">{personaDetails.primaryDevice}</Badge>
+              <Badge variant="outline">{personaDetails.digitalExp}</Badge>
+              <Badge variant="outline">{personaDetails.socioEcon}</Badge>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-heading font-semibold">Persona Details</h3>
+            <div className="grid grid-cols-2 gap-4">
+              {Object.entries(personaDetails).map(([key, value]) => {
+                if (key === 'traits') {
+                  return (
+                    <div key={key} className="col-span-2">
+                      <Label htmlFor={key} className="capitalize text-sm text-gray-600">
+                        {key.replace(/([A-Z])/g, ' $1').trim()}
+                      </Label>
+                      <Textarea
+                        id={key}
+                        value={value}
+                        onChange={handleInputChange(key as keyof PersonaDetail)}
+                        className="mt-1 border-0 bg-transparent hover:bg-white hover:border hover:border-black hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:bg-white focus:border focus:border-black focus:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
+                      />
+                    </div>
+                  );
+                }
+                return (
+                  <div key={key}>
+                    <Label htmlFor={key} className="capitalize text-sm text-gray-600">
+                      {key.replace(/([A-Z])/g, ' $1').trim()}
+                    </Label>
+                    <Input
+                      id={key}
+                      value={value}
+                      onChange={handleInputChange(key as keyof PersonaDetail)}
+                      className="mt-1 border-0 bg-transparent hover:bg-white hover:border hover:border-black hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:bg-white focus:border focus:border-black focus:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Right Content Section */}
       <div className="flex-1">
         <div className="space-y-8">
           {mockTestFlows.map((siteData, index) => (
@@ -111,76 +170,6 @@ export default function PersonaDetail() {
           ))}
         </div>
       </div>
-
-      {/* Persona Details Sheet */}
-      <Sheet defaultOpen>
-        <SheetContent className="w-1/3 min-w-[400px] bg-[#f2f0ef] border-l border-black overflow-y-auto">
-          <SheetHeader>
-            <SheetTitle>
-              <div className="text-center">
-                <Avatar className="w-32 h-32 mx-auto mb-4">
-                  <AvatarImage src="/lovable-uploads/61310974-dae6-43cf-bc79-2787e82a349b.png" />
-                  <AvatarFallback>MC</AvatarFallback>
-                </Avatar>
-                <h2 className="text-2xl font-heading font-semibold mb-2">{personaDetails.name}</h2>
-                <p className="text-sm text-gray-600">{personaDetails.username}</p>
-              </div>
-            </SheetTitle>
-          </SheetHeader>
-
-          <div className="mt-8 space-y-6">
-            <div>
-              <h3 className="font-heading font-semibold mb-2">About</h3>
-              <p className="text-sm">{personaDetails.traits}</p>
-            </div>
-            
-            <div>
-              <h3 className="font-heading font-semibold mb-2">Skills & Preferences</h3>
-              <div className="flex flex-wrap gap-2">
-                <Badge variant="outline">{personaDetails.primaryDevice}</Badge>
-                <Badge variant="outline">{personaDetails.digitalExp}</Badge>
-                <Badge variant="outline">{personaDetails.socioEcon}</Badge>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <h3 className="font-heading font-semibold">Persona Details</h3>
-              <div className="grid grid-cols-2 gap-4">
-                {Object.entries(personaDetails).map(([key, value]) => {
-                  if (key === 'traits') {
-                    return (
-                      <div key={key} className="col-span-2">
-                        <Label htmlFor={key} className="capitalize text-sm text-gray-600">
-                          {key.replace(/([A-Z])/g, ' $1').trim()}
-                        </Label>
-                        <Textarea
-                          id={key}
-                          value={value}
-                          onChange={handleInputChange(key as keyof PersonaDetail)}
-                          className="mt-1 border-0 bg-transparent hover:bg-white hover:border hover:border-black hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:bg-white focus:border focus:border-black focus:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
-                        />
-                      </div>
-                    );
-                  }
-                  return (
-                    <div key={key}>
-                      <Label htmlFor={key} className="capitalize text-sm text-gray-600">
-                        {key.replace(/([A-Z])/g, ' $1').trim()}
-                      </Label>
-                      <Input
-                        id={key}
-                        value={value}
-                        onChange={handleInputChange(key as keyof PersonaDetail)}
-                        className="mt-1 border-0 bg-transparent hover:bg-white hover:border hover:border-black hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:bg-white focus:border focus:border-black focus:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </SheetContent>
-      </Sheet>
     </div>
   );
 }
