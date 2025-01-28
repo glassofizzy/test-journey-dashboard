@@ -6,6 +6,9 @@ export {
   SidebarHeader,
   SidebarFooter,
   SidebarSeparator,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
 } from "./SidebarComponents"
 export {
   SidebarMenu,
