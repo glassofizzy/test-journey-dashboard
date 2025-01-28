@@ -15,7 +15,7 @@ import { FooterNav } from "./sidebar/FooterNav";
 export function AppSidebar() {
   return (
     <Sidebar variant="floating" className="border-r border-black mt-16">
-      <SidebarContent className="h-[calc(100vh-4rem)] flex flex-col justify-between overflow-hidden font-['Valera_Round']">
+      <SidebarContent className="min-h-[calc(100vh-4rem)] flex flex-col justify-between overflow-hidden font-['Valera_Round']">
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
