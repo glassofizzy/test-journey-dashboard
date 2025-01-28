@@ -72,7 +72,7 @@ export default function PersonaDetail() {
         <div className="space-y-6">
           <div className="text-center">
             <Avatar className="w-32 h-32 mx-auto mb-4">
-              <AvatarImage src="/lovable-uploads/71b75d86-0b81-4ba2-b7a6-cfc16a2005ec.png" />
+              <AvatarImage src="/lovable-uploads/61310974-dae6-43cf-bc79-2787e82a349b.png" />
               <AvatarFallback>MC</AvatarFallback>
             </Avatar>
             <h2 className="text-2xl font-heading font-semibold mb-2">{personaDetails.name}</h2>
