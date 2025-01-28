@@ -6,6 +6,11 @@ export const mainNavItems: NavSection = {
     {
       icon: Globe,
       label: "Site: Opensea.com",
+      subItems: [
+        { label: "Opensea.com" },
+        { label: "Sephora.com" },
+        { label: "Pi.ai" }
+      ]
     },
     {
       icon: LayoutDashboard,
@@ -20,6 +25,13 @@ export const mainNavItems: NavSection = {
     {
       icon: GitBranch,
       label: "Test Flows",
+      subItems: [
+        { label: "Login, Add to Cart" },
+        { label: "Change Profile" },
+        { label: "Request for Refund" },
+        { label: "Leave Customer Review" },
+        { label: "Purchase (Fraud)" }
+      ]
     },
     {
       icon: Plug2,
