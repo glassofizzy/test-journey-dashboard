@@ -25,7 +25,7 @@ export function PricingPopover({ isOpen, onClose }: PricingPopoverProps) {
           </h2>
           
           <div className="text-center space-y-2">
-            <div className="flex items-center justify-center gap-2">
+            <div className="flex items-center justify-center gap-2 font-['Varela_Round']">
               <span className="line-through text-gray-500">$29.99</span>
               <span className="text-2xl font-bold">$19.99</span>
               <span>/month</span>
