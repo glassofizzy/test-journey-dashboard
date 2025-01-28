@@ -7,6 +7,13 @@ export {
   SidebarFooter,
   SidebarSeparator,
 } from "./SidebarComponents"
+export {
+  SidebarMenu,
+  SidebarMenuItem,
+  SidebarMenuButton,
+  SidebarMenuSub,
+  SidebarMenuSubItem,
+  SidebarMenuSubButton,
+} from "./SidebarMenu"
 
-// Re-export types
 export type { SidebarContext } from "./SidebarProvider"

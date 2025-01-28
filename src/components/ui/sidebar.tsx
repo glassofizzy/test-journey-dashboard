@@ -1,13 +1,3 @@
-import {
-  SidebarProvider,
-  SidebarBase,
-  SidebarTrigger,
-  SidebarInput,
-  SidebarHeader,
-  SidebarFooter,
-  SidebarSeparator,
-} from "./sidebar"
-
 export {
   SidebarProvider,
   SidebarBase as Sidebar,
@@ -16,6 +6,12 @@ export {
   SidebarHeader,
   SidebarFooter,
   SidebarSeparator,
-}
+  SidebarMenu,
+  SidebarMenuItem,
+  SidebarMenuButton,
+  SidebarMenuSub,
+  SidebarMenuSubItem,
+  SidebarMenuSubButton,
+} from "./sidebar"
 
 export type { SidebarContext } from "./sidebar"
