@@ -78,36 +78,36 @@ export default function PersonaDetail() {
 
   return (
     <div className="flex gap-8 p-8 min-h-screen bg-background">
-      {/* Persona Selector */}
-      <div className="absolute top-24 left-8">
-        <Select
-          defaultValue="macy"
-          onValueChange={(value) => navigate(`/persona/${value}`)}
-        >
-          <SelectTrigger className="w-[200px] border border-black bg-white hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
-            <div className="flex items-center gap-2">
-              <Users className="h-4 w-4" />
-              <span>CarbonCopies:</span>
-            </div>
-            <SelectValue />
-          </SelectTrigger>
-          <SelectContent>
-            {personas.map((persona) => (
-              <SelectItem 
-                key={persona.id} 
-                value={persona.id}
-                className="hover:bg-accent hover:text-white cursor-pointer"
-              >
-                {persona.name}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-      </div>
-
       {/* Left Profile Section */}
       <div className="w-1/3 mt-12">
         <div className="space-y-6">
+          {/* Persona Selector moved here */}
+          <div className="mb-8">
+            <Select
+              defaultValue="macy"
+              onValueChange={(value) => navigate(`/persona/${value}`)}
+            >
+              <SelectTrigger className="w-[200px] border border-black bg-white hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
+                <div className="flex items-center gap-2">
+                  <Users className="h-4 w-4" />
+                  <span>CarbonCopies:</span>
+                </div>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {personas.map((persona) => (
+                  <SelectItem 
+                    key={persona.id} 
+                    value={persona.id}
+                    className="hover:bg-accent hover:text-white cursor-pointer"
+                  >
+                    {persona.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
           <div className="text-center">
             <Avatar className="w-32 h-32 mx-auto mb-4">
               <AvatarImage src="/lovable-uploads/61310974-dae6-43cf-bc79-2787e82a349b.png" />
