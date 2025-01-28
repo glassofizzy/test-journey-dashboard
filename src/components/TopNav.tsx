@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { useNavigate } from "react-router-dom"
+import { useState } from "react"
+import { PricingPopover } from "./PricingPopover"
 
 export function TopNav() {
   const navigate = useNavigate();
+  const [isPricingOpen, setIsPricingOpen] = useState(false);
 
   const handleNewClick = () => {
     navigate('/test-flows');
@@ -23,6 +26,15 @@ export function TopNav() {
           </div>
         </div>
         
+        <div className="absolute left-1/2 transform -translate-x-1/2">
+          <button
+            onClick={() => setIsPricingOpen(true)}
+            className="px-6 py-2 border-2 border-black rounded-[40px] font-semibold transition-all hover:bg-[#bb6bd9] hover:text-white"
+          >
+            Upgrade Now
+          </button>
+        </div>
+        
         <div className="flex items-center gap-4">
           <Button 
             onClick={handleNewClick}
@@ -37,6 +49,11 @@ export function TopNav() {
           </Avatar>
         </div>
       </div>
+
+      <PricingPopover 
+        isOpen={isPricingOpen}
+        onClose={() => setIsPricingOpen(false)}
+      />
     </header>
   )
 }
