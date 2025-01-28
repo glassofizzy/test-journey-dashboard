@@ -51,17 +51,20 @@ export function NavItem({ item, variant = "default" }: NavItemProps) {
       </SidebarMenuButton>
       {hasSubItems && expanded && (
         <SidebarMenuSub>
-          <div className="relative ml-4 pl-4 border-l border-black">
-            {item.subItems?.map((subItem) => (
-              <SidebarMenuSubItem key={subItem.label}>
-                <SidebarMenuSubButton 
-                  className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-full"
-                  onClick={() => subItem.onClick?.()}
-                >
-                  {subItem.label}
-                </SidebarMenuSubButton>
-              </SidebarMenuSubItem>
-            ))}
+          <div className="relative pl-[22px]">
+            <div className="absolute left-[10px] top-0 bottom-0 w-[1px] bg-black"></div>
+            <div className="space-y-1">
+              {item.subItems?.map((subItem) => (
+                <SidebarMenuSubItem key={subItem.label}>
+                  <SidebarMenuSubButton 
+                    className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-full pl-4"
+                    onClick={() => subItem.onClick?.()}
+                  >
+                    {subItem.label}
+                  </SidebarMenuSubButton>
+                </SidebarMenuSubItem>
+              ))}
+            </div>
           </div>
         </SidebarMenuSub>
       )}
