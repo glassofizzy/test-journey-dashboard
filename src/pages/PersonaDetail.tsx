@@ -7,6 +7,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import StatusBadge from "@/components/test-run/StatusBadge";
+import { Textarea } from "@/components/ui/textarea";
 
 interface PersonaDetail {
   name: string;
@@ -57,7 +58,7 @@ export default function PersonaDetail() {
     traits: "Macy is a crypto executive, who collects NFT from projects she is interested in."
   });
 
-  const handleInputChange = (field: keyof PersonaDetail) => (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (field: keyof PersonaDetail) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setPersonaDetails(prev => ({
       ...prev,
       [field]: e.target.value
@@ -94,19 +95,38 @@ export default function PersonaDetail() {
 
           <div className="space-y-4">
             <h3 className="font-heading font-semibold">Persona Details</h3>
-            {Object.entries(personaDetails).map(([key, value]) => (
-              <div key={key} className="grid gap-2">
-                <Label htmlFor={key} className="capitalize text-sm text-gray-600">
-                  {key.replace(/([A-Z])/g, ' $1').trim()}
-                </Label>
-                <Input
-                  id={key}
-                  value={value}
-                  onChange={handleInputChange(key as keyof PersonaDetail)}
-                  className="border-0 bg-transparent hover:bg-gray-50 focus:bg-white focus:ring-0"
-                />
-              </div>
-            ))}
+            <div className="grid grid-cols-2 gap-4">
+              {Object.entries(personaDetails).map(([key, value]) => {
+                if (key === 'traits') {
+                  return (
+                    <div key={key} className="col-span-2">
+                      <Label htmlFor={key} className="capitalize text-sm text-gray-600">
+                        {key.replace(/([A-Z])/g, ' $1').trim()}
+                      </Label>
+                      <Textarea
+                        id={key}
+                        value={value}
+                        onChange={handleInputChange(key as keyof PersonaDetail)}
+                        className="mt-1 border-0 bg-transparent hover:bg-white hover:border hover:border-black hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:bg-white focus:border focus:border-black focus:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
+                      />
+                    </div>
+                  );
+                }
+                return (
+                  <div key={key}>
+                    <Label htmlFor={key} className="capitalize text-sm text-gray-600">
+                      {key.replace(/([A-Z])/g, ' $1').trim()}
+                    </Label>
+                    <Input
+                      id={key}
+                      value={value}
+                      onChange={handleInputChange(key as keyof PersonaDetail)}
+                      className="mt-1 border-0 bg-transparent hover:bg-white hover:border hover:border-black hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:bg-white focus:border focus:border-black focus:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
+                    />
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
