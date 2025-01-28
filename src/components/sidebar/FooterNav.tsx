@@ -7,7 +7,7 @@ import {
 
 export function FooterNav() {
   return (
-    <SidebarMenu className="border-t border-black pt-4">
+    <SidebarMenu className="border-t border-black pt-4 mt-auto">
       <SidebarMenuItem>
         <SidebarMenuButton className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-full">
           <CreditCard className="h-4 w-4" />
