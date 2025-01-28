@@ -1,5 +1,5 @@
 import { LayoutDashboard } from "lucide-react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   SidebarMenuItem,
   SidebarMenuButton,
@@ -7,7 +7,14 @@ import {
 
 export function DashboardButton() {
   const location = useLocation();
+  const navigate = useNavigate();
   const isSelected = location.pathname === "/";
+
+  const handleClick = () => {
+    if (!isSelected) {
+      navigate("/");
+    }
+  };
 
   return (
     <SidebarMenuItem>
@@ -16,6 +23,7 @@ export function DashboardButton() {
           isSelected ? 'text-accent font-bold' : ''
         }`}
         data-active={isSelected}
+        onClick={handleClick}
       >
         <LayoutDashboard className="h-4 w-4" />
         <span>Dashboard</span>
