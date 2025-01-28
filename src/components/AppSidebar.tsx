@@ -3,14 +3,9 @@ import {
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarMenu,
 } from "@/components/ui/sidebar";
-import { SiteSelector } from "./sidebar/SiteSelector";
-import { DashboardButton } from "./sidebar/DashboardButton";
-import { PersonasSection } from "./sidebar/PersonasSection";
-import { TestFlowsSection } from "./sidebar/TestFlowsSection";
-import { IntegrationsButton } from "./sidebar/IntegrationsButton";
-import { FooterNav } from "./sidebar/FooterNav";
+import { NavSection } from "./sidebar/NavSection";
+import { mainNavItems, footerNavItems } from "@/config/navigation";
 
 export function AppSidebar() {
   return (
@@ -18,16 +13,14 @@ export function AppSidebar() {
       <SidebarContent className="min-h-[calc(100vh-4rem)] flex flex-col gap-8 overflow-hidden font-['Valera_Round']">
         <SidebarGroup>
           <SidebarGroupContent>
-            <SidebarMenu>
-              <SiteSelector />
-              <DashboardButton />
-              <PersonasSection />
-              <TestFlowsSection />
-              <IntegrationsButton />
-            </SidebarMenu>
+            <NavSection section={mainNavItems} />
           </SidebarGroupContent>
         </SidebarGroup>
-        <FooterNav />
+        <NavSection 
+          section={footerNavItems} 
+          variant="footer"
+          className="border-t border-black pt-4 mt-auto"
+        />
       </SidebarContent>
     </Sidebar>
   );
