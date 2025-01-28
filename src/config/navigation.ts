@@ -1,4 +1,4 @@
-import { CreditCard, Settings, MessageSquare, Users, LayoutDashboard, Users as UsersIcon, GitBranch, Globe, Plug2 } from "lucide-react";
+import { CreditCard, Settings, MessageSquare, Users, LayoutDashboard, Users as UsersIcon, GitBranch, Globe, Plug2, ChevronDown } from "lucide-react";
 import { NavSection } from "@/types/navigation";
 
 export const mainNavItems: NavSection = {
@@ -6,6 +6,12 @@ export const mainNavItems: NavSection = {
     {
       icon: Globe,
       label: "Site: Opensea.com",
+      expandable: true,
+      subItems: [
+        { label: "Production", path: "#" },
+        { label: "Staging", path: "#" },
+        { label: "Development", path: "#" }
+      ]
     },
     {
       icon: LayoutDashboard,
@@ -20,6 +26,14 @@ export const mainNavItems: NavSection = {
     {
       icon: GitBranch,
       label: "Test Flows",
+      expandable: true,
+      subItems: [
+        { label: "Login, Add to Cart", path: "#" },
+        { label: "Change Profile", path: "#" },
+        { label: "Request for Refund", path: "#" },
+        { label: "Leave Customer Review", path: "#" },
+        { label: "Purchase (Fraud)", path: "#" }
+      ]
     },
     {
       icon: Plug2,
