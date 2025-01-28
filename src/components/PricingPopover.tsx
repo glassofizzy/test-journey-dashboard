@@ -15,8 +15,8 @@ export function PricingPopover({ isOpen, onClose }: PricingPopoverProps) {
       <DialogContent className="sm:max-w-[425px] bg-white p-6 border border-black">
         <div className="flex flex-col items-center space-y-6">
           <img 
-            src="/lovable-uploads/156e43ea-6aa8-4ace-b190-878386b84acd.png" 
-            alt="Money Stack" 
+            src="/lovable-uploads/176c0355-24e5-4fcc-b108-e52ed20d6987.png" 
+            alt="Cool Character" 
             className="w-32 h-32 object-contain"
           />
           
