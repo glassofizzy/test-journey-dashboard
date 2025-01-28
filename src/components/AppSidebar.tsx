@@ -19,7 +19,7 @@ export function AppSidebar() {
         <NavSection 
           section={footerNavItems} 
           variant="footer"
-          className="border-t border-black pt-4 mt-auto"
+          className="mt-auto"
         />
       </SidebarContent>
     </Sidebar>
