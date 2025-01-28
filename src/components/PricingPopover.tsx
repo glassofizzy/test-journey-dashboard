@@ -17,7 +17,7 @@ export function PricingPopover({ isOpen, onClose }: PricingPopoverProps) {
           <img 
             src="/lovable-uploads/176c0355-24e5-4fcc-b108-e52ed20d6987.png" 
             alt="Cool Character" 
-            className="w-32 h-32 object-contain"
+            className="w-32 h-32 object-contain border border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
           />
           
           <h2 className="font-['Raleway'] text-2xl font-bold text-center">
@@ -38,7 +38,7 @@ export function PricingPopover({ isOpen, onClose }: PricingPopoverProps) {
           </div>
           
           <button 
-            className="w-full py-3 px-6 border-2 border-black bg-[#bb6bd9] text-white rounded-none font-['Raleway'] font-semibold transition-all hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-4px] hover:translate-y-[-4px]"
+            className="w-full py-3 px-6 border border-black bg-[#bb6bd9] text-white rounded-none font-['Raleway'] font-semibold transition-all hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-4px] hover:translate-y-[-4px]"
           >
             Subscribe Now
           </button>
