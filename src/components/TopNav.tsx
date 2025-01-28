@@ -29,7 +29,7 @@ export function TopNav() {
         <div className="absolute left-1/2 transform -translate-x-1/2">
           <button
             onClick={() => setIsPricingOpen(true)}
-            className="px-6 py-2 rounded-[40px] transition-all hover:bg-[#bb6bd9] hover:text-white hover:border-2 hover:border-black"
+            className="px-6 py-2 rounded-[40px] transition-all hover:bg-[#bb6bd9] hover:text-white hover:border hover:border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-4px] hover:translate-y-[-4px]"
           >
             Upgrade Now
           </button>
