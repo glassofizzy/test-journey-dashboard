@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { useNavigate } from "react-router-dom"
+import PricingPopover from "./pricing/PricingPopover"
+import { useState } from "react"
 
 export function TopNav() {
   const navigate = useNavigate();
+  const [isPricingOpen, setIsPricingOpen] = useState(false);
 
   const handleNewClick = () => {
     navigate('/test-flows');
@@ -21,6 +24,21 @@ export function TopNav() {
           <div className="font-heading text-xl font-semibold">
             CarbonCopies
           </div>
+        </div>
+        
+        <div className="flex-1 flex justify-center">
+          <PricingPopover
+            isOpen={isPricingOpen}
+            onOpenChange={setIsPricingOpen}
+            trigger={
+              <button 
+                className="text-accent hover:text-accent/90 font-medium"
+                onClick={() => setIsPricingOpen(true)}
+              >
+                Upgrade Now
+              </button>
+            }
+          />
         </div>
         
         <div className="flex items-center gap-4">
