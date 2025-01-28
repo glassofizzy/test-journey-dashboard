@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -9,6 +9,8 @@ import { Badge } from "@/components/ui/badge";
 import StatusBadge from "@/components/test-run/StatusBadge";
 import { Textarea } from "@/components/ui/textarea";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Users } from "lucide-react";
 
 interface PersonaDetail {
   name: string;
@@ -42,7 +44,15 @@ const mockTestFlows = [
   }
 ];
 
+const personas = [
+  { id: "macy", name: "Macy" },
+  { id: "alex", name: "Alex" },
+  { id: "lee", name: "Lee" },
+  { id: "amal", name: "Amal" }
+];
+
 export default function PersonaDetail() {
+  const navigate = useNavigate();
   const [personaDetails, setPersonaDetails] = useState<PersonaDetail>({
     name: "Macy",
     age: "40",
@@ -68,8 +78,35 @@ export default function PersonaDetail() {
 
   return (
     <div className="flex gap-8 p-8 min-h-screen bg-background">
+      {/* Persona Selector */}
+      <div className="absolute top-24 left-8">
+        <Select
+          defaultValue="macy"
+          onValueChange={(value) => navigate(`/persona/${value}`)}
+        >
+          <SelectTrigger className="w-[200px] border border-black bg-white hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
+            <div className="flex items-center gap-2">
+              <Users className="h-4 w-4" />
+              <span>CarbonCopies:</span>
+            </div>
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            {personas.map((persona) => (
+              <SelectItem 
+                key={persona.id} 
+                value={persona.id}
+                className="hover:bg-accent hover:text-white cursor-pointer"
+              >
+                {persona.name}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+
       {/* Left Profile Section */}
-      <div className="w-1/3">
+      <div className="w-1/3 mt-12">
         <div className="space-y-6">
           <div className="text-center">
             <Avatar className="w-32 h-32 mx-auto mb-4">
@@ -139,7 +176,7 @@ export default function PersonaDetail() {
       </div>
 
       {/* Right Content Section */}
-      <div className="flex-1">
+      <div className="flex-1 mt-12">
         <div className="space-y-8">
           {mockTestFlows.map((siteData, index) => (
             <div key={index} className="bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border border-black">
