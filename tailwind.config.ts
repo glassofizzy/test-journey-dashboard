@@ -19,8 +19,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['DM Sans', 'sans-serif'],
-        heading: ['Montserrat', 'sans-serif'],
+        sans: ['Varela Round', 'sans-serif'],
+        heading: ['Raleway', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
