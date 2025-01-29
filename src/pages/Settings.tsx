@@ -48,7 +48,7 @@ const Settings = () => {
       </Tabs>
 
       <div className="space-y-16">
-        <section id="account" className="bg-white border border-black p-8">
+        <section id="account" className="bg-white border border-black p-8 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
           <h2 className="text-2xl font-heading font-semibold mb-6 flex items-center gap-2">
             <User className="w-5 h-5" />
             Account
@@ -65,13 +65,13 @@ const Settings = () => {
                 <div className="flex gap-4">
                   <Button
                     variant="outline"
-                    className="border-black hover:bg-accent hover:text-white"
+                    className="border-black hover:bg-accent hover:text-white hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-[-4px] hover:translate-y-[-4px]"
                   >
                     Upload new photo
                   </Button>
                   <Button
                     variant="outline"
-                    className="border-black text-accent hover:bg-accent hover:text-white"
+                    className="border-black text-accent hover:bg-accent hover:text-white hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-[-4px] hover:translate-y-[-4px]"
                   >
                     Remove
                   </Button>
@@ -106,7 +106,7 @@ const Settings = () => {
           </div>
         </section>
 
-        <section id="billing" className="bg-white border border-black p-8">
+        <section id="billing" className="bg-white border border-black p-8 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
           <h2 className="text-2xl font-heading font-semibold mb-6 flex items-center gap-2">
             <CreditCard className="w-5 h-5" />
             Billing
@@ -118,12 +118,12 @@ const Settings = () => {
               <div className="bg-[#f2f0ef] p-4 border border-black">
                 <div className="flex justify-between items-center">
                   <div>
-                    <div className="font-semibold">Pro Plan</div>
+                    <div className="font-semibold">Pro Plan: Ain't got time for this</div>
                     <div className="text-sm text-gray-500">$19.99/month</div>
                   </div>
                   <Button 
                     variant="outline"
-                    className="border-black text-accent hover:bg-accent hover:text-white"
+                    className="border-black text-accent hover:bg-accent hover:text-white hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-[-4px] hover:translate-y-[-4px]"
                   >
                     Change plan
                   </Button>
@@ -160,7 +160,7 @@ const Settings = () => {
           </div>
         </section>
 
-        <section id="support" className="bg-white border border-black p-8">
+        <section id="support" className="bg-white border border-black p-8 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
           <h2 className="text-2xl font-heading font-semibold mb-6 flex items-center gap-2">
             <MessageSquare className="w-5 h-5" />
             Support
