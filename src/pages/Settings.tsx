@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CreditCard, MessageSquare, User } from "lucide-react";
+import { CreditCard, MessageSquare, User, Award, UserPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
@@ -100,6 +100,26 @@ const Settings = () => {
                 <div className="bg-[#f2f0ef] p-4 border border-black">
                   <div className="text-sm text-gray-500">Company Name</div>
                   <div>Acme Corp</div>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold">Community & Rewards</h3>
+                <div className="grid gap-4">
+                  <Button 
+                    variant="outline" 
+                    className="w-full justify-start border-black text-accent hover:bg-accent hover:text-white hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-[-4px] hover:translate-y-[-4px]"
+                  >
+                    <Award className="mr-2 h-4 w-4" />
+                    Feedback & Earn
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    className="w-full justify-start border-black text-accent hover:bg-accent hover:text-white hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-[-4px] hover:translate-y-[-4px]"
+                  >
+                    <UserPlus className="mr-2 h-4 w-4" />
+                    Refer & Earn
+                  </Button>
                 </div>
               </div>
             </div>
