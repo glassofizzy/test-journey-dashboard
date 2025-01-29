@@ -37,12 +37,12 @@ export function NavItem({ item, variant = "default" }: NavItemProps) {
       <SidebarMenuButton 
         className={`justify-between hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-full ${
           isSelected ? 'text-accent font-bold' : ''
-        } ${variant === "footer" ? "text-muted-foreground" : ""}`}
+        } ${variant === "footer" ? isSelected ? "text-accent font-bold" : "text-muted-foreground" : ""}`}
         data-active={isSelected}
         onClick={handleClick}
       >
         <div className="flex items-center">
-          <item.icon className="h-4 w-4 mr-2" />
+          <item.icon className={`h-4 w-4 mr-2 ${isSelected && variant === "footer" ? "text-accent" : ""}`} />
           <span>{item.label}</span>
         </div>
         {hasSubItems && (
