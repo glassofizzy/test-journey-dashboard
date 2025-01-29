@@ -49,6 +49,7 @@ export const footerNavItems: NavSection = {
     {
       icon: Settings,
       label: "Settings",
+      path: "/settings",
     },
     {
       icon: MessageSquare,
