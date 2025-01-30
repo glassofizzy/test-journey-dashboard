@@ -12,33 +12,45 @@ export function PricingPopover({ isOpen, onClose }: PricingPopoverProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px] bg-white p-8 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-        <div className="flex flex-col items-center space-y-8">
-          <img 
-            src="/lovable-uploads/176c0355-24e5-4fcc-b108-e52ed20d6987.png" 
-            alt="Cool Character" 
-            className="w-24 h-24 object-contain border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-          />
-          
-          <h2 className="font-heading text-3xl font-black text-center leading-tight">
-            Ain't got time for manual testing?
+      <DialogContent className="sm:max-w-[425px] bg-[#f2f0ef] p-8">
+        <div className="flex flex-col space-y-6">
+          <h2 className="font-heading text-4xl font-black text-[#bb6bd9]">
+            No time to waste
           </h2>
           
-          <div className="text-center space-y-2">
-            <div className="flex items-center justify-center gap-2 font-mono text-xl">
-              <span className="line-through text-gray-500">$29.99</span>
-              <span className="text-3xl font-black">$19.99</span>
-              <span className="text-lg">/month</span>
+          <div className="bg-white p-6 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <div className="space-y-4">
+              <p className="text-[#bb6bd9] font-heading italic">Dear you,</p>
+              
+              <h3 className="text-2xl font-heading font-bold leading-tight">
+                Do yourself a favor. Let us do the heavy lifting.
+              </h3>
+              
+              <div className="flex items-baseline gap-1 font-mono">
+                <span className="line-through text-gray-500">$29.99</span>
+                <span className="text-2xl font-black">USD$19.99</span>
+                <span className="text-sm">/mo</span>
+              </div>
+              
+              <div className="text-sm text-gray-600 font-mono">
+                14 test flows per month, $1 per test flow thereafter.
+              </div>
+              
+              <div>
+                <a href="#plans" className="text-[#bb6bd9] hover:underline text-sm">
+                  See plan details
+                </a>
+              </div>
+              
+              <div className="font-mono text-xs text-gray-500 italic text-right">
+                with love from us,<br />
+                Carboncopies
+              </div>
             </div>
           </div>
           
-          <div className="text-center font-mono">
-            <p className="mb-2">14 test flows per month, $1 per test flow thereafter.</p>
-            <a href="#" className="text-accent hover:underline font-medium">See plan details</a>
-          </div>
-          
           <button 
-            className="w-full py-4 px-6 border-2 border-black bg-accent text-white text-lg font-heading font-bold transition-all hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-4px] hover:translate-y-[-4px]"
+            className="w-full py-4 px-6 border-2 border-black bg-[#bb6bd9] text-white text-lg font-heading font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px]"
           >
             Subscribe Now
           </button>
