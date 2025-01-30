@@ -35,7 +35,7 @@ export const mainNavItems: NavSection = {
     },
     {
       icon: Plug2,
-      label: "Integrations (coming soon)",
+      label: "Integrations (beta)",
     },
   ],
 };

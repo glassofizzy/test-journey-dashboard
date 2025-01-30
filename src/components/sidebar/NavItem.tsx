@@ -35,7 +35,7 @@ export function NavItem({ item, variant = "default" }: NavItemProps) {
   return (
     <SidebarMenuItem>
       <SidebarMenuButton 
-        className={`justify-between hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-full ${
+        className={`justify-between hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-full text-left ${
           isSelected ? 'text-accent font-bold' : ''
         } ${variant === "footer" ? isSelected ? "text-accent font-bold" : "text-muted-foreground" : ""}`}
         data-active={isSelected}
@@ -43,7 +43,7 @@ export function NavItem({ item, variant = "default" }: NavItemProps) {
       >
         <div className="flex items-center">
           <item.icon className={`h-4 w-4 mr-2 ${isSelected && variant === "footer" ? "text-accent" : ""}`} />
-          <span>{item.label}</span>
+          <span className="text-left">{item.label}</span>
         </div>
         {hasSubItems && (
           <ChevronDown className={`h-4 w-4 transition-transform ${expanded ? 'rotate-180' : ''}`} />
@@ -57,7 +57,7 @@ export function NavItem({ item, variant = "default" }: NavItemProps) {
               {item.subItems?.map((subItem) => (
                 <SidebarMenuSubItem key={subItem.label}>
                   <SidebarMenuSubButton 
-                    className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-full pl-4"
+                    className="hover:bg-white hover:border-black hover:border-[1.5px] hover:text-accent rounded-full pl-4 text-left"
                     onClick={() => subItem.onClick?.()}
                   >
                     {subItem.label}
