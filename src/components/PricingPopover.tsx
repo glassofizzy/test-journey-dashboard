@@ -28,7 +28,7 @@ export function PricingPopover({ isOpen, onClose }: PricingPopoverProps) {
               
               <div className="flex items-baseline gap-1 font-mono">
                 <span className="line-through text-gray-500">$29.99</span>
-                <span className="text-2xl font-black">USD$19.99</span>
+                <span className="text-2xl font-black text-[#dd6db9]">USD$19.99</span>
                 <span className="text-sm">/mo</span>
               </div>
               
