@@ -53,32 +53,32 @@ export default function Login() {
           <img 
             src="/lovable-uploads/0ca52954-3b2d-497c-ab3b-a5de9d4ff52e.png"
             alt="Illustration 1"
-            className="w-full h-full object-cover border-2 border-black"
+            className="w-full h-full object-cover border-1 border-black"
           />
           <img 
             src="/lovable-uploads/9862242d-d83c-4095-b2b2-04c89dba9956.png"
             alt="Illustration 2"
-            className="w-full h-full object-cover border-2 border-black"
+            className="w-full h-full object-cover border-1 border-black"
           />
           <img 
             src="/lovable-uploads/d6b1b52e-c1a6-4844-acca-c8e5ad8e9997.png"
             alt="Illustration 3"
-            className="w-full h-full object-cover border-2 border-black"
+            className="w-full h-full object-cover border-1 border-black"
           />
           <img 
             src="/lovable-uploads/ffd56886-42e8-4465-aa45-90be3b02ab93.png"
             alt="Illustration 4"
-            className="w-full h-full object-cover border-2 border-black"
+            className="w-full h-full object-cover border-1 border-black"
           />
           <img 
             src="/lovable-uploads/60771938-ea1f-4aef-bbff-2b2ac41bfcbe.png"
             alt="Illustration 5"
-            className="w-full h-full object-cover border-2 border-black"
+            className="w-full h-full object-cover border-1 border-black"
           />
           <img 
             src="/lovable-uploads/af1088c0-0f9a-4127-88b0-8ffc95f532c1.png"
             alt="Illustration 6"
-            className="w-full h-full object-cover border-2 border-black"
+            className="w-full h-full object-cover border-1 border-black"
           />
         </div>
       </div>
