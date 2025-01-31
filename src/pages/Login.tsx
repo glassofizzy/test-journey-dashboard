@@ -73,7 +73,7 @@ export default function Login() {
           <img 
             src="/lovable-uploads/60771938-ea1f-4aef-bbff-2b2ac41bfcbe.png"
             alt="Illustration 5"
-            className="w-full h-full object-cover border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
+            className="w-full h-full object-cover border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white p-6"
           />
           <img 
             src="/lovable-uploads/af1088c0-0f9a-4127-88b0-8ffc95f532c1.png"
