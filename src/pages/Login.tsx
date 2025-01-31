@@ -49,7 +49,7 @@ export default function Login() {
 
       {/* Right side with image grid */}
       <div className="flex-1 p-8 hidden lg:flex items-center">
-        <div className="grid grid-cols-2 grid-rows-3 gap-4 w-full max-w-2xl mx-auto">
+        <div className="grid grid-cols-2 grid-rows-3 gap-0 w-full max-w-2xl mx-auto">
           <img 
             src="/lovable-uploads/0ca52954-3b2d-497c-ab3b-a5de9d4ff52e.png"
             alt="Illustration 1"
