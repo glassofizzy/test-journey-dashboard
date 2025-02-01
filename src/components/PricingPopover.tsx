@@ -12,50 +12,49 @@ export function PricingPopover({ isOpen, onClose }: PricingPopoverProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px] bg-[#f2f0ef] p-8">
+      <DialogContent className="sm:max-w-[425px] bg-[#bb6bd9] p-6 border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
         <div className="flex flex-col space-y-6">
-          <h2 className="font-heading text-4xl font-black text-[#bb6bd9]">
-            No time to waste
-          </h2>
+          {/* Title */}
+          <div className="bg-white p-4 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <h2 className="font-heading text-3xl font-black text-center">
+              Ain't got time for manual testing?
+            </h2>
+          </div>
           
-          <div className="bg-white p-6 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            <div className="space-y-4">
-              <p className="text-[#bb6bd9] font-heading italic">Dear you,</p>
-              
-              <h3 className="text-2xl font-heading font-bold leading-tight">
-                Do yourself a favor. Let us do the heavy lifting.
-              </h3>
-              
-              <div className="flex items-baseline gap-1 font-mono">
-                <span className="line-through text-gray-500">$29.99</span>
-                <span className="text-2xl font-black text-[#dd6db9]">USD$19.99</span>
-                <span className="text-sm">/mo</span>
-              </div>
-              
-              <div className="text-sm text-gray-600 font-mono">
-                14 test flows per month, $1 per test flow thereafter.
-              </div>
-              
-              <div>
-                <a href="#plans" className="text-[#bb6bd9] hover:underline text-sm">
-                  See plan details
-                </a>
-              </div>
-              
-              <div className="font-mono text-xs text-gray-500 italic text-right">
-                with love from us,<br />
-                Carboncopies
-              </div>
+          {/* Pricing */}
+          <div className="bg-black p-4 text-white flex items-baseline gap-2 justify-center border border-black shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)]">
+            <span className="line-through text-gray-400 text-xl">$29.99</span>
+            <span className="text-4xl font-black">$19.99</span>
+            <span className="text-xl">/mo</span>
+          </div>
+          
+          {/* Features */}
+          <div className="space-y-2 text-white relative">
+            <p className="text-xl font-semibold">14 test flows</p>
+            <p className="text-lg">$1/test thereafter</p>
+            <a href="#plans" className="text-white underline hover:text-yellow-200 transition-colors">
+              See plan details
+            </a>
+            
+            {/* Light Bulb Icon */}
+            <div className="absolute right-0 top-0">
+              <img 
+                src="/lovable-uploads/02f204ec-e207-4f57-ae41-30448d1658b9.png" 
+                alt="Light Bulb" 
+                className="w-16 h-16"
+              />
             </div>
           </div>
           
+          {/* Subscribe Button */}
           <button 
-            className="w-full py-4 px-6 border-2 border-black bg-[#bb6bd9] text-white text-lg font-heading font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px]"
+            className="w-full py-4 px-6 bg-[#01a99d] text-white text-xl font-bold border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px]"
           >
             Subscribe Now
           </button>
           
-          <p className="text-sm text-gray-500 text-center font-mono">
+          {/* Cancel Notice */}
+          <p className="text-sm text-white text-center">
             Cancel anytime before next payment date ({nextPaymentDate})
           </p>
         </div>
