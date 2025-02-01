@@ -12,17 +12,17 @@ export function PricingPopover({ isOpen, onClose }: PricingPopoverProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px] bg-[#bb6bd9] p-6 border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rounded-lg">
+      <DialogContent className="sm:max-w-[425px] bg-[#bb6bd9] p-6 border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
         <div className="flex flex-col space-y-6">
           {/* Title */}
-          <div className="bg-white p-4 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-lg">
+          <div className="bg-white p-4 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
             <h2 className="font-heading text-3xl font-black text-center">
               Ain't got time for manual testing?
             </h2>
           </div>
           
           {/* Pricing */}
-          <div className="p-4 text-white flex items-baseline gap-2 justify-center shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] rounded-lg">
+          <div className="bg-black p-4 text-white flex items-baseline gap-2 justify-center border border-black shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)]">
             <span className="line-through text-gray-400 text-xl">$29.99</span>
             <span className="text-4xl font-black">$19.99</span>
             <span className="text-xl">/mo</span>
@@ -48,7 +48,7 @@ export function PricingPopover({ isOpen, onClose }: PricingPopoverProps) {
           
           {/* Subscribe Button */}
           <button 
-            className="w-full py-4 px-6 bg-[#01a99d] text-white text-xl font-bold border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] rounded-lg"
+            className="w-full py-4 px-6 bg-[#01a99d] text-white text-xl font-bold border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px]"
           >
             Subscribe Now
           </button>
