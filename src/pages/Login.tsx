@@ -53,32 +53,32 @@ export default function Login() {
           <img 
             src="/lovable-uploads/0ca52954-3b2d-497c-ab3b-a5de9d4ff52e.png"
             alt="Illustration 1"
-            className="w-full h-full object-cover border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
+            className="w-[120%] h-[120%] object-contain p-4 border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
           />
           <img 
             src="/lovable-uploads/9862242d-d83c-4095-b2b2-04c89dba9956.png"
             alt="Illustration 2"
-            className="w-full h-full object-cover border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
+            className="w-[120%] h-[120%] object-contain p-4 border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
           />
           <img 
             src="/lovable-uploads/d6b1b52e-c1a6-4844-acca-c8e5ad8e9997.png"
             alt="Illustration 3"
-            className="w-full h-full object-cover border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
+            className="w-[120%] h-[120%] object-contain p-4 border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
           />
           <img 
             src="/lovable-uploads/ffd56886-42e8-4465-aa45-90be3b02ab93.png"
             alt="Illustration 4"
-            className="w-full h-full object-cover border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
+            className="w-[120%] h-[120%] object-contain p-4 border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
           />
           <img 
             src="/lovable-uploads/60771938-ea1f-4aef-bbff-2b2ac41bfcbe.png"
             alt="Illustration 5"
-            className="w-full h-full object-cover border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white p-6"
+            className="w-[120%] h-[120%] object-contain p-4 border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
           />
           <img 
             src="/lovable-uploads/af1088c0-0f9a-4127-88b0-8ffc95f532c1.png"
             alt="Illustration 6"
-            className="w-full h-full object-cover border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
+            className="w-full h-full object-contain p-6 border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
           />
         </div>
       </div>
