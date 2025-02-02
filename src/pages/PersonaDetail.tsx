@@ -78,10 +78,8 @@ export default function PersonaDetail() {
 
   return (
     <div className="flex gap-8 p-8 min-h-screen bg-background">
-      {/* Left Profile Section */}
       <div className="w-1/3 mt-12">
         <div className="space-y-6">
-          {/* Persona Selector moved here */}
           <div className="mb-8">
             <Select
               defaultValue="macy"
@@ -109,14 +107,14 @@ export default function PersonaDetail() {
           </div>
 
           <div className="text-center">
-            <Avatar className="w-32 h-32 mx-auto mb-4">
-              <AvatarImage src="/lovable-uploads/61310974-dae6-43cf-bc79-2787e82a349b.png" />
+            <Avatar className="w-32 h-32 mx-auto mb-4 border border-black">
+              <AvatarImage src="/lovable-uploads/0c27f2c9-f81c-461f-8393-2d5ff930fd0a.png" />
               <AvatarFallback>MC</AvatarFallback>
             </Avatar>
             <h2 className="text-2xl font-heading font-semibold mb-2">{personaDetails.name}</h2>
             <p className="text-sm text-gray-600">{personaDetails.username}</p>
           </div>
-          
+
           <div>
             <h3 className="font-heading font-semibold mb-2">About</h3>
             <p className="text-sm">
@@ -175,7 +173,6 @@ export default function PersonaDetail() {
         </div>
       </div>
 
-      {/* Right Content Section */}
       <div className="flex-1 mt-12">
         <div className="space-y-8">
           {mockTestFlows.map((siteData, index) => (
