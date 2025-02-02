@@ -19,23 +19,30 @@ const TestFlows = () => {
 
   const personas = [
     {
-      id: 'jane',
-      name: 'Jane',
-      description: 'Female, 46, Premium, Daily User',
-      avatar: '/lovable-uploads/7c7085f8-e7ed-4e2f-968d-da0ed7d8e4bd.png'
+      id: 'jordan',
+      name: 'Jordan',
+      age: 32,
+      role: 'NFT Collector',
+      city: 'San Francisco USA',
+      language: 'EN-US',
+      description: 'Jordan is a passionate digital art collector who is always on the lookout for unique NFT artworks that evoke deep emotions and artistic narratives.',
+      avatar: '/lovable-uploads/b9870b76-a18c-410d-8bc2-596b8a1c4b7e.png'
     },
     {
-      id: 'john',
-      name: 'John',
-      description: 'Male, 34, Free, Intermittent User',
-      avatar: '/lovable-uploads/4efb6fde-7c07-4a4f-aac7-707a520a4e27.png'
+      id: 'mina',
+      name: 'Mina',
+      age: 28,
+      role: 'Creative Art Teacher',
+      city: 'Seoul South Korea',
+      language: 'KR',
+      description: 'Mina is an art teacher interested in exploring innovative ways to integrate digital art into her curriculum and inspire her students.',
+      avatar: '/lovable-uploads/6da9b3f2-e38b-4c0c-a519-4947d90e9f4f.png'
     }
   ];
 
   const handleNext = () => {
     if (currentStep === 6) {
       setIsLoading(true);
-      // Simulate loading
       setTimeout(() => {
         setIsLoading(false);
       }, 3000);
@@ -119,11 +126,18 @@ const TestFlows = () => {
                       <img 
                         src={persona.avatar} 
                         alt={persona.name} 
-                        className="w-10 h-10 rounded-full"
+                        className="w-12 h-12 rounded-full object-cover"
                       />
-                      <div>
-                        <div className="font-medium">{persona.name}</div>
-                        <div className="text-sm text-gray-500">{persona.description}</div>
+                      <div className="space-y-1">
+                        <div className="font-bold">
+                          {persona.name} ({persona.age})
+                        </div>
+                        <div className="text-sm text-gray-600">
+                          {persona.role}, {persona.city}, {persona.language}
+                        </div>
+                        <div className="text-xs text-gray-500">
+                          {persona.description}
+                        </div>
                       </div>
                     </div>
                   </div>
