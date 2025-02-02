@@ -83,7 +83,7 @@ const TestFlows = () => {
     switch (currentStep) {
       case 1:
         return (
-          <div className="space-y-6">
+          <div className="flex flex-col justify-center h-full space-y-6">
             <div>
               <h2 className="text-2xl font-bold mb-4">Let's kick off testing. What's your website?</h2>
               <Input 
@@ -325,7 +325,7 @@ const TestFlows = () => {
 
         <Separator orientation="vertical" className="h-full bg-black" />
 
-        <div className="w-[500px] p-8">
+        <div className="w-[500px] p-8 flex flex-col">
           {renderStep()}
         </div>
       </div>
