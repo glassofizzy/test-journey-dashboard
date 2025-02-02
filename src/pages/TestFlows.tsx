@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Separator } from "@/components/ui/separator";
 import PhonePreview from '@/components/journey/PhonePreview';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ArrowLeft } from 'lucide-react';
 
 const TestFlows = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -51,7 +51,35 @@ const TestFlows = () => {
     }
   };
 
+  const handlePrevious = () => {
+    if (currentStep > 1) {
+      setCurrentStep(prev => prev - 1);
+    }
+  };
+
   const renderStep = () => {
+    const renderButtons = () => (
+      <div className="flex gap-4">
+        {currentStep > 1 && (
+          <Button 
+            onClick={handlePrevious}
+            variant="outline"
+            className="border-black hover:bg-[#bb6bd9] hover:text-white hover:border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Previous
+          </Button>
+        )}
+        <Button 
+          onClick={handleNext}
+          className="bg-black hover:bg-[#bb6bd9] text-white border border-black hover:border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
+        >
+          {currentStep === 5 ? 'Start Test!' : 'Next'}
+          {currentStep !== 5 && <ArrowRight className="ml-2 h-4 w-4" />}
+        </Button>
+      </div>
+    );
+
     switch (currentStep) {
       case 1:
         return (
@@ -66,13 +94,7 @@ const TestFlows = () => {
                 className="max-w-md"
               />
             </div>
-            <Button 
-              onClick={handleNext}
-              className="bg-black hover:bg-[#bb6bd9] text-white border border-black hover:border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
-            >
-              Next
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+            {renderButtons()}
           </div>
         );
       case 2:
@@ -96,13 +118,7 @@ const TestFlows = () => {
                 </div>
               </RadioGroup>
             </div>
-            <Button 
-              onClick={handleNext}
-              className="bg-black hover:bg-[#bb6bd9] text-white border border-black hover:border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
-            >
-              Next
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+            {renderButtons()}
           </div>
         );
       case 3:
@@ -291,9 +307,7 @@ const TestFlows = () => {
             )}
           </div>
         );
-      default:
-        return null;
-    }
+    };
   };
 
   return (
