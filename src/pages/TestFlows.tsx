@@ -115,10 +115,10 @@ const TestFlows = () => {
                 {personas.map((persona) => (
                   <div 
                     key={persona.id}
-                    className={`p-4 border rounded-lg cursor-pointer transition-all duration-200 ${
+                    className={`p-4 rounded-lg cursor-pointer transition-all duration-200 border border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${
                       selectedPersona === persona.id 
                         ? 'border-accent bg-accent/10' 
-                        : 'border-gray-200 hover:border-accent'
+                        : 'border-black hover:border-accent'
                     }`}
                     onClick={() => setSelectedPersona(persona.id)}
                   >
@@ -126,7 +126,7 @@ const TestFlows = () => {
                       <img 
                         src={persona.avatar} 
                         alt={persona.name} 
-                        className="w-12 h-12 rounded-full object-cover"
+                        className="w-12 h-12 rounded-full object-cover border border-black"
                       />
                       <div className="space-y-1">
                         <div className="font-bold">
