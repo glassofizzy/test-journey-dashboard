@@ -158,13 +158,13 @@ const TestFlows = () => {
           <div className="space-y-6">
             <div>
               <h2 className="text-2xl font-bold mb-6">Customize your CarbonCopy</h2>
-              <div className="flex items-start gap-6 mb-6">
+              <div className="flex flex-col items-center mb-6">
                 <img 
                   src="/lovable-uploads/398f9af0-dae7-49ce-9af5-db987d8da915.png" 
                   alt="Jordan's avatar" 
-                  className="w-24 h-24 rounded-full object-cover border border-black"
+                  className="w-24 h-24 rounded-full object-cover border border-black mb-6"
                 />
-                <div className="flex-1 grid grid-cols-2 gap-x-8 gap-y-4">
+                <div className="w-full grid grid-cols-2 gap-x-8 gap-y-4">
                   <div>
                     <Label className="text-gray-600">Name</Label>
                     <div className="font-medium">Jordan</div>
