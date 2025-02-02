@@ -6,7 +6,6 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Separator } from "@/components/ui/separator";
 import PhonePreview from '@/components/journey/PhonePreview';
 import { ArrowRight } from 'lucide-react';
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const TestFlows = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -23,20 +22,11 @@ const TestFlows = () => {
       id: 'jordan',
       name: 'Jordan',
       age: 32,
-      socioEcon: 'Middle-High',
       role: 'NFT Collector',
       city: 'San Francisco USA',
       language: 'EN-US',
-      currency: 'USD',
-      device: 'Macbook',
-      digitalExp: 'Expert',
-      frequentedApps: 'Discord, Coinbase, X',
-      username: 'jordan987@ccmail.com',
-      password: '**********',
-      paymentMethod: 'Coinbase Wallet',
-      paymentDetail: '[Token]',
       description: 'Jordan is a passionate digital art collector who is always on the lookout for unique NFT artworks that evoke deep emotions and artistic narratives.',
-      avatar: '/lovable-uploads/f34bc15a-ebd5-4e72-958b-6f00ec0f4ee3.png'
+      avatar: '/lovable-uploads/b9870b76-a18c-410d-8bc2-596b8a1c4b7e.png'
     },
     {
       id: 'mina',
@@ -59,40 +49,6 @@ const TestFlows = () => {
     } else {
       setCurrentStep(prev => prev + 1);
     }
-  };
-
-  const renderPersonaDetails = (persona: typeof personas[0]) => {
-    const details = [
-      { label: 'Name', value: persona.name },
-      { label: 'Age', value: persona.age },
-      { label: 'Socio Econ', value: persona.socioEcon },
-      { label: 'Primary Device', value: persona.device },
-      { label: 'City', value: persona.city },
-      { label: 'Currency', value: persona.currency },
-      { label: 'Digital Exp', value: persona.digitalExp },
-      { label: 'Frequented Apps', value: persona.frequentedApps },
-      { label: 'Username', value: persona.username },
-      { label: 'Password', value: persona.password },
-      { label: 'Payment Method', value: persona.paymentMethod },
-      { label: 'Payment Detail', value: persona.paymentDetail },
-    ];
-
-    return (
-      <div className="grid grid-cols-2 gap-4 p-4">
-        {details.map((detail, index) => (
-          detail.value && (
-            <div key={index} className="space-y-1">
-              <Label className="text-sm text-gray-600">{detail.label}</Label>
-              <div className="font-medium">{detail.value}</div>
-            </div>
-          )
-        ))}
-        <div className="col-span-2 space-y-1">
-          <Label className="text-sm text-gray-600">Traits</Label>
-          <div className="text-sm">{persona.description}</div>
-        </div>
-      </div>
-    );
   };
 
   const renderStep = () => {
@@ -153,7 +109,7 @@ const TestFlows = () => {
         return (
           <div className="space-y-6">
             <div>
-              <h2 className="text-2xl font-heading font-bold mb-4">Customize your CarbonCopy</h2>
+              <h2 className="text-2xl font-bold mb-4">Create your CarbonCopy</h2>
               <p className="text-gray-600 mb-4">Select the closest user persona to start with:</p>
               <div className="grid gap-4">
                 {personas.map((persona) => (
@@ -183,17 +139,6 @@ const TestFlows = () => {
                           {persona.description}
                         </div>
                       </div>
-                      <Sheet>
-                        <SheetTrigger className="ml-auto text-accent hover:underline">
-                          See details
-                        </SheetTrigger>
-                        <SheetContent side="right" className="w-[400px] bg-[#f2f0ef] border-l border-black">
-                          <div className="space-y-4">
-                            <h3 className="text-xl font-heading font-semibold">Persona Details</h3>
-                            {renderPersonaDetails(persona)}
-                          </div>
-                        </SheetContent>
-                      </Sheet>
                     </div>
                   </div>
                 ))}
