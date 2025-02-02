@@ -48,25 +48,26 @@ const personas = [
   { id: "macy", name: "Macy" },
   { id: "alex", name: "Alex" },
   { id: "lee", name: "Lee" },
-  { id: "amal", name: "Amal" }
+  { id: "amal", name: "Amal" },
+  { id: "jordan", name: "Jordan" }
 ];
 
 export default function PersonaDetail() {
   const navigate = useNavigate();
   const [personaDetails, setPersonaDetails] = useState<PersonaDetail>({
-    name: "Macy",
-    age: "40",
-    socioEcon: "High Income Earner",
-    primaryDevice: "iOS Mobile",
-    city: "Chicago",
-    currency: "USD $",
-    digitalExp: "Intermediate",
-    frequentedApps: "Outlook, Calendly, Classpass",
-    username: "macy@ccmail.com",
-    password: "******************",
-    paymentMethod: "Credit Card",
+    name: "Jordan",
+    age: "32",
+    socioEcon: "Middle-High",
+    primaryDevice: "Macbook",
+    city: "San Francisco USA",
+    currency: "USD",
+    digitalExp: "Expert",
+    frequentedApps: "Discord, Coinbase, X",
+    username: "jordan987@ccmail.com",
+    password: "**********",
+    paymentMethod: "Coinbase Wallet",
     paymentDetail: "[Token]",
-    traits: "Macy is a crypto executive, who collects NFT from projects she is interested in."
+    traits: "Jordan is a passionate digital art collector who is always on the lookout for unique NFT artworks that evoke deep emotions and artistic narratives."
   });
 
   const handleInputChange = (field: keyof PersonaDetail) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -82,7 +83,7 @@ export default function PersonaDetail() {
         <div className="space-y-6">
           <div className="mb-8">
             <Select
-              defaultValue="macy"
+              defaultValue="jordan"
               onValueChange={(value) => navigate(`/persona/${value}`)}
             >
               <SelectTrigger className="w-[200px] border border-black bg-white hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
@@ -108,8 +109,8 @@ export default function PersonaDetail() {
 
           <div className="text-center">
             <Avatar className="w-32 h-32 mx-auto mb-4 border border-black">
-              <AvatarImage src="/lovable-uploads/0c27f2c9-f81c-461f-8393-2d5ff930fd0a.png" />
-              <AvatarFallback>MC</AvatarFallback>
+              <AvatarImage src="/lovable-uploads/657ef2bb-0956-4fce-a712-536ee65b3f13.png" />
+              <AvatarFallback>JD</AvatarFallback>
             </Avatar>
             <h2 className="text-2xl font-heading font-semibold mb-2">{personaDetails.name}</h2>
             <p className="text-sm text-gray-600">{personaDetails.username}</p>
