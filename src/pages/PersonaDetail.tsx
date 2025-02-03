@@ -30,7 +30,7 @@ interface PersonaDetail {
 
 const mockTestFlows = [
   {
-    site: "Opensea.com",
+    site: "Robinhood.com",
     flows: [
       { id: "1", name: "NFT Purchase Flow", status: "Completed", date: "2024-02-20" },
       { id: "2", name: "Collection Browse", status: "In Progress", date: "2024-02-21" }

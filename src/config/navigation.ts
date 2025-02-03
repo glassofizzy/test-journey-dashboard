@@ -5,9 +5,9 @@ export const mainNavItems: NavSection = {
   items: [
     {
       icon: Globe,
-      label: "Site: Opensea.com",
+      label: "Site: Robinhood.com",
       subItems: [
-        { label: "Opensea.com" },
+        { label: "Robinhood.com" },
         { label: "Sephora.com" },
         { label: "Pi.ai" }
       ]
