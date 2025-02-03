@@ -67,8 +67,8 @@ export const bugCategoriesByScreen: BugCategories[] = [
         {
           title: "Stock screeners",
           priority: "Medium",
-          description: "Based on the screenshot, the stock screeners available ('Daily price jumps,' 'Daily price dips,' 'Upcoming earnings') are somewhat useful, but they are quite basic for my needs as an experienced professional. Additional Queries Macy would Find Useful: Valuation Metrics: I'd need screeners based on financial ratio changes and benchmarks (such as Price-to-Earnings (P/E)). Growth: Screeners based on earnings growth (past and projected) and revenue growth rates.",
-          treatment: "Implement advanced screeners for financial ratios, growth metrics, and valuation benchmarks.",
+          description: "Based on the screenshot, the stock screeners available ('Daily price jumps,' 'Daily price dips,' 'Upcoming earnings') are somewhat useful, but they are quite basic for my needs as an experienced professional.\n\nAdditional Queries Macy would Find Useful:\nValuation Metrics: I'd need screeners based on financial ratio changes and benchmarks (such as Price-to-Earnings (P/E))\nGrowth: Screeners based on earnings growth (past and projected) and revenue growth rates.",
+          treatment: "Additional Queries Macy would Find Useful:\n- Implement advanced screeners for financial ratios and valuation benchmarks\n- Add growth-based screeners for earnings and revenue analysis",
           highlightArea: { x: 150, y: 150, width: 100, height: 30 }
         }
       ]
