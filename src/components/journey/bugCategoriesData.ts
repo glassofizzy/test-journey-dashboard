@@ -53,10 +53,10 @@ export const bugCategoriesByScreen: BugCategories[] = [
       color: "#BB6BD9",
       bugs: [
         {
-          title: "Filter buttons too small",
-          priority: "High",
-          description: "Filter buttons are difficult to tap on mobile devices.",
-          treatment: "Increase button size and add proper spacing.",
+          title: "Browsing Content Visibility",
+          priority: "Low",
+          description: "The mobile keyboard obscures most of the stock screener list when the search bar is activated. This limits discoverability of browsing options.",
+          treatment: "Reduce the initial number of visible screeners, and utilize clear visual cues (e.g., partial view of a next item or a scroll indicator) to indicate more options are available below. Alternatively, minimize the keyboard UI screen real estate to maximize view of screen.",
           highlightArea: { x: 120, y: 200, width: 80, height: 40 }
         }
       ]
