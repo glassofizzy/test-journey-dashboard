@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
 import { NavigationButtons } from "./NavigationButtons";
 
 interface PersonaCustomizationProps {
@@ -8,6 +9,33 @@ interface PersonaCustomizationProps {
 }
 
 export const PersonaCustomization = ({ onNext, onPrevious }: PersonaCustomizationProps) => {
+  const [personaData, setPersonaData] = useState({
+    name: 'Jordan',
+    age: '32',
+    socioecon: 'Middle-High',
+    role: 'NFT Collector',
+    city: 'San Francisco USA',
+    language: 'EN-US',
+    currency: 'USD',
+    device: 'Macbook',
+    digitalExp: 'Expert',
+    frequentedApps: 'Discord, Coinbase, X',
+    username: 'jordan987@ccmail.com',
+    password: '**********',
+    paymentMethod: 'Coinbase Wallet',
+    paymentDetail: '[Token]',
+    description: 'Jordan is a passionate digital art collector who is always on the lookout for unique NFT artworks that evoke deep emotions and artistic narratives.'
+  });
+
+  const handleInputChange = (field: keyof typeof personaData) => (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setPersonaData(prev => ({
+      ...prev,
+      [field]: e.target.value
+    }));
+  };
+
   return (
     <div className="space-y-6">
       <div>
@@ -21,67 +49,126 @@ export const PersonaCustomization = ({ onNext, onPrevious }: PersonaCustomizatio
           <div className="w-full grid grid-cols-2 gap-x-8 gap-y-4">
             <div>
               <Label className="text-gray-600">Name</Label>
-              <div className="font-medium">Jordan</div>
+              <Input 
+                value={personaData.name}
+                onChange={handleInputChange('name')}
+                className="font-medium"
+              />
             </div>
             <div>
               <Label className="text-gray-600">Age</Label>
-              <div className="font-medium">32</div>
+              <Input 
+                value={personaData.age}
+                onChange={handleInputChange('age')}
+                className="font-medium"
+              />
             </div>
             <div>
               <Label className="text-gray-600">Socioecon</Label>
-              <div className="font-medium">Middle-High</div>
+              <Input 
+                value={personaData.socioecon}
+                onChange={handleInputChange('socioecon')}
+                className="font-medium"
+              />
             </div>
             <div>
               <Label className="text-gray-600">Role</Label>
-              <div className="font-medium">NFT Collector</div>
+              <Input 
+                value={personaData.role}
+                onChange={handleInputChange('role')}
+                className="font-medium"
+              />
             </div>
             <div>
               <Label className="text-gray-600">City</Label>
-              <div className="font-medium">San Francisco USA</div>
+              <Input 
+                value={personaData.city}
+                onChange={handleInputChange('city')}
+                className="font-medium"
+              />
             </div>
             <div>
               <Label className="text-gray-600">Language</Label>
-              <div className="font-medium">EN-US</div>
+              <Input 
+                value={personaData.language}
+                onChange={handleInputChange('language')}
+                className="font-medium"
+              />
             </div>
             <div>
               <Label className="text-gray-600">Currency</Label>
-              <div className="font-medium">USD</div>
+              <Input 
+                value={personaData.currency}
+                onChange={handleInputChange('currency')}
+                className="font-medium"
+              />
             </div>
             <div>
               <Label className="text-gray-600">Device</Label>
-              <div className="font-medium">Macbook</div>
+              <Input 
+                value={personaData.device}
+                onChange={handleInputChange('device')}
+                className="font-medium"
+              />
             </div>
             <div>
               <Label className="text-gray-600">Digital Exp</Label>
-              <div className="font-medium">Expert</div>
+              <Input 
+                value={personaData.digitalExp}
+                onChange={handleInputChange('digitalExp')}
+                className="font-medium"
+              />
             </div>
             <div>
               <Label className="text-gray-600">Frequented Apps</Label>
-              <div className="font-medium">Discord, Coinbase, X</div>
+              <Input 
+                value={personaData.frequentedApps}
+                onChange={handleInputChange('frequentedApps')}
+                className="font-medium"
+              />
             </div>
             <div>
               <Label className="text-gray-600">Username</Label>
-              <div className="font-medium">jordan987@ccmail.com</div>
+              <Input 
+                value={personaData.username}
+                onChange={handleInputChange('username')}
+                className="font-medium"
+              />
             </div>
             <div>
               <Label className="text-gray-600">Password</Label>
-              <div className="font-medium">**********</div>
+              <Input 
+                type="password"
+                value={personaData.password}
+                onChange={handleInputChange('password')}
+                className="font-medium"
+              />
             </div>
             <div>
               <Label className="text-gray-600">Payment Method</Label>
-              <div className="font-medium">Coinbase Wallet</div>
+              <Input 
+                value={personaData.paymentMethod}
+                onChange={handleInputChange('paymentMethod')}
+                className="font-medium"
+              />
             </div>
             <div>
               <Label className="text-gray-600">Payment Detail</Label>
-              <div className="font-medium">[Token]</div>
+              <Input 
+                value={personaData.paymentDetail}
+                onChange={handleInputChange('paymentDetail')}
+                className="font-medium"
+              />
             </div>
           </div>
         </div>
         <div className="mt-4">
           <Label className="text-gray-600">Description</Label>
-          <p className="text-sm mt-1">
-            Jordan is a passionate digital art collector who is always on the lookout for unique NFT artworks that evoke deep emotions and artistic narratives.
-          </p>
+          <textarea
+            value={personaData.description}
+            onChange={handleInputChange('description')}
+            className="w-full mt-1 p-2 border rounded-md min-h-[100px] text-sm"
+          />
         </div>
       </div>
       <NavigationButtons onNext={onNext} onPrevious={onPrevious} />
