@@ -6,15 +6,22 @@ import { NavigationButtons } from "./NavigationButtons";
 interface UserGoalSelectionProps {
   onNext: () => void;
   onPrevious: () => void;
+  selectedUserGoal: string;
+  setSelectedUserGoal: (goal: string) => void;
 }
 
-export const UserGoalSelection = ({ onNext, onPrevious }: UserGoalSelectionProps) => {
+export const UserGoalSelection = ({ onNext, onPrevious, selectedUserGoal, setSelectedUserGoal }: UserGoalSelectionProps) => {
   return (
     <div className="space-y-6">
       <div>
         <h2 className="text-2xl font-bold mb-4">Tell us about your user goal</h2>
         <p className="text-gray-600 mb-4">What jobs do your users need to get done?</p>
-        <RadioGroup defaultValue="login" className="space-y-3">
+        <RadioGroup 
+          defaultValue={selectedUserGoal} 
+          value={selectedUserGoal}
+          onValueChange={setSelectedUserGoal}
+          className="space-y-3"
+        >
           <div className="flex items-center space-x-2">
             <RadioGroupItem value="login" id="login" />
             <Label htmlFor="login">Login</Label>
