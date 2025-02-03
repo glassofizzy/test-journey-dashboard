@@ -119,6 +119,8 @@ const TestFlows = () => {
               currentImage={mockScreenshots[0]}
               isPaused={true}
               onTogglePause={() => {}}
+              allImages={mockScreenshots}
+              onImageSelect={() => {}}
             />
           </div>
         </div>
