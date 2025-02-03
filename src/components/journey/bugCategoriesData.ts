@@ -65,10 +65,10 @@ export const bugCategoriesByScreen: BugCategories[] = [
       color: "#2F80ED",
       bugs: [
         {
-          title: "Filter labels ambiguous",
+          title: "Stock screeners",
           priority: "Medium",
-          description: "Some filter labels are not clear enough for users to understand their purpose.",
-          treatment: "Review and update filter labels to be more descriptive.",
+          description: "Based on the screenshot, the stock screeners available ('Daily price jumps,' 'Daily price dips,' 'Upcoming earnings') are somewhat useful, but they are quite basic for my needs as an experienced professional. Additional Queries Macy would Find Useful: Valuation Metrics: I'd need screeners based on financial ratio changes and benchmarks (such as Price-to-Earnings (P/E)). Growth: Screeners based on earnings growth (past and projected) and revenue growth rates.",
+          treatment: "Implement advanced screeners for financial ratios, growth metrics, and valuation benchmarks.",
           highlightArea: { x: 150, y: 150, width: 100, height: 30 }
         }
       ]
