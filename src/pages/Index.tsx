@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 const MOCK_DATA = [
   {
     id: '#123',
-    name: 'Login, Add to Cart',
+    name: 'Login, Browse',
     status: 'Completed' as const,
     user: {
       name: 'Macy',
@@ -37,7 +37,7 @@ const MOCK_DATA = [
   },
   {
     id: '#125',
-    name: 'Request for Refund',
+    name: 'Request to withdraw cash',
     status: 'In Progress' as const,
     user: {
       name: 'Macy',
@@ -49,7 +49,7 @@ const MOCK_DATA = [
   },
   {
     id: '#126',
-    name: 'Leave Customer Review',
+    name: 'File a Support Ticket',
     status: 'Cancelled' as const,
     user: {
       name: 'Macy',
@@ -61,7 +61,7 @@ const MOCK_DATA = [
   },
   {
     id: '#127',
-    name: 'Purchase with stolen card',
+    name: 'Fraudulent Deposit',
     status: 'In Progress' as const,
     user: {
       name: 'Macy',
