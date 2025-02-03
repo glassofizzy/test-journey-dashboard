@@ -15,7 +15,7 @@ export const TestFlowBreadcrumbs = ({ currentStep }: TestFlowBreadcrumbsProps) =
   ];
 
   return (
-    <div className="w-full bg-white border-2 border-black p-4 mb-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+    <div className="sticky top-0 z-50 w-full bg-white border-2 border-black p-4 mb-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
       <div className="flex items-center justify-between flex-wrap gap-2">
         {steps.map((step, index) => (
           <React.Fragment key={step.step}>
