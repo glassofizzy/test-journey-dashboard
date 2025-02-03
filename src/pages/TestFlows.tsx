@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { Separator } from "@/components/ui/separator";
-import PhonePreview from '@/components/journey/PhonePreview';
 import { WebsiteInput } from '@/components/test-flows/WebsiteInput';
 import { UserGoalSelection } from '@/components/test-flows/UserGoalSelection';
 import { PersonaSelection } from '@/components/test-flows/PersonaSelection';
 import { PersonaCustomization } from '@/components/test-flows/PersonaCustomization';
 import { FlowSelection } from '@/components/test-flows/FlowSelection';
 import { TestProgress } from '@/components/test-flows/TestProgress';
+import { TestFlowBreadcrumbs } from '@/components/test-flows/TestFlowBreadcrumbs';
 
 const TestFlows = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -15,9 +14,13 @@ const TestFlows = () => {
   const [selectedUserGoal, setSelectedUserGoal] = useState('login');
   const [isLoading, setIsLoading] = useState(false);
 
-  const mockScreenshots = [
-    '/lovable-uploads/b3009f6d-ec6a-48ee-be48-c903a17ab320.png',
-  ];
+  const handleNext = () => {
+    setCurrentStep(prev => prev + 1);
+  };
+
+  const handlePrevious = () => {
+    setCurrentStep(prev => prev - 1);
+  };
 
   const personas = [
     {
@@ -41,22 +44,6 @@ const TestFlows = () => {
       avatar: '/lovable-uploads/6da9b3f2-e38b-4c0c-a519-4947d90e9f4f.png'
     }
   ];
-
-  const handleNext = () => {
-    if (currentStep === 5) {
-      setIsLoading(true);
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 3000);
-    }
-    setCurrentStep(prev => prev + 1);
-  };
-
-  const handlePrevious = () => {
-    if (currentStep > 1) {
-      setCurrentStep(prev => prev - 1);
-    }
-  };
 
   const renderStep = () => {
     switch (currentStep) {
@@ -121,19 +108,18 @@ const TestFlows = () => {
           <>
             <div className="flex-1 bg-[#f2f0ef] relative p-8">
               <div className="relative">
-                <PhonePreview
-                  currentImage={mockScreenshots[0]}
-                  isPaused={true}
-                  onTogglePause={() => {}}
-                  allImages={mockScreenshots}
-                  onImageSelect={() => {}}
+                <img 
+                  src="/lovable-uploads/b3009f6d-ec6a-48ee-be48-c903a17ab320.png"
+                  alt="Phone preview"
+                  className="w-full h-auto"
                 />
               </div>
             </div>
-            <Separator orientation="vertical" className="h-full bg-black" />
+            <div className="w-px bg-black" />
           </>
         )}
         <div className={`${currentStep === 1 ? 'w-full' : 'w-[500px]'} p-8 flex flex-col`}>
+          <TestFlowBreadcrumbs currentStep={currentStep} />
           {renderStep()}
         </div>
       </div>
