@@ -13,14 +13,13 @@ const MOCK_DATA = [
       type: 'New User'
     },
     createdAt: '8/31/2022',
-    journey: ['Login', 'Browse', 'Add Item', 'Cart', 'Checkout'],
-    mood: ['happy', 'neutral', 'happy', 'happy', 'happy'] as ('happy' | 'neutral' | 'sad')[],
+    journey: ['Login', 'Search', 'Input Nvidia', 'View Company'],
+    mood: ['happy', 'neutral', 'happy', 'happy'] as ('happy' | 'neutral' | 'sad')[],
     screenshots: [
-      '/lovable-uploads/b3009f6d-ec6a-48ee-be48-c903a17ab320.png',
-      '/lovable-uploads/9c8563d4-52f8-435d-a262-2a06308e4bc0.png',
-      '/lovable-uploads/80662d63-8b84-401a-acb2-5d5ef0045bfb.png',
-      '/lovable-uploads/4efb6fde-7c07-4a4f-aac7-707a520a4e27.png',
-      '/lovable-uploads/7c7085f8-e7ed-4e2f-968d-da0ed7d8e4bd.png'
+      '/lovable-uploads/c5c33c5e-87a1-4c80-8d0c-697805ebacb4.png',
+      '/lovable-uploads/d4527b6a-fa54-42c6-b7b2-706af91a46b2.png',
+      '/lovable-uploads/be8519e8-6180-4005-9410-1f8fde2f5bbe.png',
+      '/lovable-uploads/66afaf5d-c833-4383-80bf-6b5b0b6c97df.png'
     ]
   },
   {

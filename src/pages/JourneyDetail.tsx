@@ -25,29 +25,36 @@ const JourneyDetail = () => {
   const rightPanelRef = useRef<HTMLDivElement>(null);
 
   const mockScreenshots = [
-    '/lovable-uploads/b3009f6d-ec6a-48ee-be48-c903a17ab320.png',
-    '/lovable-uploads/9c8563d4-52f8-435d-a262-2a06308e4bc0.png',
-    '/lovable-uploads/80662d63-8b84-401a-acb2-5d5ef0045bfb.png',
+    '/lovable-uploads/c5c33c5e-87a1-4c80-8d0c-697805ebacb4.png',
+    '/lovable-uploads/d4527b6a-fa54-42c6-b7b2-706af91a46b2.png',
+    '/lovable-uploads/be8519e8-6180-4005-9410-1f8fde2f5bbe.png',
+    '/lovable-uploads/66afaf5d-c833-4383-80bf-6b5b0b6c97df.png'
   ];
 
   const mockScreenContents: ScreenContent[] = [
     {
-      goal: "Find the cheapest Bored Ape Yacht Club NFT with bunny ears",
-      observations: "Initial search screen loaded",
-      thoughts: "Need to enter the right search terms",
-      actions: "Type 'Bored Ape Yacht Club' in the search bar"
+      goal: "Access Robinhood account",
+      observations: "Login screen loaded",
+      thoughts: "Need to enter credentials",
+      actions: "Enter email and password"
     },
     {
-      goal: "Find the cheapest Bored Ape Yacht Club NFT with bunny ears",
-      observations: "Search results are showing BAYC NFTs",
-      thoughts: "Need to filter for bunny ears specifically",
-      actions: "Apply 'Bunny Ears' trait filter from the filters menu"
+      goal: "Find stock information",
+      observations: "Browse screen with search functionality",
+      thoughts: "Need to search for specific stock",
+      actions: "Navigate to search interface"
     },
     {
-      goal: "Find the cheapest Bored Ape Yacht Club NFT with bunny ears",
-      observations: "Now, the NFT results have bunny ears",
-      thoughts: "Need to sort the NFTs by price to find the cheapest one",
-      actions: "Tap on [031] to ensure the sorting is set to 'Price: Low to High'"
+      goal: "Look up NVIDIA stock",
+      observations: "Search results showing NVIDIA options",
+      thoughts: "Found the right stock listing",
+      actions: "Type 'Nvidia' in search bar"
+    },
+    {
+      goal: "Analyze NVIDIA performance",
+      observations: "Stock details and chart visible",
+      thoughts: "Can see price and performance metrics",
+      actions: "Review stock information and charts"
     }
   ];
 
