@@ -79,8 +79,8 @@ export default function PersonaDetail() {
 
   return (
     <div className="flex gap-8 p-8 min-h-screen bg-background">
+      {/* Left side content */}
       <div className="w-1/3 mt-12">
-        <div className="space-y-6">
           <div className="mb-8">
             <Select
               defaultValue="jordan"
@@ -174,43 +174,13 @@ export default function PersonaDetail() {
         </div>
       </div>
 
-      <div className="flex-1 mt-12">
-        <div className="space-y-8">
-          {mockTestFlows.map((siteData, index) => (
-            <div key={index} className="bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border border-black">
-              <div className="p-4 border-b border-black">
-                <h3 className="text-lg font-semibold">{siteData.site}</h3>
-              </div>
-              <Table>
-                <TableHeader>
-                  <TableRow className="hover:bg-transparent border-b border-black">
-                    <TableHead>Flow Name</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead>Date</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {siteData.flows.map((flow, flowIndex) => (
-                    <TableRow 
-                      key={flowIndex} 
-                      className="hover:bg-gray-50 border-b border-black last:border-b-0"
-                    >
-                      <TableCell className="font-medium">
-                        <Link to={`/journey/${flow.id}`} className="hover:text-accent">
-                          {flow.name}
-                        </Link>
-                      </TableCell>
-                      <TableCell>
-                        <StatusBadge status={flow.status as 'Completed' | 'In Progress' | 'Cancelled'} />
-                      </TableCell>
-                      <TableCell>{flow.date}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-          ))}
-        </div>
+      {/* Right side with full-length image */}
+      <div className="flex-1 p-8 hidden lg:block">
+        <img 
+          src="/lovable-uploads/1cca6782-bfa8-41d2-aa4a-cf83d0260ddb.png"
+          alt="CarbonCopies Features"
+          className="w-full h-full object-contain border-2 border-black"
+        />
       </div>
     </div>
   );
