@@ -135,6 +135,11 @@ const JourneyDetail = () => {
                   setHighlightArea(null);
                 }
               }}
+              allImages={mockScreenshots}
+              onImageSelect={(index) => {
+                setCurrentImageIndex(index);
+                setIsPaused(true);
+              }}
             />
             {highlightArea && (
               <div 
@@ -145,7 +150,7 @@ const JourneyDetail = () => {
                   width: `${highlightArea.width}px`,
                   height: `${highlightArea.height}px`,
                   maxWidth: '300px',
-                  maxHeight: '450px'
+                  maxHeight: '540px'
                 }}
               />
             )}
