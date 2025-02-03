@@ -47,13 +47,40 @@ export default function Login() {
         </div>
       </div>
 
-      {/* Right side with full-length image */}
+      {/* Right side with image grid */}
       <div className="flex-1 p-8 hidden lg:flex items-center">
-        <img 
-          src="/lovable-uploads/92d9a449-7bde-467d-9a27-32a791110b9e.png"
-          alt="CarbonCopies Features"
-          className="w-full h-full object-contain border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
-        />
+        <div className="grid grid-cols-2 grid-rows-3 gap-10 w-full max-w-2xl mx-auto">
+          <img 
+            src="/lovable-uploads/0ca52954-3b2d-497c-ab3b-a5de9d4ff52e.png"
+            alt="Illustration 1"
+            className="w-[120%] h-[120%] object-contain p-4 border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
+          />
+          <img 
+            src="/lovable-uploads/9862242d-d83c-4095-b2b2-04c89dba9956.png"
+            alt="Illustration 2"
+            className="w-[120%] h-[120%] object-contain p-4 border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
+          />
+          <img 
+            src="/lovable-uploads/d6b1b52e-c1a6-4844-acca-c8e5ad8e9997.png"
+            alt="Illustration 3"
+            className="w-[120%] h-[120%] object-contain p-4 border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
+          />
+          <img 
+            src="/lovable-uploads/ffd56886-42e8-4465-aa45-90be3b02ab93.png"
+            alt="Illustration 4"
+            className="w-[120%] h-[120%] object-contain p-4 border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
+          />
+          <img 
+            src="/lovable-uploads/60771938-ea1f-4aef-bbff-2b2ac41bfcbe.png"
+            alt="Illustration 5"
+            className="w-[120%] h-[120%] object-contain p-4 border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
+          />
+          <img 
+            src="/lovable-uploads/af1088c0-0f9a-4127-88b0-8ffc95f532c1.png"
+            alt="Illustration 6"
+            className="w-full h-full object-contain p-6 border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white"
+          />
+        </div>
       </div>
     </div>
   );
