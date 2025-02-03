@@ -79,61 +79,75 @@ export default function PersonaDetail() {
 
   return (
     <div className="flex gap-8 p-8 min-h-screen bg-background">
-      {/* Left side content */}
       <div className="w-1/3 mt-12">
-        <div className="mb-8">
-          <Select
-            defaultValue="jordan"
-            onValueChange={(value) => navigate(`/persona/${value}`)}
-          >
-            <SelectTrigger className="w-[200px] border border-black bg-white hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
-              <div className="flex items-center gap-2">
-                <Users className="h-4 w-4" />
-                <span>CarbonCopies:</span>
-              </div>
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {personas.map((persona) => (
-                <SelectItem 
-                  key={persona.id} 
-                  value={persona.id}
-                  className="hover:bg-accent hover:text-white cursor-pointer"
-                >
-                  {persona.name}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
+        <div className="space-y-6">
+          <div className="mb-8">
+            <Select
+              defaultValue="jordan"
+              onValueChange={(value) => navigate(`/persona/${value}`)}
+            >
+              <SelectTrigger className="w-[200px] border border-black bg-white hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
+                <div className="flex items-center gap-2">
+                  <Users className="h-4 w-4" />
+                  <span>CarbonCopies:</span>
+                </div>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {personas.map((persona) => (
+                  <SelectItem 
+                    key={persona.id} 
+                    value={persona.id}
+                    className="hover:bg-accent hover:text-white cursor-pointer"
+                  >
+                    {persona.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
 
-        <div className="text-center">
-          <Avatar className="w-32 h-32 mx-auto mb-4 border border-black">
-            <AvatarImage src="/lovable-uploads/657ef2bb-0956-4fce-a712-536ee65b3f13.png" />
-            <AvatarFallback>JD</AvatarFallback>
-          </Avatar>
-          <h2 className="text-2xl font-heading font-semibold mb-2">{personaDetails.name}</h2>
-          <p className="text-sm text-gray-600">{personaDetails.username}</p>
-        </div>
+          <div className="text-center">
+            <Avatar className="w-32 h-32 mx-auto mb-4 border border-black">
+              <AvatarImage src="/lovable-uploads/657ef2bb-0956-4fce-a712-536ee65b3f13.png" />
+              <AvatarFallback>JD</AvatarFallback>
+            </Avatar>
+            <h2 className="text-2xl font-heading font-semibold mb-2">{personaDetails.name}</h2>
+            <p className="text-sm text-gray-600">{personaDetails.username}</p>
+          </div>
 
-        <div>
-          <h3 className="font-heading font-semibold mb-2">About</h3>
-          <p className="text-sm">
-            {personaDetails.traits}{" "}
-            <Sheet>
-              <SheetTrigger className="text-accent hover:underline">See details</SheetTrigger>
-              <SheetContent side="right" className="w-1/3 bg-[#f2f0ef] border-l border-black">
-                <div className="space-y-4">
-                  <h3 className="text-xl font-heading font-semibold">Persona Details</h3>
-                  <div className="grid grid-cols-2 gap-4">
-                    {Object.entries(personaDetails).map(([key, value]) => {
-                      if (key === 'traits') {
+          <div>
+            <h3 className="font-heading font-semibold mb-2">About</h3>
+            <p className="text-sm">
+              {personaDetails.traits}{" "}
+              <Sheet>
+                <SheetTrigger className="text-accent hover:underline">See details</SheetTrigger>
+                <SheetContent side="right" className="w-1/3 bg-[#f2f0ef] border-l border-black">
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-heading font-semibold">Persona Details</h3>
+                    <div className="grid grid-cols-2 gap-4">
+                      {Object.entries(personaDetails).map(([key, value]) => {
+                        if (key === 'traits') {
+                          return (
+                            <div key={key} className="col-span-2">
+                              <Label htmlFor={key} className="capitalize text-sm text-gray-600">
+                                {key.replace(/([A-Z])/g, ' $1').trim()}
+                              </Label>
+                              <Textarea
+                                id={key}
+                                value={value}
+                                onChange={handleInputChange(key as keyof PersonaDetail)}
+                                className="mt-1 border-0 bg-transparent hover:bg-white hover:border hover:border-black hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:bg-white focus:border focus:border-black focus:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
+                              />
+                            </div>
+                          );
+                        }
                         return (
-                          <div key={key} className="col-span-2">
+                          <div key={key}>
                             <Label htmlFor={key} className="capitalize text-sm text-gray-600">
                               {key.replace(/([A-Z])/g, ' $1').trim()}
                             </Label>
-                            <Textarea
+                            <Input
                               id={key}
                               value={value}
                               onChange={handleInputChange(key as keyof PersonaDetail)}
@@ -141,45 +155,62 @@ export default function PersonaDetail() {
                             />
                           </div>
                         );
-                      }
-                      return (
-                        <div key={key}>
-                          <Label htmlFor={key} className="capitalize text-sm text-gray-600">
-                            {key.replace(/([A-Z])/g, ' $1').trim()}
-                          </Label>
-                          <Input
-                            id={key}
-                            value={value}
-                            onChange={handleInputChange(key as keyof PersonaDetail)}
-                            className="mt-1 border-0 bg-transparent hover:bg-white hover:border hover:border-black hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:bg-white focus:border focus:border-black focus:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
-                          />
-                        </div>
-                      );
-                    })}
+                      })}
+                    </div>
                   </div>
-                </div>
-              </SheetContent>
-            </Sheet>
-          </p>
-        </div>
-        
-        <div>
-          <h3 className="font-heading font-semibold mb-2">Skills & Preferences</h3>
-          <div className="flex flex-wrap gap-2">
-            <Badge variant="outline">{personaDetails.primaryDevice}</Badge>
-            <Badge variant="outline">{personaDetails.digitalExp}</Badge>
-            <Badge variant="outline">{personaDetails.socioEcon}</Badge>
+                </SheetContent>
+              </Sheet>
+            </p>
+          </div>
+          
+          <div>
+            <h3 className="font-heading font-semibold mb-2">Skills & Preferences</h3>
+            <div className="flex flex-wrap gap-2">
+              <Badge variant="outline">{personaDetails.primaryDevice}</Badge>
+              <Badge variant="outline">{personaDetails.digitalExp}</Badge>
+              <Badge variant="outline">{personaDetails.socioEcon}</Badge>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Right side with full-length image */}
-      <div className="flex-1 p-8 hidden lg:block">
-        <img 
-          src="/lovable-uploads/1cca6782-bfa8-41d2-aa4a-cf83d0260ddb.png"
-          alt="CarbonCopies Features"
-          className="w-full h-full object-contain border-2 border-black"
-        />
+      <div className="flex-1 mt-12">
+        <div className="space-y-8">
+          {mockTestFlows.map((siteData, index) => (
+            <div key={index} className="bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border border-black">
+              <div className="p-4 border-b border-black">
+                <h3 className="text-lg font-semibold">{siteData.site}</h3>
+              </div>
+              <Table>
+                <TableHeader>
+                  <TableRow className="hover:bg-transparent border-b border-black">
+                    <TableHead>Flow Name</TableHead>
+                    <TableHead>Status</TableHead>
+                    <TableHead>Date</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {siteData.flows.map((flow, flowIndex) => (
+                    <TableRow 
+                      key={flowIndex} 
+                      className="hover:bg-gray-50 border-b border-black last:border-b-0"
+                    >
+                      <TableCell className="font-medium">
+                        <Link to={`/journey/${flow.id}`} className="hover:text-accent">
+                          {flow.name}
+                        </Link>
+                      </TableCell>
+                      <TableCell>
+                        <StatusBadge status={flow.status as 'Completed' | 'In Progress' | 'Cancelled'} />
+                      </TableCell>
+                      <TableCell>{flow.date}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
