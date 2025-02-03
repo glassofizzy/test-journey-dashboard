@@ -8,7 +8,6 @@ export const mainNavItems: NavSection = {
       label: "Site: Robinhood.com",
       subItems: [
         { label: "Robinhood.com" },
-        { label: "Sephora.com" },
         { label: "Pi.ai" }
       ]
     },

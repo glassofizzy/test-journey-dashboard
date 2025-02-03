@@ -26,49 +26,64 @@ interface PersonaDetail {
   paymentMethod: string;
   paymentDetail: string;
   traits: string;
+  language?: string;
+  role?: string;
 }
 
 const mockTestFlows = [
   {
     site: "Robinhood.com",
     flows: [
-      { id: "1", name: "NFT Purchase Flow", status: "Completed", date: "2024-02-20" },
-      { id: "2", name: "Collection Browse", status: "In Progress", date: "2024-02-21" }
-    ]
-  },
-  {
-    site: "Foundation.app",
-    flows: [
-      { id: "3", name: "Artist Profile Review", status: "Completed", date: "2024-02-19" }
+      { id: "1", name: "Login, Browse", status: "Completed", date: "2024-02-20" },
+      { id: "2", name: "Request to withdraw cash", status: "In Progress", date: "2024-02-21" }
     ]
   }
 ];
 
 const personas = [
   { id: "macy", name: "Macy" },
-  { id: "alex", name: "Alex" },
-  { id: "lee", name: "Lee" },
-  { id: "amal", name: "Amal" },
   { id: "jordan", name: "Jordan" }
 ];
 
-export default function PersonaDetail() {
-  const navigate = useNavigate();
-  const [personaDetails, setPersonaDetails] = useState<PersonaDetail>({
-    name: "Jordan",
+const personaData = {
+  macy: {
+    name: "Macy",
     age: "32",
-    socioEcon: "Middle-High",
-    primaryDevice: "Macbook",
-    city: "San Francisco USA",
+    socioEcon: "Upper-middle",
+    primaryDevice: "Mobile iOS",
+    city: "San Francisco",
     currency: "USD",
-    digitalExp: "Expert",
-    frequentedApps: "Discord, Coinbase, X",
+    digitalExp: "Native",
+    frequentedApps: "Reddit, Coinbase, X, TechCrunch",
+    username: "macy@ccmail.com",
+    password: "*******",
+    paymentMethod: "Credit Card",
+    paymentDetail: "[Token]",
+    language: "English",
+    traits: "An experienced finance professional looking to maximize investment strategies and diversify their portfolio. Macy utilizes Robinhood for its advanced trading features and easy account linking."
+  },
+  jordan: {
+    name: "Jordan",
+    age: "20",
+    socioEcon: "Middle",
+    primaryDevice: "Desktop Windows",
+    city: "UK",
+    currency: "GBP",
+    digitalExp: "Native",
+    frequentedApps: "Discord, Revolut, X",
     username: "jordan987@ccmail.com",
     password: "**********",
-    paymentMethod: "Coinbase Wallet",
+    paymentMethod: "Supp bank card",
     paymentDetail: "[Token]",
-    traits: "Jordan is a passionate digital art collector who is always on the lookout for unique NFT artworks that evoke deep emotions and artistic narratives."
-  });
+    language: "EN-BR",
+    role: "Student",
+    traits: "A tech savvy student, new to investments, eager to grow their financial knowledge and skills. Jordan uses Robinhood to manage their finances and investments through a user-friendly platform"
+  }
+};
+
+export default function PersonaDetail() {
+  const navigate = useNavigate();
+  const [personaDetails, setPersonaDetails] = useState<PersonaDetail>(personaData.jordan);
 
   const handleInputChange = (field: keyof PersonaDetail) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setPersonaDetails(prev => ({
@@ -84,7 +99,10 @@ export default function PersonaDetail() {
           <div className="mb-8">
             <Select
               defaultValue="jordan"
-              onValueChange={(value) => navigate(`/persona/${value}`)}
+              onValueChange={(value) => {
+                setPersonaDetails(personaData[value as keyof typeof personaData]);
+                navigate(`/persona/${value}`);
+              }}
             >
               <SelectTrigger className="w-[200px] border border-black bg-white hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
                 <div className="flex items-center gap-2">
@@ -109,8 +127,8 @@ export default function PersonaDetail() {
 
           <div className="text-center">
             <Avatar className="w-32 h-32 mx-auto mb-4 border border-black">
-              <AvatarImage src="/lovable-uploads/657ef2bb-0956-4fce-a712-536ee65b3f13.png" />
-              <AvatarFallback>JD</AvatarFallback>
+              <AvatarImage src={personaDetails.name === "Macy" ? "/lovable-uploads/cb242363-6fa4-4998-836f-628bec699bdb.png" : "/lovable-uploads/5f5724fb-14fd-4816-98cb-f834353b9ecf.png"} />
+              <AvatarFallback>{personaDetails.name.substring(0, 2).toUpperCase()}</AvatarFallback>
             </Avatar>
             <h2 className="text-2xl font-heading font-semibold mb-2">{personaDetails.name}</h2>
             <p className="text-sm text-gray-600">{personaDetails.username}</p>
@@ -169,6 +187,8 @@ export default function PersonaDetail() {
               <Badge variant="outline">{personaDetails.primaryDevice}</Badge>
               <Badge variant="outline">{personaDetails.digitalExp}</Badge>
               <Badge variant="outline">{personaDetails.socioEcon}</Badge>
+              {personaDetails.role && <Badge variant="outline">{personaDetails.role}</Badge>}
+              {personaDetails.language && <Badge variant="outline">{personaDetails.language}</Badge>}
             </div>
           </div>
         </div>
