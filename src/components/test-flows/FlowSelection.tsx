@@ -6,26 +6,46 @@ import { NavigationButtons } from "./NavigationButtons";
 interface FlowSelectionProps {
   onNext: () => void;
   onPrevious: () => void;
+  selectedUserGoal?: string;
 }
 
-export const FlowSelection = ({ onNext, onPrevious }: FlowSelectionProps) => {
+const flowOptions = {
+  login: [
+    { id: 'google-login', label: 'Google social login flow' },
+    { id: 'email-registration', label: 'Email registration flow' },
+    { id: 'password-reset', label: 'Password reset flow' },
+    { id: 'multiple-attempts', label: 'Multiple sign in attempts' }
+  ],
+  profile: [
+    { id: 'edit-profile', label: 'Edit profile information' },
+    { id: 'change-password', label: 'Change password flow' },
+    { id: 'upload-avatar', label: 'Profile picture upload' },
+    { id: 'delete-account', label: 'Account deletion process' }
+  ],
+  checkout: [
+    { id: 'guest-checkout', label: 'Guest checkout flow' },
+    { id: 'saved-payment', label: 'Saved payment method' },
+    { id: 'cart-abandonment', label: 'Cart abandonment' },
+    { id: 'promo-code', label: 'Promo code application' }
+  ]
+};
+
+export const FlowSelection = ({ onNext, onPrevious, selectedUserGoal = 'login' }: FlowSelectionProps) => {
+  const flows = flowOptions[selectedUserGoal as keyof typeof flowOptions] || flowOptions.login;
+  
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl font-bold mb-4">Which user flow would you like to test?</h2>
-        <RadioGroup defaultValue="login" className="space-y-3">
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="login" id="login-flow" />
-            <Label htmlFor="login-flow">Login Flow</Label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="signup" id="signup-flow" />
-            <Label htmlFor="signup-flow">Sign Up Flow</Label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="checkout" id="checkout-flow" />
-            <Label htmlFor="checkout-flow">Checkout Flow</Label>
-          </div>
+        <h2 className="text-2xl font-bold mb-4">
+          For user goal: "{selectedUserGoal}", which specific user behaviors do you want to focus on?
+        </h2>
+        <RadioGroup defaultValue={flows[0].id} className="space-y-3">
+          {flows.map((flow) => (
+            <div key={flow.id} className="flex items-center space-x-2">
+              <RadioGroupItem value={flow.id} id={flow.id} />
+              <Label htmlFor={flow.id}>{flow.label}</Label>
+            </div>
+          ))}
         </RadioGroup>
       </div>
       <NavigationButtons onNext={onNext} onPrevious={onPrevious} buttonText="Start Test!" />

@@ -12,6 +12,7 @@ const TestFlows = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [websiteUrl, setWebsiteUrl] = useState('');
   const [selectedPersona, setSelectedPersona] = useState('');
+  const [selectedUserGoal, setSelectedUserGoal] = useState('login');
   const [isLoading, setIsLoading] = useState(false);
 
   const mockScreenshots = [
@@ -72,6 +73,8 @@ const TestFlows = () => {
           <UserGoalSelection
             onNext={handleNext}
             onPrevious={handlePrevious}
+            selectedUserGoal={selectedUserGoal}
+            setSelectedUserGoal={setSelectedUserGoal}
           />
         );
       case 3:
@@ -96,6 +99,7 @@ const TestFlows = () => {
           <FlowSelection
             onNext={handleNext}
             onPrevious={handlePrevious}
+            selectedUserGoal={selectedUserGoal}
           />
         );
       case 6:
