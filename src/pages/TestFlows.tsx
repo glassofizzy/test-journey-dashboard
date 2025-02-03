@@ -7,6 +7,7 @@ import { PersonaSelection } from '@/components/test-flows/PersonaSelection';
 import { PersonaCustomization } from '@/components/test-flows/PersonaCustomization';
 import { FlowSelection } from '@/components/test-flows/FlowSelection';
 import { TestProgress } from '@/components/test-flows/TestProgress';
+import { TestFlowBreadcrumbs } from '@/components/test-flows/TestFlowBreadcrumbs';
 
 const TestFlows = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -116,25 +117,28 @@ const TestFlows = () => {
 
   return (
     <div className="min-h-screen bg-[#f2f0ef]">
-      <div className="max-w-7xl mx-auto flex h-[calc(100vh-64px)]">
-        {currentStep > 1 && (
-          <>
-            <div className="flex-1 bg-[#f2f0ef] relative p-8">
-              <div className="relative">
-                <PhonePreview
-                  currentImage={mockScreenshots[0]}
-                  isPaused={true}
-                  onTogglePause={() => {}}
-                  allImages={mockScreenshots}
-                  onImageSelect={() => {}}
-                />
+      <div className="max-w-7xl mx-auto flex flex-col h-[calc(100vh-64px)]">
+        <TestFlowBreadcrumbs currentStep={currentStep} />
+        <div className="flex flex-1">
+          {currentStep > 1 && (
+            <>
+              <div className="flex-1 bg-[#f2f0ef] relative p-8">
+                <div className="relative">
+                  <PhonePreview
+                    currentImage={mockScreenshots[0]}
+                    isPaused={true}
+                    onTogglePause={() => {}}
+                    allImages={mockScreenshots}
+                    onImageSelect={() => {}}
+                  />
+                </div>
               </div>
-            </div>
-            <Separator orientation="vertical" className="h-full bg-black" />
-          </>
-        )}
-        <div className={`${currentStep === 1 ? 'w-full' : 'w-[500px]'} p-8 flex flex-col`}>
-          {renderStep()}
+              <Separator orientation="vertical" className="h-full bg-black" />
+            </>
+          )}
+          <div className={`${currentStep === 1 ? 'w-full' : 'w-[500px]'} p-8 flex flex-col`}>
+            {renderStep()}
+          </div>
         </div>
       </div>
     </div>
