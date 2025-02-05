@@ -37,7 +37,7 @@ const JourneyStep = ({ step, screenshot, mood, onScreenshotClick }: JourneyStepP
         {step}
       </div>
       {mood && (
-        <div className="w-8 h-8">
+        <div className="w-24 h-24">
           <img 
             src={getMoodImage(mood)} 
             alt={`Status: ${mood}`}
