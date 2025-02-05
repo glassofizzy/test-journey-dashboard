@@ -8,16 +8,16 @@ interface JourneyStepProps {
 }
 
 const JourneyStep = ({ step, screenshot, mood, onScreenshotClick }: JourneyStepProps) => {
-  const getMoodEmoji = (mood: 'happy' | 'neutral' | 'sad') => {
+  const getMoodImage = (mood: 'happy' | 'neutral' | 'sad') => {
     switch (mood) {
       case 'happy':
-        return '😊';
+        return '/lovable-uploads/79b2d3bd-702d-4062-ad74-0b13e04bc5c7.png'; // Green checkmark for no bugs
       case 'neutral':
-        return '😐';
+        return '/lovable-uploads/e80ca9ce-ab36-432a-852f-31b2a964a119.png'; // Yellow question marks for mixed priority
       case 'sad':
-        return '😞';
+        return '/lovable-uploads/e9f7eaab-e99d-4200-81d5-59e30f8488b2.png'; // Red alarm for high priority
       default:
-        return '😐';
+        return '/lovable-uploads/e80ca9ce-ab36-432a-852f-31b2a964a119.png';
     }
   };
 
@@ -37,7 +37,13 @@ const JourneyStep = ({ step, screenshot, mood, onScreenshotClick }: JourneyStepP
         {step}
       </div>
       {mood && (
-        <div className="text-2xl">{getMoodEmoji(mood)}</div>
+        <div className="w-12 h-12">
+          <img 
+            src={getMoodImage(mood)} 
+            alt={`Status: ${mood}`}
+            className="w-full h-full object-contain"
+          />
+        </div>
       )}
     </div>
   );
