@@ -133,13 +133,13 @@ const TestFlowSteps = ({ description, parameters }: TestFlowStepsProps) => {
                 </div>
               </div>
             ))}
-            <div className="flex gap-4 mt-6">
+            <div className="flex justify-end gap-4 mt-6">
               <Button 
                 variant="outline" 
                 onClick={addNewParam}
                 className="border-black hover:bg-gray-100"
               >
-                + another param
+                Add more
               </Button>
               <Button onClick={handleSave}>
                 Save
