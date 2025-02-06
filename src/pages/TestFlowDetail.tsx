@@ -16,7 +16,7 @@ const TestFlowDetail = () => {
       name: "Macy",
       type: "New User"
     },
-    lastTestStatus: "Completed",
+    lastTestStatus: "Completed" as const, // Add 'as const' to ensure correct type
     lastTestId: "123",
     description: "Steps Login, Search, Input search query, Browse stock/asset",
     previousRuns: [
