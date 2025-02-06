@@ -35,6 +35,12 @@ export const FlowSelection = ({ onNext, onPrevious, selectedUserGoal = 'login' }
   const [selectedFlow, setSelectedFlow] = useState('');
   const [showCustomInput, setShowCustomInput] = useState(false);
   const [customFlow, setCustomFlow] = useState('');
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+    fullName: '',
+    authOption: 'sms'
+  });
   
   const flows = flowOptions[selectedUserGoal as keyof typeof flowOptions] || [];
   
@@ -46,6 +52,145 @@ export const FlowSelection = ({ onNext, onPrevious, selectedUserGoal = 'login' }
   const handleCustomFlowChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCustomFlow(e.target.value);
     setSelectedFlow(e.target.value);
+  };
+
+  const handleInputChange = (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: e.target.value
+    }));
+  };
+
+  const renderAdditionalFields = () => {
+    switch (selectedFlow) {
+      case 'google-login':
+        return (
+          <div className="space-y-4 mt-6">
+            <div>
+              <Label htmlFor="email">Email for Google Login</Label>
+              <Input
+                id="email"
+                type="email"
+                value={formData.email}
+                onChange={handleInputChange('email')}
+                placeholder="Enter Google email"
+              />
+            </div>
+            <div>
+              <Label htmlFor="password">Password</Label>
+              <Input
+                id="password"
+                type="password"
+                value={formData.password}
+                onChange={handleInputChange('password')}
+                placeholder="Enter password"
+              />
+            </div>
+          </div>
+        );
+      
+      case 'email-registration':
+        return (
+          <div className="space-y-4 mt-6">
+            <div>
+              <Label htmlFor="fullName">Full Name</Label>
+              <Input
+                id="fullName"
+                type="text"
+                value={formData.fullName}
+                onChange={handleInputChange('fullName')}
+                placeholder="Enter full name"
+              />
+            </div>
+            <div>
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                type="email"
+                value={formData.email}
+                onChange={handleInputChange('email')}
+                placeholder="Enter email"
+              />
+            </div>
+            <div>
+              <Label htmlFor="password">Password</Label>
+              <Input
+                id="password"
+                type="password"
+                value={formData.password}
+                onChange={handleInputChange('password')}
+                placeholder="Enter password"
+              />
+            </div>
+          </div>
+        );
+
+      case 'password-reset':
+        return (
+          <div className="space-y-4 mt-6">
+            <div>
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                type="email"
+                value={formData.email}
+                onChange={handleInputChange('email')}
+                placeholder="Enter email for password reset"
+              />
+            </div>
+          </div>
+        );
+
+      case 'multiple-attempts':
+        return (
+          <div className="space-y-4 mt-6">
+            <div>
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                type="email"
+                value={formData.email}
+                onChange={handleInputChange('email')}
+                placeholder="Enter email"
+              />
+            </div>
+            <div>
+              <Label htmlFor="password">Password</Label>
+              <Input
+                id="password"
+                type="password"
+                value={formData.password}
+                onChange={handleInputChange('password')}
+                placeholder="Enter password"
+              />
+            </div>
+            <div>
+              <Label htmlFor="authOption">Authentication Option</Label>
+              <RadioGroup 
+                value={formData.authOption}
+                onValueChange={(value) => setFormData(prev => ({ ...prev, authOption: value }))}
+                className="flex space-x-4"
+              >
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="sms" id="sms" />
+                  <Label htmlFor="sms">SMS</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="email" id="email-auth" />
+                  <Label htmlFor="email-auth">Email</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="authenticator" id="authenticator" />
+                  <Label htmlFor="authenticator">Authenticator</Label>
+                </div>
+              </RadioGroup>
+            </div>
+          </div>
+        );
+
+      default:
+        return null;
+    }
   };
   
   return (
@@ -82,6 +227,8 @@ export const FlowSelection = ({ onNext, onPrevious, selectedUserGoal = 'login' }
             </div>
           )}
         </RadioGroup>
+
+        {renderAdditionalFields()}
       </div>
       <NavigationButtons onNext={onNext} onPrevious={onPrevious} buttonText="Start Test!" />
     </div>
