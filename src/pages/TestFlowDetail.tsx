@@ -16,9 +16,16 @@ const TestFlowDetail = () => {
       name: "Macy",
       type: "New User"
     },
-    lastTestStatus: "Completed" as const, // Add 'as const' to ensure correct type
+    lastTestStatus: "Completed" as const,
     lastTestId: "123",
     description: "Steps Login, Search, Input search query, Browse stock/asset",
+    parameters: {
+      loginUsername: "",
+      loginPassword: "",
+      socialLoginToken: "",
+      filesToUpload: "",
+      others: ""
+    },
     previousRuns: [
       {
         id: "#123",
@@ -60,7 +67,7 @@ const TestFlowDetail = () => {
   return (
     <div className="space-y-8">
       {/* Section 1: Test Flow Overview */}
-      <div>
+      <div className="bg-white p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
         <h1 className="text-4xl font-bold mb-6">{testFlow.title}</h1>
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -84,18 +91,61 @@ const TestFlowDetail = () => {
         </div>
       </div>
 
-      <Separator className="bg-black" />
-
-      {/* Section 2: View or modify test flow */}
-      <div>
-        <h2 className="text-2xl font-bold mb-4">View or modify test flow</h2>
-        <p className="text-gray-700">{testFlow.description}</p>
+      {/* Section 2: Test Flow Steps and Details */}
+      <div className="bg-white p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-2xl font-bold">Test flow steps and details</h2>
+          <Link to="#" className="text-accent hover:underline">Edit</Link>
+        </div>
+        <p className="text-gray-700 mb-6">{testFlow.description}</p>
+        
+        <h3 className="text-xl font-bold mb-4">Parameters</h3>
+        <div className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Login username</label>
+            <input
+              type="text"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent focus:ring-accent"
+              placeholder="Enter username"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Login password</label>
+            <input
+              type="password"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent focus:ring-accent"
+              placeholder="Enter password"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Social login token</label>
+            <input
+              type="text"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent focus:ring-accent"
+              placeholder="Enter token"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700">File(s) to upload</label>
+            <input
+              type="text"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent focus:ring-accent"
+              placeholder="Specify files to upload"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Others (please specify)</label>
+            <textarea
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent focus:ring-accent"
+              rows={3}
+              placeholder="Enter any additional parameters"
+            />
+          </div>
+        </div>
       </div>
 
-      <Separator className="bg-black" />
-
       {/* Section 3: Previous test runs */}
-      <div>
+      <div className="bg-white p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
         <h2 className="text-2xl font-bold mb-4">Previous test runs</h2>
         <Table>
           <TableHeader>
@@ -129,10 +179,8 @@ const TestFlowDetail = () => {
         </Table>
       </div>
 
-      <Separator className="bg-black" />
-
       {/* Section 4: Tickets created */}
-      <div>
+      <div className="bg-white p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
         <h2 className="text-2xl font-bold mb-4">Tickets created (beta)</h2>
         <Table>
           <TableHeader>
@@ -160,10 +208,8 @@ const TestFlowDetail = () => {
         </Table>
       </div>
 
-      <Separator className="bg-black" />
-
       {/* Section 5: Improved UI Designs */}
-      <div>
+      <div className="bg-white p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
         <h2 className="text-2xl font-bold mb-4">Improved UI Designs (beta)</h2>
         <div className="p-8 border border-dashed border-gray-300 rounded-lg text-center text-gray-500">
           Coming soon
