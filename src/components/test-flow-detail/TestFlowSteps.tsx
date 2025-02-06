@@ -29,22 +29,22 @@ const TestFlowSteps = ({ description, parameters }: TestFlowStepsProps) => {
       
       <h3 className="text-xl font-bold mb-4">Parameters</h3>
       <Tabs defaultValue="login" className="w-full">
-        <TabsList className="bg-secondary w-full flex mb-6 p-0 h-auto flex-col space-y-2">
+        <TabsList className="w-full flex mb-6 p-0 h-auto space-x-2 bg-transparent">
           <TabsTrigger 
             value="login"
-            className="w-full data-[state=active]:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] data-[state=active]:border data-[state=active]:border-black"
+            className="flex-1 bg-white data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] data-[state=active]:border data-[state=active]:border-black px-8 py-3"
           >
             Login
           </TabsTrigger>
           <TabsTrigger 
             value="search"
-            className="w-full data-[state=active]:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] data-[state=active]:border data-[state=active]:border-black"
+            className="flex-1 bg-white data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] data-[state=active]:border data-[state=active]:border-black px-8 py-3"
           >
             Search
           </TabsTrigger>
           <TabsTrigger 
             value="custom"
-            className="w-full data-[state=active]:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] data-[state=active]:border data-[state=active]:border-black"
+            className="flex-1 bg-white data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] data-[state=active]:border data-[state=active]:border-black px-8 py-3"
           >
             Custom Parameter
           </TabsTrigger>
@@ -55,7 +55,7 @@ const TestFlowSteps = ({ description, parameters }: TestFlowStepsProps) => {
             <label className="block text-sm font-medium text-gray-700">Login username</label>
             <Input
               type="text"
-              defaultValue="macy@ccmail.com"
+              defaultValue={parameters.loginUsername}
               className="mt-1"
             />
           </div>
@@ -63,7 +63,7 @@ const TestFlowSteps = ({ description, parameters }: TestFlowStepsProps) => {
             <label className="block text-sm font-medium text-gray-700">Password</label>
             <Input
               type="password"
-              defaultValue="********"
+              defaultValue={parameters.loginPassword}
               className="mt-1"
             />
           </div>
@@ -74,7 +74,7 @@ const TestFlowSteps = ({ description, parameters }: TestFlowStepsProps) => {
             <label className="block text-sm font-medium text-gray-700">Query</label>
             <Input
               type="text"
-              defaultValue="Nvidia"
+              defaultValue={parameters.searchQuery}
               className="mt-1"
             />
           </div>
