@@ -33,7 +33,7 @@ export const bugCategoriesByScreen: BugCategories[] = [
           highlightArea: { x: 10, y: 10, width: 100, height: 40 }
         },
         {
-          title: "Missing Email Autofill/ Biometric Mobile Login",
+          title: "Biometric Mobile Login",
           priority: "Medium",
           description: "Users have to type in their credentials manually instead of using quick authentication.",
           treatment: "Enable Face ID or fingerprint login for faster, more secure access. Provide an option to toggle biometric authentication in settings.",
