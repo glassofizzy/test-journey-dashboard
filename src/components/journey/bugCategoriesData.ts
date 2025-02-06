@@ -22,26 +22,21 @@ interface BugCategories {
 export const bugCategoriesByScreen: BugCategories[] = [
   // Screen 1: Search NFTs
   {
-    visual: {
-      color: "#F2C94C",
+    usability: {
+      color: "#BB6BD9",
       bugs: [
         {
-          title: "Logo is blurry on mobile",
-          priority: "High",
-          description: "The logo appears pixelated on mobile devices. This detracts from the app's visual appeal.",
-          treatment: "Verify the correct logo is uploaded for mobile or use SVG.",
-          highlightArea: { x: 10, y: 10, width: 100, height: 40 }
-        }
-      ]
-    },
-    content: {
-      color: "#2F80ED",
-      bugs: [
-        {
-          title: "Search placeholder text unclear",
+          title: "Missing Email Autofill",
           priority: "Medium",
-          description: "Users may not understand how to effectively use the search functionality.",
-          treatment: "Update placeholder text to be more descriptive and add search tips.",
+          description: "Users have to manually enter their email every time, which slows down login.",
+          treatment: "Display the last used email (masked for security) to streamline the login process. Allow users to select from previously used emails securely.",
+          highlightArea: { x: 10, y: 10, width: 100, height: 40 }
+        },
+        {
+          title: "Missing Email Autofill/ Biometric Mobile Login",
+          priority: "Medium",
+          description: "Users have to type in their credentials manually instead of using quick authentication.",
+          treatment: "Enable Face ID or fingerprint login for faster, more secure access. Provide an option to toggle biometric authentication in settings.",
           highlightArea: { x: 50, y: 100, width: 200, height: 40 }
         }
       ]
