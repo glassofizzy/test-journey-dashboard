@@ -29,10 +29,22 @@ export const mainNavItems: NavSection = {
           label: "Login, Add to Cart",
           path: "/test-flows/login-cart"
         },
-        { label: "Change Profile" },
-        { label: "Request for Refund" },
-        { label: "Leave Customer Review" },
-        { label: "Purchase (Fraud)" }
+        { 
+          label: "Change Profile",
+          path: "/test-flows/change-profile"
+        },
+        { 
+          label: "Request for Refund",
+          path: "/test-flows/refund"
+        },
+        { 
+          label: "Leave Customer Review",
+          path: "/test-flows/review"
+        },
+        { 
+          label: "Purchase (Fraud)",
+          path: "/test-flows/fraud"
+        }
       ]
     },
     {
