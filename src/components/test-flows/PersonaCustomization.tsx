@@ -20,10 +20,6 @@ export const PersonaCustomization = ({ onNext, onPrevious }: PersonaCustomizatio
     device: 'Macbook',
     digitalExp: 'Expert',
     frequentedApps: 'Discord, Coinbase, X',
-    username: 'jordan987@ccmail.com',
-    password: '**********',
-    paymentMethod: 'Coinbase Wallet',
-    paymentDetail: '[Token]',
     description: 'Jordan is a passionate digital art collector who is always on the lookout for unique NFT artworks that evoke deep emotions and artistic narratives.'
   });
 
@@ -124,39 +120,6 @@ export const PersonaCustomization = ({ onNext, onPrevious }: PersonaCustomizatio
               <Input 
                 value={personaData.frequentedApps}
                 onChange={handleInputChange('frequentedApps')}
-                className="font-medium"
-              />
-            </div>
-            <div>
-              <Label className="text-gray-600">Username</Label>
-              <Input 
-                value={personaData.username}
-                onChange={handleInputChange('username')}
-                className="font-medium"
-              />
-            </div>
-            <div>
-              <Label className="text-gray-600">Password</Label>
-              <Input 
-                type="password"
-                value={personaData.password}
-                onChange={handleInputChange('password')}
-                className="font-medium"
-              />
-            </div>
-            <div>
-              <Label className="text-gray-600">Payment Method</Label>
-              <Input 
-                value={personaData.paymentMethod}
-                onChange={handleInputChange('paymentMethod')}
-                className="font-medium"
-              />
-            </div>
-            <div>
-              <Label className="text-gray-600">Payment Detail</Label>
-              <Input 
-                value={personaData.paymentDetail}
-                onChange={handleInputChange('paymentDetail')}
                 className="font-medium"
               />
             </div>
