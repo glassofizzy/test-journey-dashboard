@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import TestFlowOverview from '@/components/test-flow-detail/TestFlowOverview';
@@ -20,10 +21,9 @@ const TestFlowDetail = () => {
     lastTestId: "123",
     description: "Steps Login, Search, Input search query, Browse stock/asset",
     parameters: {
-      loginUsername: "",
-      loginPassword: "",
-      socialLoginToken: "",
-      filesToUpload: "",
+      loginUsername: "macy@ccmail.com",
+      loginPassword: "********",
+      searchQuery: "Nvidia",
       others: ""
     },
     previousRuns: [
