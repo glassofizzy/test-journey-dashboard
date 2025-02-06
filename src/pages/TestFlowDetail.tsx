@@ -1,7 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Separator } from "@/components/ui/separator";
 import StatusBadge from '@/components/test-run/StatusBadge';
 import UserAvatar from '@/components/test-run/UserAvatar';
 
@@ -133,13 +132,23 @@ const TestFlowDetail = () => {
               placeholder="Specify files to upload"
             />
           </div>
-          <div className="col-span-2">
-            <label className="block text-sm font-medium text-gray-700">Others (please specify)</label>
-            <textarea
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent focus:ring-accent"
-              rows={3}
-              placeholder="Enter any additional parameters"
-            />
+          <div className="col-span-2 grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Parameter name</label>
+              <input
+                type="text"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent focus:ring-accent"
+                placeholder="Enter parameter name"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Parameter value</label>
+              <input
+                type="text"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent focus:ring-accent"
+                placeholder="Enter parameter value"
+              />
+            </div>
           </div>
         </div>
       </div>
