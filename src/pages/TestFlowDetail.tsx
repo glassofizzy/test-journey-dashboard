@@ -67,7 +67,7 @@ const TestFlowDetail = () => {
   return (
     <div className="space-y-8">
       {/* Section 1: Test Flow Overview */}
-      <div className="bg-white p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+      <div className="bg-white p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border border-black">
         <h1 className="text-4xl font-bold mb-6">{testFlow.title}</h1>
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -92,7 +92,7 @@ const TestFlowDetail = () => {
       </div>
 
       {/* Section 2: Test Flow Steps and Details */}
-      <div className="bg-white p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+      <div className="bg-white p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border border-black">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-2xl font-bold">Test flow steps and details</h2>
           <Link to="#" className="text-accent hover:underline">Edit</Link>
@@ -100,7 +100,7 @@ const TestFlowDetail = () => {
         <p className="text-gray-700 mb-6">{testFlow.description}</p>
         
         <h3 className="text-xl font-bold mb-4">Parameters</h3>
-        <div className="space-y-4">
+        <div className="grid grid-cols-2 gap-6">
           <div>
             <label className="block text-sm font-medium text-gray-700">Login username</label>
             <input
@@ -133,7 +133,7 @@ const TestFlowDetail = () => {
               placeholder="Specify files to upload"
             />
           </div>
-          <div>
+          <div className="col-span-2">
             <label className="block text-sm font-medium text-gray-700">Others (please specify)</label>
             <textarea
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent focus:ring-accent"
@@ -145,7 +145,7 @@ const TestFlowDetail = () => {
       </div>
 
       {/* Section 3: Previous test runs */}
-      <div className="bg-white p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+      <div className="bg-white p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border border-black">
         <h2 className="text-2xl font-bold mb-4">Previous test runs</h2>
         <Table>
           <TableHeader>
@@ -180,7 +180,7 @@ const TestFlowDetail = () => {
       </div>
 
       {/* Section 4: Tickets created */}
-      <div className="bg-white p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+      <div className="bg-white p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border border-black">
         <h2 className="text-2xl font-bold mb-4">Tickets created (beta)</h2>
         <Table>
           <TableHeader>
@@ -209,7 +209,7 @@ const TestFlowDetail = () => {
       </div>
 
       {/* Section 5: Improved UI Designs */}
-      <div className="bg-white p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+      <div className="bg-white p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border border-black">
         <h2 className="text-2xl font-bold mb-4">Improved UI Designs (beta)</h2>
         <div className="p-8 border border-dashed border-gray-300 rounded-lg text-center text-gray-500">
           Coming soon
