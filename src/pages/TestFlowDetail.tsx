@@ -35,7 +35,8 @@ const TestFlowDetail = () => {
           type: "New User"
         },
         date: "5 Feb 2024",
-        journeyId: "123"
+        journeyId: "123",
+        url: "staging.robinhood.com"
       },
       {
         id: "#122",
@@ -45,7 +46,8 @@ const TestFlowDetail = () => {
           type: "New User"
         },
         date: "4 Feb 2024",
-        journeyId: "122"
+        journeyId: "122",
+        url: "robinhood.com"
       }
     ],
     tickets: [

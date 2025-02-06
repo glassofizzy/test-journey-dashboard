@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -6,13 +7,14 @@ import UserAvatar from '@/components/test-run/UserAvatar';
 
 interface PreviousRun {
   id: string;
-  status: "Completed" | "In Progress" | "Cancelled";  // Updated to match StatusBadge type
+  status: "Completed" | "In Progress" | "Cancelled";
   testedBy: {
     name: string;
     type: string;
   };
   date: string;
   journeyId: string;
+  url: string;  // Added URL field
 }
 
 interface PreviousRunsProps {
@@ -30,6 +32,7 @@ const PreviousRuns = ({ runs }: PreviousRunsProps) => {
             <TableHead>Test Status</TableHead>
             <TableHead>Tested by</TableHead>
             <TableHead>Test date</TableHead>
+            <TableHead>Test URL</TableHead>
             <TableHead>Test Results</TableHead>
           </TableRow>
         </TableHeader>
@@ -44,6 +47,9 @@ const PreviousRuns = ({ runs }: PreviousRunsProps) => {
                 <UserAvatar name={run.testedBy.name} type={run.testedBy.type} />
               </TableCell>
               <TableCell>{run.date}</TableCell>
+              <TableCell>
+                <span className="text-gray-600">{run.url}</span>
+              </TableCell>
               <TableCell>
                 <Link to={`/journey/${run.journeyId}`} className="text-accent hover:underline">
                   View Details
