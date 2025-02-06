@@ -35,6 +35,13 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
     navigate(`/journey/${cleanId}`);
   };
 
+  const handleNameClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (testRun.name === "Login, Browse") {
+      navigate('/test-flows/login-cart');
+    }
+  };
+
   return (
     <div className="group">
       <div 
@@ -45,7 +52,12 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
         )}
       >
         <div className="font-mono">{testRun.id}</div>
-        <div className="font-medium">{testRun.name}</div>
+        <div 
+          className="font-medium hover:text-accent"
+          onClick={handleNameClick}
+        >
+          {testRun.name}
+        </div>
         <div className="flex items-center gap-2">
           <StatusBadge status={testRun.status} />
         </div>

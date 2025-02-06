@@ -12,6 +12,7 @@ import JourneyDetail from "./pages/JourneyDetail";
 import TestFlows from "./pages/TestFlows";
 import PersonaDetail from "./pages/PersonaDetail";
 import Settings from "./pages/Settings";
+import TestFlowDetail from "./pages/TestFlowDetail";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +44,7 @@ const App = () => {
                     <Route path="/" element={<Index />} />
                     <Route path="/journey/:id" element={<JourneyDetail />} />
                     <Route path="/test-flows" element={<TestFlows />} />
+                    <Route path="/test-flows/:id" element={<TestFlowDetail />} />
                     <Route path="/persona/:id" element={<PersonaDetail />} />
                     <Route path="/settings" element={<Settings />} />
                   </Routes>

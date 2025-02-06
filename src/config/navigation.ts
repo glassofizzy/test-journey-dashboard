@@ -25,7 +25,10 @@ export const mainNavItems: NavSection = {
       icon: GitBranch,
       label: "Test Flows",
       subItems: [
-        { label: "Login, Add to Cart" },
+        { 
+          label: "Login, Add to Cart",
+          path: "/test-flows/login-cart"
+        },
         { label: "Change Profile" },
         { label: "Request for Refund" },
         { label: "Leave Customer Review" },
