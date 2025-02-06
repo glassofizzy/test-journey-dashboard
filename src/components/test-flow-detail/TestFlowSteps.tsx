@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -68,7 +67,7 @@ const TestFlowSteps = ({ description, parameters }: TestFlowStepsProps) => {
             value="custom"
             className="flex-1 bg-white data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] data-[state=active]:border data-[state=active]:border-black px-8 py-3"
           >
-            Custom Parameter
+            Custom Parameters
           </TabsTrigger>
         </TabsList>
 
@@ -153,4 +152,3 @@ const TestFlowSteps = ({ description, parameters }: TestFlowStepsProps) => {
 };
 
 export default TestFlowSteps;
-
