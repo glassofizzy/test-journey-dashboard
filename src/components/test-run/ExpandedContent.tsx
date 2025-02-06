@@ -13,7 +13,7 @@ const ExpandedContent = ({ journey, screenshots, mood, onScreenshotClick }: Expa
     <div className="p-6 border-b border-black bg-white">
       <div className="space-y-6">
         <div>
-          <h3 className="font-medium mb-3">User Journey</h3>
+          <h3 className="font-medium mb-3">User Journey (click to see assessment details)</h3>
           <div className="flex items-center gap-4 overflow-x-auto pb-4">
             {journey?.map((step, index) => (
               <React.Fragment key={index}>

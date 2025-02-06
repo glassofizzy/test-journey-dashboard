@@ -33,7 +33,7 @@ const JourneyStep = ({ step, screenshot, mood, onScreenshotClick }: JourneyStepP
           />
         </div>
       )}
-      <div className="p-3 border border-black rounded bg-white w-full text-center">
+      <div className="text-center w-full">
         {step}
       </div>
       {mood && (
