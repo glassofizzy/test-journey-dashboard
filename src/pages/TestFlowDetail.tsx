@@ -67,7 +67,7 @@ const TestFlowDetail = () => {
   return (
     <div className="space-y-8">
       {/* Section 1: Test Flow Overview */}
-      <div className="bg-white p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border-2 border-black transform transition hover:translate-y-[-2px]">
+      <div className="bg-white p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border border-black">
         <h1 className="text-4xl font-bold mb-6">{testFlow.title}</h1>
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -84,7 +84,7 @@ const TestFlowDetail = () => {
           </div>
           <div>
             <p className="text-sm text-gray-500">Last test details</p>
-            <Link to={`/journey/${testFlow.lastTestId}`} className="text-accent hover:underline font-bold">
+            <Link to={`/journey/${testFlow.lastTestId}`} className="text-accent hover:underline">
               View Details
             </Link>
           </div>
@@ -92,10 +92,10 @@ const TestFlowDetail = () => {
       </div>
 
       {/* Section 2: Test Flow Steps and Details */}
-      <div className="bg-white p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border-2 border-black transform transition hover:translate-y-[-2px]">
+      <div className="bg-white p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border border-black">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-2xl font-bold">Test flow steps and details</h2>
-          <Link to="#" className="text-accent hover:underline font-bold">Edit</Link>
+          <Link to="#" className="text-accent hover:underline">Edit</Link>
         </div>
         <p className="text-gray-700 mb-6">{testFlow.description}</p>
         
@@ -105,7 +105,7 @@ const TestFlowDetail = () => {
             <label className="block text-sm font-medium text-gray-700">Login username</label>
             <input
               type="text"
-              className="mt-1 block w-full rounded-none border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:border-accent focus:ring-accent"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent focus:ring-accent"
               placeholder="Enter username"
             />
           </div>
@@ -113,7 +113,7 @@ const TestFlowDetail = () => {
             <label className="block text-sm font-medium text-gray-700">Login password</label>
             <input
               type="password"
-              className="mt-1 block w-full rounded-none border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:border-accent focus:ring-accent"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent focus:ring-accent"
               placeholder="Enter password"
             />
           </div>
@@ -121,7 +121,7 @@ const TestFlowDetail = () => {
             <label className="block text-sm font-medium text-gray-700">Social login token</label>
             <input
               type="text"
-              className="mt-1 block w-full rounded-none border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:border-accent focus:ring-accent"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent focus:ring-accent"
               placeholder="Enter token"
             />
           </div>
@@ -129,30 +129,23 @@ const TestFlowDetail = () => {
             <label className="block text-sm font-medium text-gray-700">File(s) to upload</label>
             <input
               type="text"
-              className="mt-1 block w-full rounded-none border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:border-accent focus:ring-accent"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent focus:ring-accent"
               placeholder="Specify files to upload"
             />
           </div>
           <div className="col-span-2">
-            <label className="block text-sm font-medium text-gray-700 mb-2">Others (please specify)</label>
-            <div className="grid grid-cols-2 gap-4">
-              <input
-                type="text"
-                className="mt-1 block w-full rounded-none border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:border-accent focus:ring-accent"
-                placeholder="Parameter name"
-              />
-              <input
-                type="text"
-                className="mt-1 block w-full rounded-none border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:border-accent focus:ring-accent"
-                placeholder="Parameter value"
-              />
-            </div>
+            <label className="block text-sm font-medium text-gray-700">Others (please specify)</label>
+            <textarea
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent focus:ring-accent"
+              rows={3}
+              placeholder="Enter any additional parameters"
+            />
           </div>
         </div>
       </div>
 
       {/* Section 3: Previous test runs */}
-      <div className="bg-white p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border-2 border-black transform transition hover:translate-y-[-2px]">
+      <div className="bg-white p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border border-black">
         <h2 className="text-2xl font-bold mb-4">Previous test runs</h2>
         <Table>
           <TableHeader>
@@ -176,7 +169,7 @@ const TestFlowDetail = () => {
                 </TableCell>
                 <TableCell>{run.date}</TableCell>
                 <TableCell>
-                  <Link to={`/journey/${run.journeyId}`} className="text-accent hover:underline font-bold">
+                  <Link to={`/journey/${run.journeyId}`} className="text-accent hover:underline">
                     View Details
                   </Link>
                 </TableCell>
@@ -187,7 +180,7 @@ const TestFlowDetail = () => {
       </div>
 
       {/* Section 4: Tickets created */}
-      <div className="bg-white p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border-2 border-black transform transition hover:translate-y-[-2px]">
+      <div className="bg-white p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border border-black">
         <h2 className="text-2xl font-bold mb-4">Tickets created (beta)</h2>
         <Table>
           <TableHeader>
@@ -205,7 +198,7 @@ const TestFlowDetail = () => {
                 <TableCell>{ticket.title}</TableCell>
                 <TableCell>{ticket.testId}</TableCell>
                 <TableCell>
-                  <Link to={ticket.url} className="text-accent hover:underline font-bold">
+                  <Link to={ticket.url} className="text-accent hover:underline">
                     View Ticket
                   </Link>
                 </TableCell>
@@ -216,9 +209,9 @@ const TestFlowDetail = () => {
       </div>
 
       {/* Section 5: Improved UI Designs */}
-      <div className="bg-white p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border-2 border-black transform transition hover:translate-y-[-2px]">
+      <div className="bg-white p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border border-black">
         <h2 className="text-2xl font-bold mb-4">Improved UI Designs (beta)</h2>
-        <div className="p-8 border-2 border-dashed border-gray-300 rounded-none text-center text-gray-500">
+        <div className="p-8 border border-dashed border-gray-300 rounded-lg text-center text-gray-500">
           Coming soon
         </div>
       </div>
