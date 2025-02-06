@@ -3,6 +3,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+
+interface CustomParam {
+  key: string;
+  value: string;
+  location: string;
+}
 
 interface TestFlowStepsProps {
   description: string;
@@ -15,6 +22,21 @@ interface TestFlowStepsProps {
 }
 
 const TestFlowSteps = ({ description, parameters }: TestFlowStepsProps) => {
+  const [customParams, setCustomParams] = useState<CustomParam[]>([{
+    key: '',
+    value: '',
+    location: ''
+  }]);
+
+  const addNewParam = () => {
+    setCustomParams([...customParams, { key: '', value: '', location: '' }]);
+  };
+
+  const handleSave = () => {
+    console.log('Saving custom parameters:', customParams);
+    // TODO: Implement save functionality
+  };
+
   return (
     <div className="bg-white p-8 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border border-black">
       <div className="flex justify-between items-center mb-4">
@@ -81,25 +103,47 @@ const TestFlowSteps = ({ description, parameters }: TestFlowStepsProps) => {
         </TabsContent>
 
         <TabsContent value="custom">
-          <div className="space-y-4">
+          <div className="space-y-6">
             <h4 className="text-lg font-medium">Do you need to define additional inputs to help CarbonCopy complete the test flow?</h4>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Name of input variable/key</label>
-                <Input
-                  type="text"
-                  className="mt-1"
-                  placeholder="e.g., Language, or Payment Method"
-                />
+            {customParams.map((param, index) => (
+              <div key={index} className="grid grid-cols-3 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Name of input variable/key</label>
+                  <Input
+                    type="text"
+                    className="mt-1"
+                    placeholder="e.g., Language, or Payment Method"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Specify the value</label>
+                  <Input
+                    type="text"
+                    className="mt-1"
+                    placeholder="e.g., English (UK) or Credit card"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Where in the flow is this input needed?</label>
+                  <Input
+                    type="text"
+                    className="mt-1"
+                    placeholder="e.g., Language selection on landing page"
+                  />
+                </div>
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Specify the value</label>
-                <Input
-                  type="text"
-                  className="mt-1"
-                  placeholder="e.g., English (UK) or Credit card"
-                />
-              </div>
+            ))}
+            <div className="flex gap-4 mt-6">
+              <Button 
+                variant="outline" 
+                onClick={addNewParam}
+                className="border-black hover:bg-gray-100"
+              >
+                + another param
+              </Button>
+              <Button onClick={handleSave}>
+                Save
+              </Button>
             </div>
           </div>
         </TabsContent>
@@ -109,3 +153,4 @@ const TestFlowSteps = ({ description, parameters }: TestFlowStepsProps) => {
 };
 
 export default TestFlowSteps;
+
