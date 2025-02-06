@@ -10,7 +10,7 @@ interface TestFlowOverviewProps {
     name: string;
     type: string;
   };
-  lastTestStatus: "Completed" | "In Progress" | "Failed";
+  lastTestStatus: "Completed" | "In Progress" | "Cancelled";  // Updated to match StatusBadge type
   lastTestId: string;
 }
 

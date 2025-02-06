@@ -6,7 +6,7 @@ import UserAvatar from '@/components/test-run/UserAvatar';
 
 interface PreviousRun {
   id: string;
-  status: "Completed" | "In Progress" | "Failed";
+  status: "Completed" | "In Progress" | "Cancelled";  // Updated to match StatusBadge type
   testedBy: {
     name: string;
     type: string;
