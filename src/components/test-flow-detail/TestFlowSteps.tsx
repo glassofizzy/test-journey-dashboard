@@ -130,15 +130,16 @@ const TestFlowSteps = ({ description, parameters }: TestFlowStepsProps) => {
 
         <TabsContent value="search" className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700">Query</label>
+            <label className="block text-sm font-medium text-gray-700">Search query:</label>
             <Input
               type="text"
               defaultValue={parameters.searchQuery}
               className="mt-1"
+              placeholder="Enter the text you want CarbonCopy to search for"
             />
           </div>
           <div className="space-y-6 mt-8">
-            <h4 className="text-lg font-medium">Do you need to define additional inputs to help CarbonCopy complete the test flow?</h4>
+            <h4 className="text-base font-medium">Do you need to define additional inputs to help CarbonCopy complete the test flow?</h4>
             {customParams.map((param, index) => (
               <div key={index} className="grid grid-cols-3 gap-4">
                 <div>
