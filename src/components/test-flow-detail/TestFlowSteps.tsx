@@ -45,7 +45,7 @@ const TestFlowSteps = ({ description, parameters }: TestFlowStepsProps) => {
       </div>
 
       <div className="mb-6">
-        <h3 className="text-sm font-medium text-gray-500 mb-2">Description</h3>
+        <h3 className="text-xl font-bold mb-4">Description</h3>
         <p className="text-gray-700">{description}</p>
       </div>
       
@@ -139,7 +139,7 @@ const TestFlowSteps = ({ description, parameters }: TestFlowStepsProps) => {
             />
           </div>
           <div className="space-y-6 mt-8">
-            <h4 className="text-base font-medium">Do you need to define additional inputs to help CarbonCopy complete the test flow?</h4>
+            <h4 className="text-sm font-bold">Do you need to define additional inputs to help CarbonCopy complete the test flow?</h4>
             {customParams.map((param, index) => (
               <div key={index} className="grid grid-cols-3 gap-4">
                 <div>
