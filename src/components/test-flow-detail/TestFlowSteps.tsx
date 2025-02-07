@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -63,12 +64,6 @@ const TestFlowSteps = ({ description, parameters }: TestFlowStepsProps) => {
           >
             Search
           </TabsTrigger>
-          <TabsTrigger 
-            value="custom"
-            className="flex-1 bg-white data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] data-[state=active]:border data-[state=active]:border-black px-8 py-3"
-          >
-            Custom Parameters
-          </TabsTrigger>
         </TabsList>
 
         <TabsContent value="login" className="space-y-4">
@@ -88,6 +83,49 @@ const TestFlowSteps = ({ description, parameters }: TestFlowStepsProps) => {
               className="mt-1"
             />
           </div>
+          <div className="space-y-6 mt-8">
+            <h4 className="text-lg font-medium">Do you need to define additional inputs to help CarbonCopy complete the test flow?</h4>
+            {customParams.map((param, index) => (
+              <div key={index} className="grid grid-cols-3 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Name of input variable/key</label>
+                  <Input
+                    type="text"
+                    className="mt-1"
+                    placeholder="e.g., Language, or Payment Method"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Specify the value</label>
+                  <Input
+                    type="text"
+                    className="mt-1"
+                    placeholder="e.g., English (UK) or Credit card"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Where in the flow is this input needed?</label>
+                  <Input
+                    type="text"
+                    className="mt-1"
+                    placeholder="e.g., Language selection on landing page"
+                  />
+                </div>
+              </div>
+            ))}
+            <div className="flex justify-end gap-4 mt-6">
+              <Button 
+                variant="outline" 
+                onClick={addNewParam}
+                className="border-black hover:bg-gray-100"
+              >
+                Add more
+              </Button>
+              <Button onClick={handleSave}>
+                Save
+              </Button>
+            </div>
+          </div>
         </TabsContent>
 
         <TabsContent value="search" className="space-y-4">
@@ -99,10 +137,7 @@ const TestFlowSteps = ({ description, parameters }: TestFlowStepsProps) => {
               className="mt-1"
             />
           </div>
-        </TabsContent>
-
-        <TabsContent value="custom">
-          <div className="space-y-6">
+          <div className="space-y-6 mt-8">
             <h4 className="text-lg font-medium">Do you need to define additional inputs to help CarbonCopy complete the test flow?</h4>
             {customParams.map((param, index) => (
               <div key={index} className="grid grid-cols-3 gap-4">
