@@ -22,7 +22,7 @@ const PhonePreview = ({ currentImage, isPaused, onTogglePause, allImages, onImag
       {/* Main Desktop Preview */}
       <div className="w-[800px] h-[500px] border border-black rounded-lg bg-[#1e1e1e] overflow-hidden relative">
         <img 
-          src={currentImage}
+          src="/lovable-uploads/97fa1b36-6f4a-4efe-bee4-ec04c8cdbb65.png"
           alt="Desktop screen"
           className="w-full h-full object-cover"
         />
