@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CreditCard, MessageSquare, User, Award, UserPlus } from "lucide-react";
@@ -88,7 +89,7 @@ const Settings = () => {
                     <div>john.doe@example.com</div>
                   </div>
                   <Button 
-                    className="w-fit border border-black bg-accent text-white hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-[-4px] hover:translate-y-[-4px]"
+                    className="w-fit border border-black bg-black text-white hover:bg-accent hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-[-4px] hover:translate-y-[-4px]"
                   >
                     Change password
                   </Button>
@@ -135,8 +136,7 @@ const Settings = () => {
           <div className="space-y-4">
             <p className="text-gray-600">Manage your subscription and see your payment history on Stripe</p>
             <Button 
-              variant="outline"
-              className="border-black text-accent hover:bg-accent hover:text-white hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-[-4px] hover:translate-y-[-4px]"
+              className="border border-black bg-black text-white hover:bg-accent hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-[-4px] hover:translate-y-[-4px]"
             >
               Go to Stripe
             </Button>
@@ -152,7 +152,7 @@ const Settings = () => {
           <div className="space-y-4">
             <p className="text-gray-600">Need help? Our support team is here to assist you.</p>
             <Button 
-              className="border border-black bg-accent text-white hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-[-4px] hover:translate-y-[-4px]"
+              className="border border-black bg-black text-white hover:bg-accent hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-[-4px] hover:translate-y-[-4px]"
             >
               Submit a ticket
             </Button>
