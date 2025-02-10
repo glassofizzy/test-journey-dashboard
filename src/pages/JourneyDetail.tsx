@@ -26,10 +26,10 @@ const JourneyDetail = () => {
   const rightPanelRef = useRef<HTMLDivElement>(null);
 
   const mockScreenshots = [
-    '/lovable-uploads/c5c33c5e-87a1-4c80-8d0c-697805ebacb4.png',
-    '/lovable-uploads/d4527b6a-fa54-42c6-b7b2-706af91a46b2.png',
-    '/lovable-uploads/be8519e8-6180-4005-9410-1f8fde2f5bbe.png',
-    '/lovable-uploads/66afaf5d-c833-4383-80bf-6b5b0b6c97df.png'
+    '/lovable-uploads/cce84423-6de6-4352-bf23-ac3c4d8ca014.png',
+    '/lovable-uploads/3fd815dc-c5e1-405d-88cd-1a3d0d839259.png',
+    '/lovable-uploads/8088b33b-2d2b-418c-ab46-3ac187fa218e.png',
+    '/lovable-uploads/23c0fe77-ffa5-421a-9b8a-b95f98f19b7b.png'
   ];
 
   const mockScreenContents: ScreenContent[] = [
@@ -124,7 +124,7 @@ const JourneyDetail = () => {
 
   return (
     <div className="min-h-screen bg-[#f2f0ef]">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1440px] mx-auto">
         <JourneyHeader
           title="Login, Browse"
           lastTestedDate="5 Feb 2024"
@@ -160,8 +160,8 @@ const JourneyDetail = () => {
                     top: `${highlightArea.y}px`,
                     width: `${highlightArea.width}px`,
                     height: `${highlightArea.height}px`,
-                    maxWidth: '300px',
-                    maxHeight: '540px'
+                    maxWidth: '800px',
+                    maxHeight: '500px'
                   }}
                 />
               )}
