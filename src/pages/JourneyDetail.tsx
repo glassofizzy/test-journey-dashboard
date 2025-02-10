@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import PhonePreview from '@/components/journey/PhonePreview';
 import JourneyTabs from '@/components/journey/JourneyTabs';
+import JourneyHeader from '@/components/journey/JourneyHeader';
 import { Separator } from '@/components/ui/separator';
 
 interface ScreenContent {
@@ -123,49 +124,60 @@ const JourneyDetail = () => {
 
   return (
     <div className="min-h-screen bg-[#f2f0ef]">
-      <div className="max-w-7xl mx-auto flex h-[calc(100vh-64px)]">
-        <div className="flex-1 bg-[#f2f0ef] relative p-8">
-          <div className="relative">
-            <PhonePreview
-              currentImage={mockScreenshots[currentImageIndex]}
-              isPaused={isPaused}
-              onTogglePause={() => {
-                setIsPaused(!isPaused);
-                if (!isPaused) {
-                  setHighlightArea(null);
-                }
-              }}
-              allImages={mockScreenshots}
-              onImageSelect={(index) => {
-                setCurrentImageIndex(index);
-                setIsPaused(true);
-              }}
-            />
-            {highlightArea && (
-              <div 
-                className="absolute border-2 border-accent pointer-events-none"
-                style={{
-                  left: `${highlightArea.x}px`,
-                  top: `${highlightArea.y}px`,
-                  width: `${highlightArea.width}px`,
-                  height: `${highlightArea.height}px`,
-                  maxWidth: '300px',
-                  maxHeight: '540px'
+      <div className="max-w-7xl mx-auto">
+        <JourneyHeader
+          title="Login, Browse"
+          lastTestedDate="5 Feb 2024"
+          lastTestedBy={{
+            name: "Macy",
+            type: "New User"
+          }}
+          lastTestStatus="Completed"
+        />
+        <div className="flex h-[calc(100vh-64px-140px)]">
+          <div className="flex-1 bg-[#f2f0ef] relative p-8">
+            <div className="relative">
+              <PhonePreview
+                currentImage={mockScreenshots[currentImageIndex]}
+                isPaused={isPaused}
+                onTogglePause={() => {
+                  setIsPaused(!isPaused);
+                  if (!isPaused) {
+                    setHighlightArea(null);
+                  }
+                }}
+                allImages={mockScreenshots}
+                onImageSelect={(index) => {
+                  setCurrentImageIndex(index);
+                  setIsPaused(true);
                 }}
               />
-            )}
+              {highlightArea && (
+                <div 
+                  className="absolute border-2 border-accent pointer-events-none"
+                  style={{
+                    left: `${highlightArea.x}px`,
+                    top: `${highlightArea.y}px`,
+                    width: `${highlightArea.width}px`,
+                    height: `${highlightArea.height}px`,
+                    maxWidth: '300px',
+                    maxHeight: '540px'
+                  }}
+                />
+              )}
+            </div>
           </div>
-        </div>
 
-        <Separator orientation="vertical" className="h-full bg-black" />
+          <Separator orientation="vertical" className="h-full bg-black" />
 
-        <div ref={rightPanelRef} className="w-[500px] space-y-6 max-h-[800px] overflow-y-auto p-8">
-          <JourneyTabs 
-            currentContent={mockScreenContents[currentImageIndex]}
-            currentImageIndex={currentImageIndex}
-            onBugClick={handleBugClick}
-            onTabChange={(tab) => setActiveTab(tab)}
-          />
+          <div ref={rightPanelRef} className="w-[500px] space-y-6 max-h-[800px] overflow-y-auto p-8">
+            <JourneyTabs 
+              currentContent={mockScreenContents[currentImageIndex]}
+              currentImageIndex={currentImageIndex}
+              onBugClick={handleBugClick}
+              onTabChange={(tab) => setActiveTab(tab)}
+            />
+          </div>
         </div>
       </div>
     </div>
