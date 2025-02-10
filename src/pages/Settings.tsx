@@ -132,51 +132,14 @@ const Settings = () => {
             Billing
           </h2>
           
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Current Plan</h3>
-              <div className="bg-[#f2f0ef] p-4 border border-black">
-                <div className="flex justify-between items-center">
-                  <div>
-                    <div className="font-semibold">Pro Plan: Ain't got time for this</div>
-                    <div className="text-sm text-gray-500">$19.99/month</div>
-                  </div>
-                  <Button 
-                    variant="outline"
-                    className="border-black text-accent hover:bg-accent hover:text-white hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-[-4px] hover:translate-y-[-4px]"
-                  >
-                    Change plan
-                  </Button>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Payment History</h3>
-              <div className="bg-[#f2f0ef] border border-black">
-                <table className="w-full">
-                  <thead>
-                    <tr className="border-b border-black">
-                      <th className="text-left p-4">Date</th>
-                      <th className="text-left p-4">Amount</th>
-                      <th className="text-left p-4">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className="border-b border-black">
-                      <td className="p-4">Mar 1, 2024</td>
-                      <td className="p-4">$19.99</td>
-                      <td className="p-4">Paid</td>
-                    </tr>
-                    <tr>
-                      <td className="p-4">Feb 1, 2024</td>
-                      <td className="p-4">$19.99</td>
-                      <td className="p-4">Paid</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+          <div className="space-y-4">
+            <p className="text-gray-600">Manage your subscription and see your payment history on Stripe</p>
+            <Button 
+              variant="outline"
+              className="border-black text-accent hover:bg-accent hover:text-white hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-[-4px] hover:translate-y-[-4px]"
+            >
+              Go to Stripe
+            </Button>
           </div>
         </section>
 
