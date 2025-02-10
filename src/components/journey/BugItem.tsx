@@ -1,6 +1,14 @@
+
 import { cn } from '@/lib/utils';
+import { X } from 'lucide-react';
 import PriorityBadge from './PriorityBadge';
 import BugActions from './BugActions';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface Bug {
   title: string;
@@ -22,6 +30,10 @@ interface BugItemProps {
 }
 
 const BugItem = ({ bug, isSelected, onClick }: BugItemProps) => {
+  const handleIgnore = (reason: string) => {
+    console.log(`Bug "${bug.title}" ignored for reason: ${reason}`);
+  };
+
   return (
     <li 
       className={cn(
@@ -54,7 +66,29 @@ const BugItem = ({ bug, isSelected, onClick }: BugItemProps) => {
       </div>
       <p className="text-sm text-gray-600 mb-2">{bug.description}</p>
       <p className="text-sm font-medium mb-4">Possible solution: {bug.treatment}</p>
-      <BugActions bugTitle={bug.title} />
+      <div className="flex justify-between items-center">
+        <BugActions bugTitle={bug.title} />
+        <DropdownMenu>
+          <DropdownMenuTrigger className="flex items-center text-sm text-gray-500 hover:text-gray-700">
+            <X className="w-4 h-4 mr-1" />
+            Ignore
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="bg-white border border-black p-1 w-36">
+            <DropdownMenuItem onClick={() => handleIgnore("Not important")} className="cursor-pointer hover:bg-gray-100">
+              Not important
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => handleIgnore("Not relevant")} className="cursor-pointer hover:bg-gray-100">
+              Not relevant
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => handleIgnore("Too generic")} className="cursor-pointer hover:bg-gray-100">
+              Too generic
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => handleIgnore("Confusing")} className="cursor-pointer hover:bg-gray-100">
+              Confusing
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
     </li>
   );
 };
