@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 interface JourneyStepProps {
@@ -22,13 +23,13 @@ const JourneyStep = ({ step, screenshot, mood, onScreenshotClick }: JourneyStepP
   };
 
   return (
-    <div className="flex flex-col items-center gap-2 min-w-[200px]">
+    <div className="flex flex-col items-center gap-2 min-w-[400px]">
       {screenshot && (
         <div className="group relative cursor-pointer transition-all duration-200 hover:translate-x-[-4px] hover:translate-y-[-4px]">
           <img 
             src={screenshot} 
             alt={step}
-            className="w-full h-32 object-cover border border-black rounded bg-[#f2f0ef] group-hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+            className="w-[400px] h-[250px] object-cover border border-black rounded bg-[#f2f0ef] group-hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
             onClick={onScreenshotClick}
           />
         </div>
