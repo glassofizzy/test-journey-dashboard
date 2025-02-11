@@ -81,7 +81,10 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
                 {testRun.name}
               </div>
             </TooltipTrigger>
-            <TooltipContent side="top" className="max-w-[300px] p-2">
+            <TooltipContent 
+              side="top" 
+              className="max-w-[300px] p-2 bg-black text-white border border-black"
+            >
               <p>{getTestDescription(testRun.name)}</p>
             </TooltipContent>
           </Tooltip>
@@ -112,4 +115,3 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
 };
 
 export default TestRunRow;
-
