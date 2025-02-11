@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import TestRunRow from '@/components/TestRunRow';
 import { Search, ArrowUpDown, Filter } from 'lucide-react';
@@ -17,10 +16,10 @@ const MOCK_DATA = [
     journey: ['Login', 'Search', 'Input Nvidia', 'View Company'],
     mood: ['happy', 'neutral', 'happy', 'happy'] as ('happy' | 'neutral' | 'sad')[],
     screenshots: [
-      '/lovable-uploads/571e44cb-b445-44ba-beef-e394f707c5ee.png',
-      '/lovable-uploads/01a0367f-ee54-4e21-8cd8-ad28f1b6b74c.png',
-      '/lovable-uploads/4a7d5d9d-ec3d-4d46-9a66-74b07f37c107.png',
-      '/lovable-uploads/7799e137-5232-4b50-b8e7-f6cb29ff944e.png'
+      '/lovable-uploads/edf6bcbd-c88c-453a-bb84-2128bdab9a12.png',
+      '/lovable-uploads/a75ae0ff-b422-479a-a419-9d545c92536c.png',
+      '/lovable-uploads/6fd136dd-5bc9-4a08-8adb-af18053140ba.png',
+      '/lovable-uploads/362d8925-9f78-4c57-b056-ea2a65d0d3a6.png'
     ]
   },
   {
@@ -168,4 +167,3 @@ const Index = () => {
 };
 
 export default Index;
-
