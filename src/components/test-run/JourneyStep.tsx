@@ -1,5 +1,11 @@
 
 import React from 'react';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface JourneyStepProps {
   step: string;
@@ -22,6 +28,19 @@ const JourneyStep = ({ step, screenshot, mood, onScreenshotClick }: JourneyStepP
     }
   };
 
+  const getMoodTooltip = (mood: 'happy' | 'neutral' | 'sad') => {
+    switch (mood) {
+      case 'happy':
+        return 'Looking great! No major issues detected—just minor tweaks';
+      case 'neutral':
+        return 'Medium-priority issues found. Worth reviewing.';
+      case 'sad':
+        return 'Critical issues detected! Immediate attention needed';
+      default:
+        return '';
+    }
+  };
+
   return (
     <div className="flex flex-col items-center gap-2 min-w-[400px]">
       {screenshot && (
@@ -38,16 +57,29 @@ const JourneyStep = ({ step, screenshot, mood, onScreenshotClick }: JourneyStepP
         {step}
       </div>
       {mood && (
-        <div className="w-12 h-12">
-          <img 
-            src={getMoodImage(mood)} 
-            alt={`Status: ${mood}`}
-            className="w-full h-full object-contain"
-          />
-        </div>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <div className="w-12 h-12">
+                <img 
+                  src={getMoodImage(mood)} 
+                  alt={`Status: ${mood}`}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            </TooltipTrigger>
+            <TooltipContent 
+              side="top" 
+              className="max-w-[300px] p-2 bg-black text-white border border-black"
+            >
+              <p>{getMoodTooltip(mood)}</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       )}
     </div>
   );
 };
 
 export default JourneyStep;
+
