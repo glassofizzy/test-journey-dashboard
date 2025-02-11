@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -5,6 +6,12 @@ import { useNavigate } from 'react-router-dom';
 import StatusBadge from './test-run/StatusBadge';
 import UserAvatar from './test-run/UserAvatar';
 import ExpandedContent from './test-run/ExpandedContent';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface TestRun {
   id: string;
@@ -19,6 +26,18 @@ interface TestRun {
   mood?: ('happy' | 'neutral' | 'sad')[];
   screenshots?: string[];
 }
+
+const getTestDescription = (testName: string): string => {
+  const descriptions: Record<string, string> = {
+    "Login, Browse": "Login with username and password, use the search bar and Input search query of stock ticker. Go to the stock page and note the stock movements in the last 2 weeks.",
+    "Change Profile": "Navigate to profile settings, modify personal information including name and contact details, save changes and verify updates are reflected.",
+    "Request to withdraw cash": "Access withdrawal section, input withdrawal amount, select bank account, confirm transaction details and submit withdrawal request.",
+    "File a Support Ticket": "Access support section, select issue category, describe problem in detail, attach relevant screenshots and submit ticket for review.",
+    "Fraudulent Deposit": "Identify suspicious transaction, document transaction details, report unauthorized deposit through security form, follow verification steps."
+  };
+  
+  return descriptions[testName] || testName;
+};
 
 interface TestRunRowProps {
   testRun: TestRun;
@@ -52,12 +71,21 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
         )}
       >
         <div className="font-mono">{testRun.id}</div>
-        <div 
-          className="font-medium hover:text-accent"
-          onClick={handleNameClick}
-        >
-          {testRun.name}
-        </div>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <div 
+                className="font-medium hover:text-accent"
+                onClick={handleNameClick}
+              >
+                {testRun.name}
+              </div>
+            </TooltipTrigger>
+            <TooltipContent side="top" className="max-w-[300px] p-2">
+              <p>{getTestDescription(testRun.name)}</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
         <div className="flex items-center gap-2">
           <StatusBadge status={testRun.status} />
         </div>
@@ -84,3 +112,4 @@ const TestRunRow: React.FC<TestRunRowProps> = ({ testRun, isExpanded, onToggle }
 };
 
 export default TestRunRow;
+
