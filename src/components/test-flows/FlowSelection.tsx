@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -9,7 +10,13 @@ interface FlowSelectionProps {
   selectedUserGoal?: string;
 }
 
-const flowOptions = {
+interface FlowOption {
+  id: string;
+  label: string;
+  description: string;
+}
+
+const flowOptions: Record<string, FlowOption[]> = {
   login: [
     { 
       id: 'google-login', 
@@ -33,16 +40,48 @@ const flowOptions = {
     }
   ],
   profile: [
-    { id: 'edit-profile', label: 'Edit profile information' },
-    { id: 'change-password', label: 'Change password flow' },
-    { id: 'upload-avatar', label: 'Profile picture upload' },
-    { id: 'delete-account', label: 'Account deletion process' }
+    { 
+      id: 'edit-profile', 
+      label: 'Edit profile information',
+      description: 'Navigate to profile settings and modify user information'
+    },
+    { 
+      id: 'change-password', 
+      label: 'Change password flow',
+      description: 'Access password settings and update to a new password'
+    },
+    { 
+      id: 'upload-avatar', 
+      label: 'Profile picture upload',
+      description: 'Upload and update profile picture through settings'
+    },
+    { 
+      id: 'delete-account', 
+      label: 'Account deletion process',
+      description: 'Go through the account deletion confirmation process'
+    }
   ],
   checkout: [
-    { id: 'guest-checkout', label: 'Guest checkout flow' },
-    { id: 'saved-payment', label: 'Saved payment method' },
-    { id: 'cart-abandonment', label: 'Cart abandonment' },
-    { id: 'promo-code', label: 'Promo code application' }
+    { 
+      id: 'guest-checkout', 
+      label: 'Guest checkout flow',
+      description: 'Complete a purchase without creating an account'
+    },
+    { 
+      id: 'saved-payment', 
+      label: 'Saved payment method',
+      description: 'Use a previously saved payment method for checkout'
+    },
+    { 
+      id: 'cart-abandonment', 
+      label: 'Cart abandonment',
+      description: 'Add items to cart and leave without completing purchase'
+    },
+    { 
+      id: 'promo-code', 
+      label: 'Promo code application',
+      description: 'Apply promotional code during checkout process'
+    }
   ]
 };
 
