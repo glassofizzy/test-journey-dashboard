@@ -68,35 +68,31 @@ export const FlowDetails = ({ onNext, onPrevious, selectedFlow, flowDescription 
           <div className="space-y-3">
             <Label>Custom variables</Label>
             {customVariables.map((variable, index) => (
-              <div key={index} className="space-y-2">
-                <div className="flex gap-4">
-                  <div className="flex-1">
-                    <p className="text-sm text-gray-600 mb-1">Variable Name/Key</p>
-                    <Input
-                      value={variable.key}
-                      onChange={(e) => handleVariableChange(index, 'key', e.target.value)}
-                      placeholder="e.g., Language, or Payment Method"
-                    />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-sm text-gray-600 mb-1">Variable value</p>
-                    <Input
-                      value={variable.value}
-                      onChange={(e) => handleVariableChange(index, 'value', e.target.value)}
-                      placeholder="e.g., English (UK) or Credit card"
-                    />
-                  </div>
-                  {index === customVariables.length - 1 && (
-                    <button
-                      type="button"
-                      onClick={handleAddVariable}
-                      className="p-2 hover:bg-gray-100 rounded-full transition-colors self-end"
-                      aria-label="Add more variables"
-                    >
-                      <Plus className="w-5 h-5" />
-                    </button>
-                  )}
+              <div key={index} className="flex gap-4">
+                <div className="flex-1">
+                  <Input
+                    value={variable.key}
+                    onChange={(e) => handleVariableChange(index, 'key', e.target.value)}
+                    placeholder="e.g., Language, or Payment Method"
+                  />
                 </div>
+                <div className="flex-1">
+                  <Input
+                    value={variable.value}
+                    onChange={(e) => handleVariableChange(index, 'value', e.target.value)}
+                    placeholder="e.g., English (UK) or Credit card"
+                  />
+                </div>
+                {index === customVariables.length - 1 && (
+                  <button
+                    type="button"
+                    onClick={handleAddVariable}
+                    className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                    aria-label="Add more variables"
+                  >
+                    <Plus className="w-5 h-5" />
+                  </button>
+                )}
               </div>
             ))}
           </div>
