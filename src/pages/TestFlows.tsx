@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Separator } from "@/components/ui/separator";
 import PhonePreview from '@/components/journey/PhonePreview';
@@ -6,6 +7,7 @@ import { UserGoalSelection } from '@/components/test-flows/UserGoalSelection';
 import { PersonaSelection } from '@/components/test-flows/PersonaSelection';
 import { PersonaCustomization } from '@/components/test-flows/PersonaCustomization';
 import { FlowSelection } from '@/components/test-flows/FlowSelection';
+import { FlowDetails } from '@/components/test-flows/FlowDetails';
 import { TestProgress } from '@/components/test-flows/TestProgress';
 import { TestFlowBreadcrumbs } from '@/components/test-flows/TestFlowBreadcrumbs';
 
@@ -14,6 +16,7 @@ const TestFlows = () => {
   const [websiteUrl, setWebsiteUrl] = useState('');
   const [selectedPersona, setSelectedPersona] = useState('');
   const [selectedUserGoal, setSelectedUserGoal] = useState('login');
+  const [selectedFlow, setSelectedFlow] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const mockScreenshots = [
@@ -44,7 +47,7 @@ const TestFlows = () => {
   ];
 
   const handleNext = () => {
-    if (currentStep === 5) {
+    if (currentStep === 6) {
       setIsLoading(true);
       setTimeout(() => {
         setIsLoading(false);
@@ -104,6 +107,15 @@ const TestFlows = () => {
           />
         );
       case 6:
+        return (
+          <FlowDetails
+            onNext={handleNext}
+            onPrevious={handlePrevious}
+            selectedFlow={selectedFlow}
+            flowDescription="Choose Google Login option, input username and password on Google's hosted pages, confirm that we are successfully logged in"
+          />
+        );
+      case 7:
         return (
           <TestProgress
             isLoading={isLoading}

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
@@ -11,7 +12,8 @@ export const TestFlowBreadcrumbs = ({ currentStep }: TestFlowBreadcrumbsProps) =
     { label: 'Select user goal', step: 2 },
     { label: 'Select Persona', step: 3 },
     { label: 'Change persona details', step: 4 },
-    { label: 'Indicate user flow', step: 5 }
+    { label: 'Indicate user flow', step: 5 },
+    { label: 'Provide details', step: 6 }
   ];
 
   return (
