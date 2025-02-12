@@ -40,10 +40,10 @@ export const FlowDetails = ({ onNext, onPrevious, selectedFlow, flowDescription 
     <div className="space-y-6">
       <div>
         <h2 className="text-2xl font-bold mb-2">
-          Provide additional inputs to help CarbonCopy complete the test flow
+          Add inputs to complete the test flow setup for: {' '}
+          <span className="text-[#9b87f5]">Google social login flow</span>
         </h2>
         <div className="mb-6">
-          <h3 className="text-lg font-medium mb-1">{selectedFlow}</h3>
           {flowDescription && (
             <p className="text-sm text-gray-600 italic">{flowDescription}</p>
           )}
