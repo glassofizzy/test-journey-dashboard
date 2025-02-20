@@ -10,6 +10,9 @@ import { FlowSelection } from '@/components/test-flows/FlowSelection';
 import { FlowDetails } from '@/components/test-flows/FlowDetails';
 import { TestProgress } from '@/components/test-flows/TestProgress';
 import { TestFlowBreadcrumbs } from '@/components/test-flows/TestFlowBreadcrumbs';
+import { Link } from 'react-router-dom';
+import UserAvatar from '@/components/test-run/UserAvatar';
+import StatusBadge from '@/components/test-run/StatusBadge';
 
 const TestFlows = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -131,6 +134,30 @@ const TestFlows = () => {
     <div className="min-h-screen bg-[#f2f0ef]">
       <div className="max-w-7xl mx-auto flex flex-col h-[calc(100vh-64px)]">
         <TestFlowBreadcrumbs currentStep={currentStep} />
+        {currentStep > 1 && (
+          <div className="bg-white p-6 mb-6 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border border-black">
+            <div className="grid grid-cols-4 gap-4">
+              <div>
+                <p className="text-sm text-gray-500">Last tested date</p>
+                <p className="font-medium">March 15, 2024</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500">Last test status</p>
+                <StatusBadge status="Completed" />
+              </div>
+              <div>
+                <p className="text-sm text-gray-500">Last tested by</p>
+                <UserAvatar name="John Smith" type="QA Engineer" />
+              </div>
+              <div>
+                <p className="text-sm text-gray-500">Test Flow Configuration</p>
+                <Link to="/TestFlowDetail" className="text-[#bb6bd9] hover:underline">
+                  View Test Flow
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
         <div className="flex flex-1">
           {currentStep > 1 && (
             <>
