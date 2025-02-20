@@ -33,18 +33,18 @@ const JourneyHeader = ({
           Re-run test
         </Button>
       </div>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-4 gap-4">
         <div>
           <p className="text-sm text-gray-500">Last tested date</p>
           <p className="font-medium">{lastTestedDate}</p>
         </div>
         <div>
-          <p className="text-sm text-gray-500">Last tested by</p>
-          <UserAvatar name={lastTestedBy.name} type={lastTestedBy.type} />
-        </div>
-        <div>
           <p className="text-sm text-gray-500">Last test status</p>
           <StatusBadge status={lastTestStatus} />
+        </div>
+        <div>
+          <p className="text-sm text-gray-500">Last tested by</p>
+          <UserAvatar name={lastTestedBy.name} type={lastTestedBy.type} />
         </div>
         <div>
           <p className="text-sm text-gray-500">Last test details</p>
