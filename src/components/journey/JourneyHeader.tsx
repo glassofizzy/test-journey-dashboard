@@ -47,9 +47,9 @@ const JourneyHeader = ({
           <UserAvatar name={lastTestedBy.name} type={lastTestedBy.type} />
         </div>
         <div>
-          <p className="text-sm text-gray-500">Last test details</p>
-          <Link to="#" className="text-[#bb6bd9] hover:underline">
-            View Details
+          <p className="text-sm text-gray-500">Test Flow Configuration</p>
+          <Link to="/TestFlowDetail" className="text-[#bb6bd9] hover:underline">
+            View Test Flow
           </Link>
         </div>
       </div>
