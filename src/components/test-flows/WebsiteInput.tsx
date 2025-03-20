@@ -52,7 +52,7 @@ export const WebsiteInput = ({ websiteUrl, setWebsiteUrl, onNext }: WebsiteInput
           </div>
         </div>
         
-        <p className="mt-4 font-medium text-center">If you can log in, we can test it.</p>
+        <p className="mt-4 font-medium text-left italic">If you can log in, we can test it.</p>
       </div>
     </div>
   );
