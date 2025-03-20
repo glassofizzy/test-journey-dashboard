@@ -35,7 +35,7 @@ export const WebsiteInput = ({ websiteUrl, setWebsiteUrl, onNext }: WebsiteInput
         <div className="flex gap-2 items-center max-w-2xl">
           <div className="w-28">
             <Select value={protocol} onValueChange={setProtocol}>
-              <SelectTrigger className="h-10 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+              <SelectTrigger className="h-10 border-2 border-black transition-shadow duration-200 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                 <SelectValue placeholder="Protocol" />
               </SelectTrigger>
               <SelectContent>
@@ -49,7 +49,7 @@ export const WebsiteInput = ({ websiteUrl, setWebsiteUrl, onNext }: WebsiteInput
             placeholder="www.carboncopies.ai"
             value={websiteUrl}
             onChange={handleUrlChange}
-            className="flex-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+            className="flex-1 border-2 border-black transition-shadow duration-200 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
           />
           <NavigationButtons 
             onNext={onNext} 
