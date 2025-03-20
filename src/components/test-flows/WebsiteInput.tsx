@@ -29,7 +29,7 @@ export const WebsiteInput = ({ websiteUrl, setWebsiteUrl, onNext }: WebsiteInput
   };
 
   return (
-    <div className="flex flex-col justify-center h-full space-y-6">
+    <div className="flex flex-col justify-center h-full space-y-12">
       <div>
         <h2 className="text-2xl font-bold mb-4">Let's kick off testing. What's your website?</h2>
         <div className="flex gap-2 items-center max-w-2xl">
