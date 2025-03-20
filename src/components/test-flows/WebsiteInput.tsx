@@ -32,7 +32,7 @@ export const WebsiteInput = ({ websiteUrl, setWebsiteUrl, onNext }: WebsiteInput
     <div className="flex flex-col justify-center h-full space-y-6">
       <div>
         <h2 className="text-2xl font-bold mb-4">Let's kick off testing. What's your website?</h2>
-        <div className="flex gap-2 items-center">
+        <div className="flex gap-2 items-center max-w-2xl">
           <div className="w-28">
             <Select value={protocol} onValueChange={setProtocol}>
               <SelectTrigger className="h-10 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
