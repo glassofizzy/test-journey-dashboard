@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight } from 'lucide-react';
@@ -7,16 +8,18 @@ interface NavigationButtonsProps {
   onPrevious?: () => void;
   showPrevious?: boolean;
   buttonText?: string;
+  className?: string;
 }
 
 export const NavigationButtons = ({ 
   onNext, 
   onPrevious, 
   showPrevious = true,
-  buttonText = "Next"
+  buttonText = "Next",
+  className = ""
 }: NavigationButtonsProps) => {
   return (
-    <div className="flex gap-4">
+    <div className={`flex gap-4 ${className}`}>
       {showPrevious && onPrevious && (
         <Button 
           onClick={onPrevious}
