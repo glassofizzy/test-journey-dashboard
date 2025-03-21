@@ -68,7 +68,7 @@ export const WebsiteInput = ({ websiteUrl, setWebsiteUrl, onNext }: WebsiteInput
               <CheckCircle2 className="h-5 w-5 text-[#bb6bd9] flex-shrink-0" />
               <span className="font-bold">Live Websites & Web Apps</span>
             </div>
-            <p className="text-gray-600 italic ml-7">Public or gated, as long as you have access, we're in.</p>
+            <p className="text-gray-600 italic ml-7">As long as you have login access with no captcha or 2FA, we're in.</p>
           </div>
           
           <div className="space-y-1">
