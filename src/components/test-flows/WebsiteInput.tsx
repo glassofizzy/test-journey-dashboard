@@ -62,26 +62,29 @@ export const WebsiteInput = ({ websiteUrl, setWebsiteUrl, onNext }: WebsiteInput
       <div className="bg-white p-6 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] max-w-2xl">
         <h3 className="text-lg font-bold mb-3">What can you evaluate?</h3>
         
-        <div className="space-y-3">
-          <div className="flex items-start gap-2">
-            <CheckCircle2 className="h-5 w-5 text-[#bb6bd9] mt-0.5 flex-shrink-0" />
-            <div>
-              <span className="font-bold">Live Websites & Web Apps</span> – Public or gated, as long as you have access, we're in.
+        <div className="space-y-5">
+          <div className="space-y-1">
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="h-5 w-5 text-[#bb6bd9] flex-shrink-0" />
+              <span className="font-bold">Live Websites & Web Apps</span>
             </div>
+            <p className="text-gray-600 italic ml-7">Public or gated, as long as you have access, we're in.</p>
           </div>
           
-          <div className="flex items-start gap-2">
-            <CheckCircle2 className="h-5 w-5 text-[#bb6bd9] mt-0.5 flex-shrink-0" />
-            <div>
-              <span className="font-bold">Staging Environments</span> – If it's online and testable, just bring your own login credentials.
+          <div className="space-y-1">
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="h-5 w-5 text-[#bb6bd9] flex-shrink-0" />
+              <span className="font-bold">Staging Environments</span>
             </div>
+            <p className="text-gray-600 italic ml-7">If it's online and testable, just bring your own login credentials.</p>
           </div>
           
-          <div className="flex items-start gap-2">
-            <CheckCircle2 className="h-5 w-5 text-[#bb6bd9] mt-0.5 flex-shrink-0" />
-            <div>
-              <span className="font-bold">Prototypes</span> – Whether it's Lovable, v0, BoltNew, or a Figma link, we'll put it through its paces.
+          <div className="space-y-1">
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="h-5 w-5 text-[#bb6bd9] flex-shrink-0" />
+              <span className="font-bold">Prototypes</span>
             </div>
+            <p className="text-gray-600 italic ml-7">Whether it's Lovable, v0, BoltNew, or a Figma link, we'll put it through its paces.</p>
           </div>
         </div>
         
