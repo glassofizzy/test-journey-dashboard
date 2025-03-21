@@ -1,25 +1,20 @@
-
 import React, { useState } from 'react';
 import { Input } from "@/components/ui/input";
 import { NavigationButtons } from "./NavigationButtons";
 import { CheckCircle2, ChevronDown } from 'lucide-react';
-import { 
-  Select,
-  SelectTrigger,
-  SelectContent,
-  SelectItem,
-  SelectValue 
-} from "@/components/ui/select";
-
+import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "@/components/ui/select";
 interface WebsiteInputProps {
   websiteUrl: string;
   setWebsiteUrl: (url: string) => void;
   onNext: () => void;
 }
-
-export const WebsiteInput = ({ websiteUrl, setWebsiteUrl, onNext }: WebsiteInputProps) => {
+export const WebsiteInput = ({
+  websiteUrl,
+  setWebsiteUrl,
+  onNext
+}: WebsiteInputProps) => {
   const [protocol, setProtocol] = useState('https://');
-  
+
   // Handle URL input without duplicating protocol
   const handleUrlChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -27,9 +22,7 @@ export const WebsiteInput = ({ websiteUrl, setWebsiteUrl, onNext }: WebsiteInput
     const urlWithoutProtocol = value.replace(/^https?:\/\//, '');
     setWebsiteUrl(urlWithoutProtocol);
   };
-
-  return (
-    <div className="flex flex-col justify-center h-full space-y-12">
+  return <div className="flex flex-col justify-center h-full space-y-12">
       <div>
         <h2 className="text-2xl font-bold mb-4">Let's kick off testing. What's your website?</h2>
         <div className="flex gap-2 items-center max-w-2xl">
@@ -44,18 +37,8 @@ export const WebsiteInput = ({ websiteUrl, setWebsiteUrl, onNext }: WebsiteInput
               </SelectContent>
             </Select>
           </div>
-          <Input 
-            type="text"
-            placeholder="www.carboncopies.ai"
-            value={websiteUrl}
-            onChange={handleUrlChange}
-            className="flex-1 border-2 border-black transition-shadow duration-200 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-          />
-          <NavigationButtons 
-            onNext={onNext} 
-            showPrevious={false} 
-            className="whitespace-nowrap"
-          />
+          <Input type="text" placeholder="www.carboncopies.ai" value={websiteUrl} onChange={handleUrlChange} className="flex-1 border-2 border-black transition-shadow duration-200 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]" />
+          <NavigationButtons onNext={onNext} showPrevious={false} className="whitespace-nowrap" />
         </div>
       </div>
       
@@ -68,7 +51,7 @@ export const WebsiteInput = ({ websiteUrl, setWebsiteUrl, onNext }: WebsiteInput
               <CheckCircle2 className="h-5 w-5 text-[#bb6bd9] flex-shrink-0" />
               <span className="font-bold">Live Websites & Web Apps</span>
             </div>
-            <p className="text-gray-600 italic ml-7">As long as you have login access with no captcha or 2FA, we're in.</p>
+            <p className="text-gray-600 italic ml-7">As long as there’s no CAPTCHA or 2FA, login access is enough.</p>
           </div>
           
           <div className="space-y-1">
@@ -88,6 +71,5 @@ export const WebsiteInput = ({ websiteUrl, setWebsiteUrl, onNext }: WebsiteInput
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
