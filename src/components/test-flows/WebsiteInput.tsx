@@ -87,8 +87,6 @@ export const WebsiteInput = ({ websiteUrl, setWebsiteUrl, onNext }: WebsiteInput
             <p className="text-gray-600 italic ml-7">Whether it's Lovable, v0, BoltNew, or a Figma link, we'll put it through its paces.</p>
           </div>
         </div>
-        
-        <p className="mt-4 font-medium text-left italic">If you can log in, we can test it.</p>
       </div>
     </div>
   );
